@@ -1,0 +1,196 @@
+// Prisma schema placeholder - uncomment and run `npx prisma migrate dev` after PostgreSQL setup
+// This file documents the intended database schema
+
+/*
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String    @id @default(cuid())
+  clerkId       String?   @unique
+  email         String    @unique
+  name          String
+  phone         String?
+  avatar        String?
+  role          UserRole  @default(CUSTOMER)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  reviews       Review[]
+  bookings      Booking[]
+  messages      Message[]
+  business      Business?
+  favourites    Favourite[]
+  notifications Notification[]
+}
+
+enum UserRole {
+  CUSTOMER
+  PROVIDER
+  BUSINESS
+  ADMIN
+}
+
+model Business {
+  id          String   @id @default(cuid())
+  name        String
+  slug        String   @unique
+  description String?
+  category    String
+  phone       String?
+  email       String?
+  website     String?
+  city        String
+  address     String?
+  logo        String?
+  coverImage  String?
+  verified    Boolean  @default(false)
+  featured    Boolean  @default(false)
+  rating      Float    @default(0)
+  reviewCount Int      @default(0)
+  hours       Json?
+  socialMedia Json?
+  coordinates Json?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  ownerId  String
+  owner    User     @relation(fields: [ownerId], references: [id])
+  gallery  Media[]
+  services Service[]
+  reviews  Review[]
+  bookings Booking[]
+}
+
+model Service {
+  id          String   @id @default(cuid())
+  name        String
+  description String?
+  price       Float
+  duration    String?
+  active      Boolean  @default(true)
+  popular     Boolean  @default(false)
+  createdAt   DateTime @default(now())
+
+  businessId String
+  business   Business @relation(fields: [businessId], references: [id])
+  bookings   Booking[]
+}
+
+model Booking {
+  id          String       @id @default(cuid())
+  date        DateTime
+  time        String
+  status      BookingStatus @default(PENDING)
+  price       Float
+  notes       String?
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+
+  customerId  String
+  customer    User         @relation(fields: [customerId], references: [id])
+  businessId  String
+  business    Business     @relation(fields: [businessId], references: [id])
+  serviceId   String
+  service     Service      @relation(fields: [serviceId], references: [id])
+  invoice     Invoice?
+}
+
+enum BookingStatus {
+  PENDING
+  CONFIRMED
+  IN_PROGRESS
+  COMPLETED
+  CANCELLED
+  RESCHEDULED
+}
+
+model Review {
+  id        String   @id @default(cuid())
+  rating    Int
+  content   String?
+  photos    String[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  authorId   String
+  author     User     @relation(fields: [authorId], references: [id])
+  businessId String
+  business   Business @relation(fields: [businessId], references: [id])
+  reply      String?
+}
+
+model Message {
+  id         String   @id @default(cuid())
+  content    String
+  read       Boolean  @default(false)
+  createdAt  DateTime @default(now())
+
+  senderId    String
+  sender      User     @relation("SentMessages", fields: [senderId], references: [id])
+  receiverId  String
+  receiver    User     @relation("ReceivedMessages", fields: [receiverId], references: [id])
+  conversationId String
+}
+
+model Invoice {
+  id            String   @id @default(cuid())
+  invoiceNumber String   @unique
+  amount        Float
+  tax           Float    @default(0)
+  total         Float
+  status        String   @default("PENDING")
+  dueDate       DateTime?
+  paidAt        DateTime?
+  createdAt     DateTime @default(now())
+
+  bookingId String @unique
+  booking   Booking @relation(fields: [bookingId], references: [id])
+}
+
+model Favourite {
+  id         String   @id @default(cuid())
+  createdAt  DateTime @default(now())
+
+  userId     String
+  user       User     @relation(fields: [userId], references: [id])
+  businessId String
+  business   Business @relation(fields: [businessId], references: [id])
+
+  @@unique([userId, businessId])
+}
+
+model Media {
+  id         String @id @default(cuid())
+  url        String
+  type       String @default("image")
+  businessId String
+  business   Business @relation(fields: [businessId], references: [id])
+}
+
+model Notification {
+  id        String   @id @default(cuid())
+  type      String
+  content   String
+  read      Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id])
+}
+
+model Category {
+  id        String @id @default(cuid())
+  name      String @unique
+  slug      String @unique
+  icon      String?
+  image     String?
+  createdAt DateTime @default(now())
+}
+*/
