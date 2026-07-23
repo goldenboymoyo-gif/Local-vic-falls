@@ -205,7 +205,7 @@ export default function Hero() {
                 return (
                   <Link
                     key={pill.slug}
-                    to={`/search?pillar=${pill.slug}`}
+                    to={pill.slug === 'nightlife' || pill.slug === 'stay' ? `/search?pillar=${pill.slug}` : `/${pill.slug}`}
                     className="cat-pill inline-flex items-center gap-2 bg-white/[0.06] backdrop-blur-sm border border-white/[0.1] hover:bg-white/[0.12] hover:border-white/[0.2] text-white/70 hover:text-white px-4 py-2 rounded-full text-xs sm:text-sm font-medium transition-all duration-300"
                   >
                     {Icon && <Icon className="w-3.5 h-3.5" />}

@@ -5,7 +5,7 @@ import { Home, Search, Grid3X3, MessageCircle, ArrowRight } from 'lucide-react'
 
 const quickLinks = [
   { label: 'Browse Experiences', to: '/search', icon: Grid3X3 },
-  { label: 'Search Adventures', to: '/search?pillar=adventure', icon: Search },
+  { label: 'Search Adventures', to: '/adventures', icon: Search },
   { label: 'Contact Support', to: '/contact', icon: MessageCircle },
 ]
 

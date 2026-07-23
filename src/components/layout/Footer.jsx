@@ -4,9 +4,9 @@ import { ArrowUpRight, Check, Compass, MessageCircle, MapPin, Globe, Heart, Shar
 
 const footerLinks = {
   discover: [
-    { label: 'Adventures', href: '/search?pillar=adventure' },
-    { label: 'Eat & Drink', href: '/search?pillar=eat-drink' },
-    { label: 'Culture & Villages', href: '/search?pillar=culture' },
+    { label: 'Adventures', href: '/adventures' },
+    { label: 'Eat & Drink', href: '/eat-drink' },
+    { label: 'Culture & Villages', href: '/culture' },
     { label: 'Stay', href: '/search?pillar=stay' },
     { label: 'Nightlife', href: '/search?pillar=nightlife' },
   ],

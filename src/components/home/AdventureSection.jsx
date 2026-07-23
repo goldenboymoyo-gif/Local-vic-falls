@@ -69,7 +69,7 @@ export default function AdventureSection() {
             </p>
           </div>
           <Link
-            to="/search?pillar=adventure"
+            to="/adventures"
             className="hidden sm:inline-flex items-center gap-1.5 text-sm font-medium text-white/50 hover:text-teal-400 transition-colors group"
           >
             View all adventures

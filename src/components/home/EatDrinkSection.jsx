@@ -57,7 +57,7 @@ export default function EatDrinkSection() {
             </p>
           </div>
           <Link
-            to="/search?pillar=eat-drink"
+            to="/eat-drink"
             className="hidden sm:inline-flex items-center gap-1.5 text-sm font-medium text-gray-900 hover:text-amber-600 transition-colors group"
           >
             View all restaurants

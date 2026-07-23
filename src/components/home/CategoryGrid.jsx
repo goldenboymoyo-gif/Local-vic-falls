@@ -52,7 +52,7 @@ export default function CategoryGrid() {
             <Link
               key={cat.id}
               ref={(el) => { cardsRef.current[i] = el }}
-              to={`/search?pillar=${cat.slug}`}
+              to={cat.slug === 'nightlife' || cat.slug === 'stay' ? `/search?pillar=${cat.slug}` : `/${cat.slug}`}
               className="group relative rounded-2xl overflow-hidden hover-glare cursor-pointer"
               style={{ minHeight: i === 0 ? '360px' : '180px' }}
             >
