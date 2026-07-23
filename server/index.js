@@ -25,6 +25,7 @@ app.use('/api/categories', require('./routes/categories'))
 app.use('/api/invoices', require('./routes/invoices'))
 app.use('/api/upload', require('./routes/upload'))
 app.use('/api/ai', require('./routes/ai'))
+app.use('/api/chat', require('./routes/chat'))
 
 // Error handler
 app.use((err, req, res, next) => {

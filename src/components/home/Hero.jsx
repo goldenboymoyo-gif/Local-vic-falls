@@ -69,7 +69,7 @@ export default function Hero() {
         <iframe
           src="https://www.youtube.com/embed/UZ3DV7rCCH4?autoplay=1&mute=1&loop=1&playlist=UZ3DV7rCCH4&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1"
           title="Victoria Falls background"
-          className="absolute top-1/2 left-1/2 w-[120%] h-[120%] -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+          className="absolute inset-0 w-full h-full pointer-events-none"
           allow="autoplay; encrypted-media"
           allowFullScreen={false}
         />
@@ -132,7 +132,7 @@ export default function Hero() {
                 Explore what's on
               </Link>
               <Link
-                to="#build-your-day"
+                to="/plan-your-day"
                 className="magnetic-btn inline-flex items-center gap-2 text-sm font-medium text-white/70 px-7 py-3 border border-white/15 rounded-full hover:border-white/30 hover:text-white transition-colors duration-200"
               >
                 Plan your day

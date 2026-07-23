@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react'
 import { motion } from 'framer-motion'
 import Hero from '../components/home/Hero'
+import FeaturedSection from '../components/home/FeaturedSection'
+import MustDoSection from '../components/home/MustDoSection'
 import CategoryGrid from '../components/home/CategoryGrid'
 import AdventureSection from '../components/home/AdventureSection'
 import EatDrinkSection from '../components/home/EatDrinkSection'
@@ -23,6 +25,8 @@ export default function Home() {
       transition={{ duration: 0.3 }}
     >
       <Hero />
+      <FeaturedSection />
+      <MustDoSection />
       <CategoryGrid />
       <AdventureSection />
       <EatDrinkSection />

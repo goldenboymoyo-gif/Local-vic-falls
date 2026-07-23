@@ -23,6 +23,7 @@ const AdventuresPage = lazy(() => import('./pages/AdventuresPage'))
 const EatDrinkPage = lazy(() => import('./pages/EatDrinkPage'))
 const CulturePage = lazy(() => import('./pages/CulturePage'))
 const HowItWorks = lazy(() => import('./pages/HowItWorks'))
+const AIPlanner = lazy(() => import('./pages/AIPlanner'))
 const Contact = lazy(() => import('./pages/Contact'))
 const NotFound = lazy(() => import('./pages/NotFound'))
 
@@ -56,6 +57,7 @@ function AppContent() {
             <Route path="/professional/:id" element={<ProfessionalProfile />} />
             <Route path="/about" element={<About />} />
             <Route path="/how-it-works" element={<HowItWorks />} />
+            <Route path="/plan-your-day" element={<AIPlanner />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
