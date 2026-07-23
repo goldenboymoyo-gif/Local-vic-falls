@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { Star, MapPin, Clock, DollarSign, ArrowRight, Heart, Share2 } from 'lucide-react'
+import { Star, Clock, DollarSign, ArrowRight, Heart, Share2 } from 'lucide-react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { featuredExperiences } from '../../data/mockData'

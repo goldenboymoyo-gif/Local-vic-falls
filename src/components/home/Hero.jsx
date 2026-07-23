@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { ArrowRight, ChevronRight, Search, MapPin, Compass, Mountain, UtensilsCrossed, Hotel, Waves } from 'lucide-react'
+import { ArrowRight, ChevronRight, Search, Compass, Mountain, UtensilsCrossed, Hotel } from 'lucide-react'
 import gsap from 'gsap'
 
 const taglines = [
