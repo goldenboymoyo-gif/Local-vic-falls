@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { ArrowRight, Shield, Users, Compass, Headphones } from 'lucide-react'
+import { ArrowRight, Shield, Users, Compass, Headphones, MessageCircle } from 'lucide-react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
@@ -10,7 +10,7 @@ const features = [
   { icon: Shield, label: 'Verified hosts' },
   { icon: Users, label: '15K+ visitors' },
   { icon: Compass, label: 'Instant booking' },
-  { icon: Headphones, label: '24/7 support' },
+  { icon: Headphones, label: 'WhatsApp support' },
 ]
 
 export default function CTA() {
@@ -21,52 +21,11 @@ export default function CTA() {
 
     const ctx = gsap.context(() => {
       gsap.fromTo(
-        '.cta-left',
-        { opacity: 0, x: -50 },
+        '.cta-content',
+        { opacity: 0, y: 40 },
         {
-          opacity: 1,
-          x: 0,
-          duration: 0.9,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: 'top 70%',
-            toggleActions: 'play none none none',
-          },
-        }
-      )
-
-      gsap.fromTo(
-        '.cta-right',
-        { opacity: 0, x: 50 },
-        {
-          opacity: 1,
-          x: 0,
-          duration: 0.9,
-          ease: 'power3.out',
-          delay: 0.15,
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: 'top 70%',
-            toggleActions: 'play none none none',
-          },
-        }
-      )
-
-      gsap.fromTo(
-        '.cta-pill',
-        { opacity: 0, y: 20 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.5,
-          stagger: 0.08,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: '.cta-pills',
-            start: 'top 85%',
-            toggleActions: 'play none none none',
-          },
+          opacity: 1, y: 0, duration: 0.9, ease: 'power3.out',
+          scrollTrigger: { trigger: sectionRef.current, start: 'top 70%', toggleActions: 'play none none none' },
         }
       )
     }, sectionRef)
@@ -75,91 +34,55 @@ export default function CTA() {
   }, [])
 
   return (
-    <section ref={sectionRef} className="relative bg-black overflow-hidden">
-      {/* Dot grid pattern overlay */}
-      <div
-        className="absolute inset-0 opacity-[0.04]"
-        style={{
-          backgroundImage:
-            'radial-gradient(circle, white 1px, transparent 1px)',
-          backgroundSize: '24px 24px',
-        }}
-      />
+    <section ref={sectionRef} className="relative bg-[#050816] overflow-hidden">
+      {/* Ambient */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-[-20%] left-[20%] w-[600px] h-[600px] bg-teal-600/10 rounded-full blur-[140px]" />
+        <div className="absolute bottom-[-15%] right-[15%] w-[500px] h-[500px] bg-amber-500/5 rounded-full blur-[120px]" />
+      </div>
 
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row min-h-[540px] md:min-h-[480px]">
-          {/* Left: text */}
-          <div className="cta-left flex flex-col justify-center w-full md:w-1/2 py-16 md:py-20 md:pr-16">
-            <span className="text-[11px] font-medium text-white/40 uppercase tracking-[0.2em]">
-              Get started
-            </span>
-            <h2 className="text-3xl lg:text-[2.75rem] font-bold mt-4 tracking-tight leading-[1.08] text-white">
-              Ready to discover Victoria Falls?
-            </h2>
-            <p className="text-white/40 mt-5 text-base leading-relaxed max-w-lg">
-              Join thousands of happy visitors and hosts. Find, book, and manage
-              unforgettable experiences — all in one platform.
-            </p>
+      <div className="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-24 lg:py-32 text-center">
+        <div className="cta-content">
+          <span className="text-[11px] font-medium text-white/30 uppercase tracking-[0.2em]">
+            Get started
+          </span>
+          <h2 className="text-3xl lg:text-[2.75rem] font-bold mt-4 tracking-tight leading-[1.08] text-white">
+            Ready to discover Victoria Falls?
+          </h2>
+          <p className="text-white/35 mt-5 text-base leading-relaxed max-w-lg mx-auto">
+            Join thousands of happy visitors and hosts. Find, book, and manage
+            unforgettable experiences — all in one platform.
+          </p>
 
-            <div className="flex flex-col sm:flex-row gap-3 mt-8">
-              <Link
-                to="/sign-up"
-                className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-emerald-500 to-teal-500 text-white px-8 py-3.5 rounded-full text-sm font-semibold hover:from-emerald-400 hover:to-teal-400 transition-all duration-300 shadow-lg shadow-emerald-500/20"
-              >
-                Become a Host
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-              <Link
-                to="/search"
-                className="inline-flex items-center justify-center gap-2 text-sm font-medium text-white/70 px-8 py-3.5 border border-white/15 rounded-full hover:border-white/30 hover:text-white transition-colors duration-200"
-              >
-                Explore experiences
-              </Link>
-            </div>
-
-            {/* Feature pills */}
-            <div className="cta-pills flex flex-wrap gap-4 mt-10">
-              {features.map((item) => (
-                <div
-                  key={item.label}
-                  className="cta-pill flex items-center gap-2.5 text-sm text-white/50"
-                >
-                  <div className="w-7 h-7 rounded-full bg-white/[0.07] flex items-center justify-center">
-                    <item.icon className="w-3.5 h-3.5 text-white/60" />
-                  </div>
-                  {item.label}
-                </div>
-              ))}
-            </div>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mt-8">
+            <Link
+              to="/sign-up"
+              className="magnetic-btn inline-flex items-center gap-2 bg-gradient-to-r from-teal-500 to-emerald-500 text-white px-8 py-3.5 rounded-full text-sm font-semibold hover:from-teal-400 hover:to-emerald-400 transition-all duration-300 shadow-lg shadow-teal-500/20"
+            >
+              Become a Host
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+            <a
+              href="https://wa.me/263781234567?text=Hi!%20I'd%20like%20to%20know%20more%20about%20Local%20Vic%20Falls."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="magnetic-btn inline-flex items-center gap-2 bg-[#25D366]/10 text-[#25D366] border border-[#25D366]/20 px-8 py-3.5 rounded-full text-sm font-semibold hover:bg-[#25D366]/20 transition-all duration-300"
+            >
+              <MessageCircle className="w-4 h-4" />
+              Chat on WhatsApp
+            </a>
           </div>
 
-          {/* Right: image + stats */}
-          <div className="cta-right w-full md:w-1/2 relative flex items-center justify-center py-8 md:py-16">
-            <div className="relative w-full max-w-md rounded-2xl overflow-hidden">
-              <img
-                src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=700&h=500&fit=crop&q=80"
-                alt="Victoria Falls experience"
-                className="w-full h-[300px] md:h-[360px] object-cover rounded-2xl"
-              />
-              {/* Gradient overlay on image */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent rounded-2xl" />
-
-              {/* Stats floating on image */}
-              <div className="absolute bottom-5 left-5 right-5 flex gap-3">
-                <div className="flex-1 bg-white/10 backdrop-blur-md rounded-xl px-4 py-3 border border-white/10">
-                  <div className="text-xl font-bold text-white">500+</div>
-                  <div className="text-[11px] text-white/50 mt-0.5">Hosts</div>
+          {/* Feature pills */}
+          <div className="flex flex-wrap items-center justify-center gap-5 mt-10">
+            {features.map((item) => (
+              <div key={item.label} className="flex items-center gap-2.5 text-sm text-white/40">
+                <div className="w-7 h-7 rounded-full bg-white/[0.05] flex items-center justify-center">
+                  <item.icon className="w-3.5 h-3.5 text-white/50" />
                 </div>
-                <div className="flex-1 bg-white/10 backdrop-blur-md rounded-xl px-4 py-3 border border-white/10">
-                  <div className="text-xl font-bold text-white">4.8</div>
-                  <div className="text-[11px] text-white/50 mt-0.5">Avg Rating</div>
-                </div>
-                <div className="flex-1 bg-white/10 backdrop-blur-md rounded-xl px-4 py-3 border border-white/10">
-                  <div className="text-xl font-bold text-white">200+</div>
-                  <div className="text-[11px] text-white/50 mt-0.5">Experiences</div>
-                </div>
+                {item.label}
               </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>

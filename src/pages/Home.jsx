@@ -1,11 +1,14 @@
 import React, { useEffect } from 'react'
 import { motion } from 'framer-motion'
 import Hero from '../components/home/Hero'
-import ExploreByMood from '../components/home/ExploreByMood'
-import FeaturedExperiences from '../components/home/FeaturedExperiences'
-import LocalStories from '../components/home/LocalStories'
-import CommunityImpact from '../components/home/CommunityImpact'
-import BecomeHost from '../components/home/BecomeHost'
+import { TagMarquee, QuoteMarquee } from '../components/home/Marquee'
+import CategoryGrid from '../components/home/CategoryGrid'
+import AdventureSection from '../components/home/AdventureSection'
+import EatDrinkSection from '../components/home/EatDrinkSection'
+import CultureSection from '../components/home/CultureSection'
+import BuildYourDay from '../components/home/BuildYourDay'
+import LocalVoices from '../components/home/LocalVoices'
+import StaySection from '../components/home/StaySection'
 import CTA from '../components/home/CTA'
 
 export default function Home() {
@@ -21,11 +24,15 @@ export default function Home() {
       transition={{ duration: 0.3 }}
     >
       <Hero />
-      <ExploreByMood />
-      <FeaturedExperiences />
-      <LocalStories />
-      <CommunityImpact />
-      <BecomeHost />
+      <TagMarquee />
+      <CategoryGrid />
+      <QuoteMarquee />
+      <AdventureSection />
+      <EatDrinkSection />
+      <CultureSection />
+      <BuildYourDay />
+      <LocalVoices />
+      <StaySection />
       <CTA />
     </motion.main>
   )

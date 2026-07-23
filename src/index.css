@@ -20,7 +20,7 @@
   }
 
   input:focus, textarea:focus, select:focus {
-    outline: 2px solid #10b981;
+    outline: 2px solid #0d9488;
     outline-offset: 2px;
   }
 
@@ -35,6 +35,8 @@
   .no-scrollbar::-webkit-scrollbar { display: none; }
   .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 }
+
+/* ─── KEYFRAMES ─────────────────────────────────────────────────────────────── */
 
 @keyframes shimmer {
   0% { background-position: -200% 0; }
@@ -61,44 +63,59 @@
   100% { opacity: 1; transform: scale(1); }
 }
 
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes marquee-reverse {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes shine-border {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes number-tick {
+  0% { opacity: 0; transform: translateY(10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── UTILITY CLASSES ───────────────────────────────────────────────────────── */
+
 .skeleton {
   background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
   background-size: 200% 100%;
   animation: shimmer 1.5s infinite;
 }
 
-.animate-float-gentle {
-  animation: float-gentle 3s ease-in-out infinite;
-}
+.animate-float-gentle { animation: float-gentle 3s ease-in-out infinite; }
+.animate-glow-pulse { animation: glow-pulse 2s ease-in-out infinite; }
+.animate-slide-up-fade { animation: slide-up-fade 0.6s ease-out forwards; }
+.animate-scale-in { animation: scale-in 0.4s ease-out forwards; }
 
-.animate-glow-pulse {
-  animation: glow-pulse 2s ease-in-out infinite;
-}
-
-.animate-slide-up-fade {
-  animation: slide-up-fade 0.6s ease-out forwards;
-}
-
-.animate-scale-in {
-  animation: scale-in 0.4s ease-out forwards;
-}
-
-/* Gradient text utility */
 .text-gradient-emerald {
-  background: linear-gradient(135deg, #10b981, #14b8a6);
+  background: linear-gradient(135deg, #0d9488, #0f766e);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-/* Glass morphism */
+.text-gradient-amber {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
 .glass {
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-/* Hover lift effect */
 .hover-lift {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -107,21 +124,121 @@
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
 
-/* Card hover glow */
-.hover-glow {
+/* Glare hover — subtle premium sheen on cards */
+.hover-glare {
   position: relative;
   overflow: hidden;
 }
-.hover-glow::before {
+.hover-glare::after {
   content: '';
   position: absolute;
-  inset: -2px;
-  background: linear-gradient(135deg, #10b981, #14b8a6, #06b6d4);
-  border-radius: inherit;
-  z-index: -1;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.08) 45%,
+    rgba(255, 255, 255, 0.15) 50%,
+    rgba(255, 255, 255, 0.08) 55%,
+    transparent 60%
+  );
+  background-size: 200% 100%;
+  background-position: 200% 0;
+  pointer-events: none;
   opacity: 0;
   transition: opacity 0.3s ease;
 }
-.hover-glow:hover::before {
+.hover-glare:hover::after {
   opacity: 1;
+  animation: shine-border 1.5s ease forwards;
+}
+
+/* ─── MARQUEE ───────────────────────────────────────────────────────────────── */
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 40s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+.marquee-track-reverse {
+  display: flex;
+  width: max-content;
+  animation: marquee-reverse 35s linear infinite;
+}
+
+.marquee-track-reverse:hover {
+  animation-play-state: paused;
+}
+
+/* ─── MAGNETIC BUTTON (desktop only, subtle pull) ──────────────────────────── */
+
+.magnetic-btn {
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ─── CUSTOM CURSOR (desktop only, adventure section) ──────────────────────── */
+
+.cursor-glow {
+  position: fixed;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(13,148,136,0.12) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.3s ease;
+}
+
+/* ─── BENTO GRID ────────────────────────────────────────────────────────────── */
+
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 0.75rem;
+}
+
+.bento-grid > :nth-child(1) {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.bento-grid > :nth-child(5) {
+  grid-column: span 2;
+}
+
+@media (max-width: 768px) {
+  .bento-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+  }
+  .bento-grid > :nth-child(1) {
+    grid-column: span 2;
+    grid-row: span 1;
+  }
+  .bento-grid > :nth-child(5) {
+    grid-column: span 2;
+  }
+}
+
+/* ─── SECTION DIVIDER (painterly texture overlay) ──────────────────────────── */
+
+.section-texture {
+  position: relative;
+}
+.section-texture::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.03), transparent);
+  pointer-events: none;
+  z-index: 1;
 }
