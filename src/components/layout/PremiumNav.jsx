@@ -10,7 +10,6 @@ const navLinks = [
   { label: 'Adventures', path: '/adventures' },
   { label: 'Eat & Drink', path: '/eat-drink' },
   { label: 'Culture', path: '/culture' },
-  { label: 'Contact', path: '/contact' },
 ]
 
 export default function PremiumNav() {
