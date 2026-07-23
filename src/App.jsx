@@ -19,6 +19,9 @@ const Messages = lazy(() => import('./pages/Messages'))
 const Professionals = lazy(() => import('./pages/Professionals'))
 const ProfessionalProfile = lazy(() => import('./pages/ProfessionalProfile'))
 const About = lazy(() => import('./pages/About'))
+const AdventuresPage = lazy(() => import('./pages/AdventuresPage'))
+const EatDrinkPage = lazy(() => import('./pages/EatDrinkPage'))
+const CulturePage = lazy(() => import('./pages/CulturePage'))
 const HowItWorks = lazy(() => import('./pages/HowItWorks'))
 const Contact = lazy(() => import('./pages/Contact'))
 const NotFound = lazy(() => import('./pages/NotFound'))
@@ -36,6 +39,9 @@ function AppContent() {
           <Routes location={location} key={location.pathname}>
             <Route path="/" element={<Home />} />
             <Route path="/search" element={<Search />} />
+            <Route path="/adventures" element={<AdventuresPage />} />
+            <Route path="/eat-drink" element={<EatDrinkPage />} />
+            <Route path="/culture" element={<CulturePage />} />
             <Route path="/business/:slug" element={<BusinessProfile />} />
             <Route path="/category/:slug" element={<CategoryPage />} />
             <Route path="/sign-in/*" element={<Login />} />

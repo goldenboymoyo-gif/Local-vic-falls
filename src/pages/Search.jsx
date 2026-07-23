@@ -24,10 +24,10 @@ const pillarFilterOptions = [
   { slug: 'nightlife', label: 'Nightlife' },
 ]
 
-export default function Search() {
+export default function Search({ defaultPillar = '' }) {
   const [searchParams] = useSearchParams()
   const initialQuery = searchParams.get('q') || ''
-  const initialPillar = searchParams.get('pillar') || ''
+  const initialPillar = defaultPillar || searchParams.get('pillar') || ''
   const [query, setQuery] = useState(initialQuery)
   const [pillar, setPillar] = useState(initialPillar)
   const [viewMode, setViewMode] = useState('grid')
