@@ -45,7 +45,7 @@ export default function StaySection() {
               Where you rest shapes how you explore
             </h2>
             <p className="text-gray-400 mt-3 text-sm leading-relaxed max-w-md">
-              From backpacker dorms to riverside lodges — the right base makes all the difference.
+              Backpacker dorms to riverside lodges — your base matters.
             </p>
           </div>
           <Link

@@ -53,7 +53,7 @@ export default function EatDrinkSection() {
               The town eats well
             </h2>
             <p className="text-gray-400 mt-3 text-sm leading-relaxed max-w-md">
-              Oxtail at GOAT, tapas at Lola's, sundowners above the gorge. Real restaurants, real menus.
+              Oxtail, tapas, sundowners. Real restaurants, real menus.
             </p>
           </div>
           <Link

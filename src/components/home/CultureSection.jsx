@@ -52,7 +52,7 @@ export default function CultureSection() {
             The version tourists rarely see
           </h2>
           <p className="text-gray-400 mt-3 text-sm leading-relaxed max-w-lg mx-auto">
-            Monde Village. Chinotimba Township. A heritage centre where the curator reads your bones. This is what makes Vic Falls more than a waterfall.
+            Monde Village, Chinotimba Township, heritage centres. More than a waterfall.
           </p>
         </div>
 

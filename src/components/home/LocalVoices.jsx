@@ -42,7 +42,7 @@ export default function LocalVoices() {
             Meet the people who make it real
           </h2>
           <p className="text-gray-400 mt-3 text-sm leading-relaxed max-w-md mx-auto">
-            Not stock photos. Real guides, chefs, village hosts, and entrepreneurs — the humans behind the experiences.
+            Real guides, chefs, village hosts — the people behind the experiences.
           </p>
         </div>
 

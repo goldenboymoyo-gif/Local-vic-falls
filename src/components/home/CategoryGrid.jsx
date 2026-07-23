@@ -42,7 +42,7 @@ export default function CategoryGrid() {
             The falls are just the start
           </h2>
           <p className="text-gray-400 mt-3 text-sm leading-relaxed max-w-md mx-auto">
-            Here's the whole town — from the gorge to the township.
+            From the gorge to the township.
           </p>
         </div>
 

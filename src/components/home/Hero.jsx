@@ -96,7 +96,7 @@ export default function Hero() {
 
             {/* Subhead */}
             <p ref={subRef} className="text-base sm:text-lg text-white/65 max-w-2xl mx-auto mb-10 leading-relaxed">
-              Grade 5 rapids on the Zambezi. Oxtail at a rooftop bar. A village classroom 20 minutes out. This is the version of Victoria Falls locals actually live in.
+              Rapids, rooftop bars, village classrooms. The version locals live in.
             </p>
 
             {/* Search bar */}

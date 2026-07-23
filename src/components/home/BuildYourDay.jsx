@@ -64,7 +64,7 @@ export default function BuildYourDay() {
             Plan your perfect Vic Falls day
           </h2>
           <p className="text-white/40 mt-3 text-sm leading-relaxed max-w-md mx-auto">
-            Pick a vibe. Pick a time. We'll assemble a real running order from real listings.
+            Pick a vibe, pick a time. We'll build your day.
           </p>
         </div>
 

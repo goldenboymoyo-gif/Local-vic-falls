@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 import { motion } from 'framer-motion'
 import Hero from '../components/home/Hero'
-import { QuoteMarquee, TagMarquee } from '../components/home/Marquee'
 import CategoryGrid from '../components/home/CategoryGrid'
 import AdventureSection from '../components/home/AdventureSection'
 import EatDrinkSection from '../components/home/EatDrinkSection'
@@ -24,8 +23,6 @@ export default function Home() {
       transition={{ duration: 0.3 }}
     >
       <Hero />
-      <TagMarquee />
-      <QuoteMarquee />
       <CategoryGrid />
       <AdventureSection />
       <EatDrinkSection />

@@ -65,7 +65,7 @@ export default function AdventureSection() {
               The Zambezi doesn't do half measures
             </h2>
             <p className="text-white/40 mt-3 text-sm leading-relaxed max-w-md">
-              Grade 5 rapids, 111m bungee drops, gorge swings — all below the world's largest curtain of falling water.
+              Grade 5 rapids, 111m bungee drops, gorge swings — all below the falls.
             </p>
           </div>
           <Link

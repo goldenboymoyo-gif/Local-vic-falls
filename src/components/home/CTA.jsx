@@ -50,8 +50,7 @@ export default function CTA() {
             Ready to discover Victoria Falls?
           </h2>
           <p className="text-white/35 mt-5 text-base leading-relaxed max-w-lg mx-auto">
-            Join thousands of happy visitors and hosts. Find, book, and manage
-            unforgettable experiences — all in one platform.
+            Find, book, and manage unforgettable experiences — all in one place.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mt-8">
