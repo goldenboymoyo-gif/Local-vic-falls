@@ -88,9 +88,9 @@ export default function PremiumNav() {
         : 'bg-[#050816]'
     }`}>
       <div className="max-w-[95%] mx-auto px-6 sm:px-10 lg:px-14">
-        <div className="flex items-center justify-between h-16 lg:h-18">
+        <div className="flex items-center h-16 lg:h-18">
           {/* Logo */}
-          <a href="/" className="flex items-center gap-2.5 shrink-0 group" onClick={(e) => { e.preventDefault(); window.location.href = '/' }}>
+          <a href="/" className="flex items-center gap-2.5 shrink-0 group mr-4" onClick={(e) => { e.preventDefault(); window.location.href = '/' }}>
             <div className="w-9 h-9 bg-gradient-to-br from-teal-500 to-emerald-600 rounded-xl flex items-center justify-center group-hover:from-teal-400 group-hover:to-emerald-500 transition-all duration-300 shadow-lg shadow-teal-500/20">
               <Compass className="w-5 h-5 text-white" />
             </div>
@@ -99,8 +99,98 @@ export default function PremiumNav() {
             </span>
           </a>
 
+          {/* Search (between logo and nav) */}
+          <div ref={searchWrapRef} className="relative shrink-0 hidden lg:block">
+            <form
+              onSubmit={handleSearch}
+              className={`flex items-center h-10 rounded-xl border transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] ${
+                searchOpen
+                  ? 'w-56 bg-white/[0.06] border-white/[0.12]'
+                  : 'w-10 bg-transparent border-transparent hover:bg-white/[0.06]'
+              }`}
+            >
+              <button
+                type={searchOpen ? 'submit' : 'button'}
+                onClick={() => { if (!searchOpen) setSearchOpen(true) }}
+                className="shrink-0 w-10 h-10 flex items-center justify-center text-white/50 hover:text-white rounded-xl transition-colors"
+              >
+                <Search className="w-4.5 h-4.5" />
+              </button>
+              <input
+                ref={searchInputRef}
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="Search experiences..."
+                className={`flex-1 bg-transparent border-none outline-none text-sm text-white placeholder-white/40 min-w-0 transition-all duration-300 ${
+                  searchOpen ? 'opacity-100 pr-2' : 'opacity-0 w-0'
+                }`}
+              />
+              {searchOpen && (
+                <button
+                  type="button"
+                  onClick={() => { setSearchOpen(false); setSearchQuery(''); setSearchResults([]) }}
+                  className="shrink-0 p-2 text-white/40 hover:text-white"
+                >
+                  <X className="w-3.5 h-3.5" />
+                </button>
+              )}
+            </form>
+
+            {/* Results dropdown */}
+            <AnimatePresence>
+              {searchOpen && (searchResults.length > 0 || searchQuery.trim().length > 0) && (
+                <motion.div
+                  initial={{ opacity: 0, y: 4 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 4 }}
+                  transition={{ duration: 0.15 }}
+                  className="absolute top-full left-0 mt-2 w-80 bg-[#0a0f1e] border border-white/[0.08] rounded-xl shadow-2xl overflow-hidden z-50"
+                >
+                  {searchResults.length > 0 && (
+                    <div className="py-2">
+                      {searchResults.map((r, i) => (
+                        <Link
+                          key={i}
+                          to={r.type === 'category' ? `/search?pillar=${r.slug}` : `/search?q=${encodeURIComponent(r.name)}`}
+                          onClick={() => { setSearchQuery(''); setSearchOpen(false) }}
+                          className="flex items-center gap-3 px-4 py-2.5 hover:bg-white/[0.04] transition-colors"
+                        >
+                          <div className={`w-8 h-8 rounded-lg flex items-center justify-center text-xs font-bold shrink-0 ${r.type === 'category' ? 'bg-teal-500/20 text-teal-400' : 'bg-white/[0.06] text-white/60'}`}>
+                            {r.name.charAt(0)}
+                          </div>
+                          <div className="min-w-0 flex-1">
+                            <div className="text-sm font-medium text-white truncate">{r.name}</div>
+                            <div className="text-xs text-white/30 capitalize mt-0.5">{r.type}</div>
+                          </div>
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+
+                  {searchQuery.trim().length > 0 && searchResults.length === 0 && (
+                    <div className="py-5 text-center">
+                      <p className="text-sm text-white/30">No results for &quot;{searchQuery}&quot;</p>
+                    </div>
+                  )}
+
+                  {searchQuery.trim().length > 0 && (
+                    <div className="border-t border-white/[0.06] px-4 py-2.5">
+                      <button type="submit" className="text-xs font-medium text-teal-400 hover:text-teal-300">
+                        Search all results →
+                      </button>
+                    </div>
+                  )}
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+
+          {/* Spacer pushes nav links to center */}
+          <div className="hidden lg:block flex-1" />
+
           {/* Center nav links */}
-          <div className="hidden lg:flex items-center shrink-0 w-[420px] justify-center">
+          <div className="hidden lg:flex items-center shrink-0">
             <div className="flex items-center gap-1">
               {navLinks.map((link) => (
                 <Link
@@ -118,95 +208,11 @@ export default function PremiumNav() {
             </div>
           </div>
 
-          {/* Right side */}
+          {/* Spacer pushes Login/CTA to right */}
+          <div className="hidden lg:block flex-1" />
+
+          {/* Right side — Login + CTA */}
           <div className="flex items-center gap-2 shrink-0">
-            {/* Inline expanding search */}
-            <div ref={searchWrapRef} className="relative">
-              <form
-                onSubmit={handleSearch}
-                className={`flex items-center h-10 rounded-xl border transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] ${
-                  searchOpen
-                    ? 'w-56 sm:w-64 bg-white/[0.06] border-white/[0.12]'
-                    : 'w-10 bg-transparent border-transparent hover:bg-white/[0.06]'
-                }`}
-              >
-                <button
-                  type={searchOpen ? 'submit' : 'button'}
-                  onClick={() => { if (!searchOpen) setSearchOpen(true) }}
-                  className="shrink-0 w-10 h-10 flex items-center justify-center text-white/50 hover:text-white rounded-xl transition-colors"
-                >
-                  <Search className="w-4.5 h-4.5" />
-                </button>
-                <input
-                  ref={searchInputRef}
-                  type="text"
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder="Search experiences..."
-                  className={`flex-1 bg-transparent border-none outline-none text-sm text-white placeholder-white/40 min-w-0 transition-all duration-300 ${
-                    searchOpen ? 'opacity-100 pr-2' : 'opacity-0 w-0'
-                  }`}
-                />
-                {searchOpen && (
-                  <button
-                    type="button"
-                    onClick={() => { setSearchOpen(false); setSearchQuery(''); setSearchResults([]) }}
-                    className="shrink-0 p-2 text-white/40 hover:text-white"
-                  >
-                    <X className="w-3.5 h-3.5" />
-                  </button>
-                )}
-              </form>
-
-              {/* Results dropdown */}
-              <AnimatePresence>
-                {searchOpen && (searchResults.length > 0 || searchQuery.trim().length > 0) && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 4 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 4 }}
-                    transition={{ duration: 0.15 }}
-                    className="absolute top-full right-0 mt-2 w-80 bg-[#0a0f1e] border border-white/[0.08] rounded-xl shadow-2xl overflow-hidden z-50"
-                  >
-                    {searchResults.length > 0 && (
-                      <div className="py-2">
-                        {searchResults.map((r, i) => (
-                          <Link
-                            key={i}
-                            to={r.type === 'category' ? `/search?pillar=${r.slug}` : `/search?q=${encodeURIComponent(r.name)}`}
-                            onClick={() => { setSearchQuery(''); setSearchOpen(false) }}
-                            className="flex items-center gap-3 px-4 py-2.5 hover:bg-white/[0.04] transition-colors"
-                          >
-                            <div className={`w-8 h-8 rounded-lg flex items-center justify-center text-xs font-bold shrink-0 ${r.type === 'category' ? 'bg-teal-500/20 text-teal-400' : 'bg-white/[0.06] text-white/60'}`}>
-                              {r.name.charAt(0)}
-                            </div>
-                            <div className="min-w-0 flex-1">
-                              <div className="text-sm font-medium text-white truncate">{r.name}</div>
-                              <div className="text-xs text-white/30 capitalize mt-0.5">{r.type}</div>
-                            </div>
-                          </Link>
-                        ))}
-                      </div>
-                    )}
-
-                    {searchQuery.trim().length > 0 && searchResults.length === 0 && (
-                      <div className="py-5 text-center">
-                        <p className="text-sm text-white/30">No results for &quot;{searchQuery}&quot;</p>
-                      </div>
-                    )}
-
-                    {searchQuery.trim().length > 0 && (
-                      <div className="border-t border-white/[0.06] px-4 py-2.5">
-                        <button type="submit" className="text-xs font-medium text-teal-400 hover:text-teal-300">
-                          Search all results →
-                        </button>
-                      </div>
-                    )}
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-
             <Link to="/sign-in" className="hidden sm:inline-flex text-sm text-white/60 hover:text-white px-3 py-2 transition-colors">
               Login
             </Link>
