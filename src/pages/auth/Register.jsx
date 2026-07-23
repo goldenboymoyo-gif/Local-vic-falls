@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Link, useNavigate } from 'react-router-dom'
+import { Compass } from 'lucide-react'
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
@@ -33,7 +34,7 @@ export default function Register() {
       setLoading(false)
       setSuccess(true)
       setTimeout(() => {
-        const redirect = localStorage.getItem('redirectAfterAuth') || '/'
+        const redirect = localStorage.getItem('redirectAfterAuth') || (role === 'host' ? '/dashboard/provider' : '/')
         localStorage.removeItem('redirectAfterAuth')
         navigate(redirect)
       }, 800)
@@ -50,21 +51,20 @@ export default function Register() {
       <div className="flex-1 flex items-center justify-center px-4 sm:px-6 lg:px-8 py-12">
         <div className="w-full max-w-sm">
           <Link to="/" className="flex items-center gap-2 mb-8">
-            <div className="w-8 h-8 bg-black rounded-lg flex items-center justify-center">
-              <span className="text-white text-xs font-bold">CH</span>
+            <div className="w-8 h-8 bg-gradient-to-br from-teal-500 to-emerald-600 rounded-lg flex items-center justify-center">
+              <Compass className="w-4 h-4 text-white" />
             </div>
-            <span className="text-lg font-semibold">ConnectHub</span>
+            <span className="text-lg font-semibold">Local <span className="text-teal-400">Vic Falls</span></span>
           </Link>
 
           <h1 className="text-2xl font-bold mb-1">Create your account</h1>
-          <p className="text-gray-500 text-sm mb-8">Join ConnectHub today</p>
+          <p className="text-gray-500 text-sm mb-8">Join Local Vic Falls today</p>
 
           {/* Role Selection */}
           <div className="flex gap-2 mb-6 bg-gray-50 p-1 rounded-xl">
             {[
               { value: 'customer', label: 'Customer' },
-              { value: 'provider', label: 'Service Provider' },
-              { value: 'business', label: 'Business' },
+              { value: 'host', label: 'Host' },
             ].map((r) => (
               <button
                 key={r.value}
@@ -196,13 +196,13 @@ export default function Register() {
         <div className="absolute inset-0 flex items-center justify-center p-12">
           <div className="max-w-md text-center">
             <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-sm border border-gray-100">
-              <div className="w-14 h-14 bg-gradient-to-br from-green-400 to-emerald-500 rounded-2xl flex items-center justify-center mx-auto mb-5">
+              <div className="w-14 h-14 bg-gradient-to-br from-teal-500 to-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-5">
                 <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
               </div>
-              <h3 className="text-lg font-bold text-gray-900 mb-2">Join 2,500+ users</h3>
-              <p className="text-gray-500 text-sm mb-6">Connect with trusted local professionals in Victoria Falls.</p>
+              <h3 className="text-lg font-bold text-gray-900 mb-2">Join 2,500+ adventurers</h3>
+              <p className="text-gray-500 text-sm mb-6">Discover real Victoria Falls experiences — from sunset cruises to cultural village tours.</p>
               <div className="flex items-center justify-center -space-x-2">
                 {[1, 2, 3, 4, 5].map((i) => (
                   <div key={i} className={`w-8 h-8 rounded-full border-2 border-white bg-gradient-to-br ${

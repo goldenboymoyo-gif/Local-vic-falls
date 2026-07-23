@@ -36,48 +36,48 @@ const monthlyData = [
 ]
 
 const upcomingJobs = [
-  { id: 1, client: 'Sarah Johnson', service: 'Electrical inspection', date: 'Jul 25, 2026', time: '10:00 AM', price: 200, status: 'confirmed' },
-  { id: 2, client: 'Mike Harrison', service: 'Wiring installation', date: 'Jul 27, 2026', time: '2:00 PM', price: 150, status: 'confirmed' },
-  { id: 3, client: 'Emily Chen', service: 'Light fixture installation', date: 'Jul 29, 2026', time: '9:00 AM', price: 90, status: 'pending' },
-  { id: 4, client: 'David Moyo', service: 'Emergency repair', date: 'Jul 31, 2026', time: '11:00 AM', price: 200, status: 'confirmed' },
+  { id: 1, client: 'Sarah Johnson', service: 'Sunset Zambezi Cruise', date: 'Jul 25, 2026', time: '4:00 PM', price: 120, status: 'confirmed' },
+  { id: 2, client: 'Mike Harrison', service: 'Victoria Falls Guided Walk', date: 'Jul 27, 2026', time: '8:30 AM', price: 85, status: 'confirmed' },
+  { id: 3, client: 'Emily Chen', service: 'Boma Dinner & Drum Show', date: 'Jul 29, 2026', time: '6:30 PM', price: 65, status: 'pending' },
+  { id: 4, client: 'David Moyo', service: 'Helicopter Flight of Angels', date: 'Jul 31, 2026', time: '10:00 AM', price: 180, status: 'confirmed' },
 ]
 
 const pastJobs = [
-  { id: 5, client: 'Anna Wilson', service: 'Wiring installation', date: 'Jul 15, 2026', time: '10:00 AM', price: 150, status: 'completed' },
-  { id: 6, client: 'Peter Nkomo', service: 'Electrical inspection', date: 'Jul 10, 2026', time: '2:00 PM', price: 200, status: 'completed' },
-  { id: 7, client: 'Lisa Chuma', service: 'Light fixture installation', date: 'Jul 5, 2026', time: '9:00 AM', price: 90, status: 'cancelled' },
-  { id: 8, client: 'James Banda', service: 'Security systems', date: 'Jun 28, 2026', time: '8:00 AM', price: 350, status: 'completed' },
+  { id: 5, client: 'Anna Wilson', service: 'White Water Rafting', date: 'Jul 15, 2026', time: '7:00 AM', price: 150, status: 'completed' },
+  { id: 6, client: 'Peter Nkomo', service: 'Elephant Sanctuary Visit', date: 'Jul 10, 2026', time: '9:00 AM', price: 95, status: 'completed' },
+  { id: 7, client: 'Lisa Chuma', service: 'Cultural Village Tour', date: 'Jul 5, 2026', time: '10:00 AM', price: 45, status: 'cancelled' },
+  { id: 8, client: 'James Banda', service: 'Bungee Jumping', date: 'Jun 28, 2026', time: '12:00 PM', price: 160, status: 'completed' },
 ]
 
 const teamMembers = [
-  { name: 'John Mwangi', role: 'Lead Electrician', rating: 4.9, jobs: 187, image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&q=80' },
-  { name: 'Grace Okafor', role: 'Electrician', rating: 4.8, jobs: 143, image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&q=80' },
-  { name: 'David Kimani', role: 'Apprentice', rating: 4.6, jobs: 76, image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&q=80' },
-  { name: 'Rose Mutasa', role: 'Electrician', rating: 4.7, jobs: 112, image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&q=80' },
+  { name: 'Tendai Moyo', role: 'Lead Guide', rating: 4.9, jobs: 213, image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&q=80' },
+  { name: 'Grace Ncube', role: 'Safari Guide', rating: 4.8, jobs: 178, image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&q=80' },
+  { name: 'Blessing Mlambo', role: 'Adventure Guide', rating: 4.7, jobs: 95, image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&q=80' },
+  { name: 'Rutendo Chirara', role: 'Cultural Host', rating: 4.8, jobs: 134, image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&q=80' },
 ]
 
 const allServices = [
-  { name: 'Full electrical inspection', price: 85, duration: '2 hours', active: true, bookings: 67 },
-  { name: 'Wiring installation', price: 150, duration: '4 hours', active: true, bookings: 124 },
-  { name: 'Light fixture installation', price: 45, duration: '1 hour', active: true, bookings: 203 },
-  { name: 'Emergency repair', price: 200, duration: '1-2 hours', active: true, bookings: 45 },
-  { name: 'Security systems', price: 350, duration: '6 hours', active: false, bookings: 12 },
+  { name: 'Sunset Zambezi Cruise', price: 120, duration: '3 hours', active: true, bookings: 89 },
+  { name: 'Victoria Falls Guided Walk', price: 85, duration: '2 hours', active: true, bookings: 156 },
+  { name: 'Boma Dinner & Drum Show', price: 65, duration: '3 hours', active: true, bookings: 203 },
+  { name: 'Helicopter Flight of Angels', price: 180, duration: '15 mins', active: true, bookings: 67 },
+  { name: 'Bungee Jumping', price: 160, duration: '30 mins', active: false, bookings: 45 },
 ]
 
 const providerReviews = [
-  { id: 1, client: 'Sarah Johnson', rating: 5, text: 'Fantastic work! The inspection was thorough and John explained everything clearly. Will definitely hire again.', date: 'Jul 18, 2026', service: 'Electrical inspection' },
-  { id: 2, client: 'Mike Harrison', rating: 5, text: 'Quick and professional wiring job. The team was courteous and left the workspace clean. Highly recommended.', date: 'Jul 12, 2026', service: 'Wiring installation' },
-  { id: 3, client: 'Emily Chen', rating: 4, text: 'Good service overall. Installation was done well but took a bit longer than quoted. Still happy with the result.', date: 'Jul 5, 2026', service: 'Light fixture installation' },
-  { id: 4, client: 'David Moyo', rating: 5, text: 'Emergency callout handled brilliantly. Arrived within the hour and fixed the issue fast. Lifesavers!', date: 'Jun 28, 2026', service: 'Emergency repair' },
+  { id: 1, client: 'Sarah Johnson', rating: 5, text: 'Incredible sunset cruise! The guide was knowledgeable and the views were breathtaking. A must-do in Vic Falls.', date: 'Jul 18, 2026', service: 'Sunset Zambezi Cruise' },
+  { id: 2, client: 'Mike Harrison', rating: 5, text: 'The walking tour was fantastic — learned so much about the Falls and the local history. Highly recommend.', date: 'Jul 12, 2026', service: 'Victoria Falls Guided Walk' },
+  { id: 3, client: 'Emily Chen', rating: 4, text: 'Great dinner experience with authentic Zimbabwean food and amazing drum performance. A bit crowded but still wonderful.', date: 'Jul 5, 2026', service: 'Boma Dinner & Drum Show' },
+  { id: 4, client: 'David Moyo', rating: 5, text: 'The helicopter flight was the highlight of our trip! Stunning aerial views of the Falls. Worth every penny.', date: 'Jun 28, 2026', service: 'Helicopter Flight of Angels' },
 ]
 
 const notifications = [
-  { id: 1, icon: CheckCircle, color: 'text-green-600 bg-green-100', text: 'Booking confirmed — Sarah Johnson, Jul 25', time: '2 hours ago', read: false },
+  { id: 1, icon: CheckCircle, color: 'text-green-600 bg-green-100', text: 'Booking confirmed — Sarah Johnson, Sunset Cruise Jul 25', time: '2 hours ago', read: false },
   { id: 2, icon: StarIcon, color: 'text-blue-600 bg-blue-100', text: 'New 5-star review from Sarah Johnson', time: '5 hours ago', read: false },
-  { id: 3, icon: CreditCard, color: 'text-blue-600 bg-blue-100', text: 'Payment of $200 received from Sarah Johnson', time: '1 day ago', read: false },
-  { id: 4, icon: UserPlus, color: 'text-purple-600 bg-purple-100', text: 'New booking request from Emily Chen', time: '2 days ago', read: true },
-  { id: 5, icon: AlertCircle, color: 'text-blue-600 bg-blue-100', text: 'Emily Chen requested a price change for light fixture', time: '3 days ago', read: true },
-  { id: 6, icon: CheckCircle, color: 'text-green-600 bg-green-100', text: 'Booking confirmed — David Moyo, Jul 31', time: '4 days ago', read: true },
+  { id: 3, icon: CreditCard, color: 'text-blue-600 bg-blue-100', text: 'Payment of $120 received from Sarah Johnson', time: '1 day ago', read: false },
+  { id: 4, icon: UserPlus, color: 'text-purple-600 bg-purple-100', text: 'New booking request from Emily Chen — Boma Dinner', time: '2 days ago', read: true },
+  { id: 5, icon: AlertCircle, color: 'text-blue-600 bg-blue-100', text: 'Emily Chen requested a dietary preference update', time: '3 days ago', read: true },
+  { id: 6, icon: CheckCircle, color: 'text-green-600 bg-green-100', text: 'Booking confirmed — David Moyo, Helicopter Jul 31', time: '4 days ago', read: true },
 ]
 
 const navItems = [
@@ -153,7 +153,7 @@ export default function ProviderDashboard() {
                     </div>
                   </div>
                   <div className="text-2xl font-bold">15</div>
-                  <div className="text-sm text-gray-500 mt-1">Active Jobs</div>
+                  <div className="text-sm text-gray-500 mt-1">Active Experiences</div>
                   <div className="flex items-center gap-1 text-xs text-blue-600 mt-2">
                     <Clock className="w-3 h-3" /> 4 this week
                   </div>
@@ -177,7 +177,7 @@ export default function ProviderDashboard() {
                     </div>
                   </div>
                   <div className="text-2xl font-bold">5</div>
-                  <div className="text-sm text-gray-500 mt-1">Services</div>
+                  <div className="text-sm text-gray-500 mt-1">Experiences</div>
                   <div className="flex items-center gap-1 text-xs text-purple-600 mt-2">
                     <TrendingUp className="w-3 h-3" /> 4 active
                   </div>
@@ -475,13 +475,13 @@ export default function ProviderDashboard() {
                   <h3 className="font-semibold">Recent Transactions</h3>
                 </div>
                 <div className="divide-y divide-gray-100">
-                  {[
-                    { desc: 'Electrical inspection — Sarah Johnson', amount: '$200', date: 'Jul 18, 2026', type: 'credit' },
-                    { desc: 'Wiring installation — Anna Wilson', amount: '$150', date: 'Jul 15, 2026', type: 'credit' },
-                    { desc: 'Electrical inspection — Peter Nkomo', amount: '$200', date: 'Jul 10, 2026', type: 'credit' },
-                    { desc: 'Platform fee', amount: '-$35', date: 'Jul 10, 2026', type: 'debit' },
-                    { desc: 'Security systems — James Banda', amount: '$350', date: 'Jun 28, 2026', type: 'credit' },
-                    { desc: 'Platform fee', amount: '-$45', date: 'Jun 28, 2026', type: 'debit' },
+                                      {[
+                    { desc: 'Sunset Zambezi Cruise — Sarah Johnson', amount: '$120', date: 'Jul 18, 2026', type: 'credit' },
+                    { desc: 'Victoria Falls Walk — Anna Wilson', amount: '$85', date: 'Jul 15, 2026', type: 'credit' },
+                    { desc: 'Boma Dinner — Peter Nkomo', amount: '$65', date: 'Jul 10, 2026', type: 'credit' },
+                    { desc: 'Platform fee', amount: '-$15', date: 'Jul 10, 2026', type: 'debit' },
+                    { desc: 'Helicopter Flight — James Banda', amount: '$180', date: 'Jun 28, 2026', type: 'credit' },
+                    { desc: 'Platform fee', amount: '-$20', date: 'Jun 28, 2026', type: 'debit' },
                   ].map((tx, i) => (
                     <div key={i} className="flex items-center justify-between px-6 py-4">
                       <div>
@@ -578,11 +578,11 @@ export default function ProviderDashboard() {
                 <div className="lg:col-span-2">
                   <div className="bg-white rounded-2xl border border-gray-100 p-6">
                     <div className="flex flex-col items-center text-center">
-                      <div className="w-20 h-20 rounded-2xl bg-black text-white flex items-center justify-center text-2xl font-bold mb-4">
-                        VFE
+                      <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-teal-500 to-emerald-600 text-white flex items-center justify-center text-2xl font-bold mb-4">
+                        VF
                       </div>
-                      <h3 className="font-semibold text-lg">Vic Falls Electrical</h3>
-                      <p className="text-sm text-gray-500 mt-1">info@vfe.com</p>
+                      <h3 className="font-semibold text-lg">Vic Falls Adventures</h3>
+                      <p className="text-sm text-gray-500 mt-1">hello@vcfadventures.com</p>
                       <span className="text-xs text-green-600 font-medium mt-2">Verified Provider</span>
                     </div>
                     <div className="grid grid-cols-3 gap-4 mt-6 pt-6 border-t border-gray-100">
@@ -605,11 +605,11 @@ export default function ProviderDashboard() {
                   <form className="bg-white rounded-2xl border border-gray-100 p-6 space-y-5">
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-1.5">Business name</label>
-                      <input type="text" defaultValue="Vic Falls Electrical" className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-black/5" />
+                      <input type="text" defaultValue="Vic Falls Adventures" className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-black/5" />
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-1.5">Email</label>
-                      <input type="email" defaultValue="info@vfe.com" className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-black/5" />
+                      <input type="email" defaultValue="hello@vcfadventures.com" className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-black/5" />
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-1.5">Phone</label>
@@ -621,7 +621,7 @@ export default function ProviderDashboard() {
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-1.5">Description</label>
-                      <textarea rows={3} defaultValue="Professional electrical services in Victoria Falls. Licensed, insured, and trusted by the community." className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm resize-none focus:outline-none focus:ring-2 focus:ring-black/5" />
+                      <textarea rows={3} defaultValue="Authentic Victoria Falls experiences — from sunset cruises on the Zambezi to cultural village tours and adrenaline adventures." className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm resize-none focus:outline-none focus:ring-2 focus:ring-black/5" />
                     </div>
                     <button className="w-full bg-black text-white py-2.5 rounded-xl text-sm font-medium hover:bg-gray-800 transition-colors">
                       Update profile
@@ -648,19 +648,21 @@ export default function ProviderDashboard() {
       <aside className="hidden lg:flex flex-col w-64 bg-white border-r border-gray-100 min-h-screen">
         <div className="p-6">
           <Link to="/" className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-black rounded-lg flex items-center justify-center">
-              <span className="text-white text-xs font-bold">CH</span>
+            <div className="w-8 h-8 bg-gradient-to-br from-teal-500 to-emerald-600 rounded-lg flex items-center justify-center">
+              <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z" />
+              </svg>
             </div>
-            <span className="text-lg font-semibold">ConnectHub</span>
+            <span className="text-lg font-semibold">Local <span className="text-teal-400">Vic Falls</span></span>
           </Link>
-          <div className="mt-5 flex items-center gap-3 p-3 bg-gray-50 rounded-xl">
-            <div className="w-8 h-8 bg-black rounded-lg flex items-center justify-center text-white text-xs font-bold">VFE</div>
-            <div>
-              <div className="font-medium text-sm">Vic Falls Elec</div>
-              <div className="text-xs text-gray-500">Provider account</div>
+            <div className="mt-5 flex items-center gap-3 p-3 bg-gray-50 rounded-xl">
+              <div className="w-8 h-8 bg-gradient-to-br from-teal-500 to-emerald-600 rounded-lg flex items-center justify-center text-white text-xs font-bold">VF</div>
+              <div>
+                <div className="font-medium text-sm">Vic Falls Host</div>
+                <div className="text-xs text-gray-500">Host account</div>
+              </div>
             </div>
           </div>
-        </div>
         <div className="px-3 flex-1 overflow-y-auto">
           <div className="space-y-1">
             {navItems.map((item) => {
@@ -691,11 +693,13 @@ export default function ProviderDashboard() {
       <div className="lg:hidden fixed top-0 left-0 right-0 z-30 bg-white border-b border-gray-100 px-4 py-3">
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2">
-            <div className="w-7 h-7 bg-black rounded-lg flex items-center justify-center">
-              <span className="text-white text-xxs font-bold">CH</span>
+            <div className="w-7 h-7 bg-gradient-to-br from-teal-500 to-emerald-600 rounded-lg flex items-center justify-center">
+              <svg className="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z" />
+              </svg>
             </div>
           </Link>
-          <div className="w-7 h-7 bg-black rounded-lg flex items-center justify-center text-white text-xs font-bold">VFE</div>
+          <div className="w-7 h-7 bg-gradient-to-br from-teal-500 to-emerald-600 rounded-lg flex items-center justify-center text-white text-xs font-bold">VF</div>
         </div>
         <div className="flex overflow-x-auto gap-2 mt-3 pb-2 no-scrollbar" style={{ msOverflowStyle: 'none', scrollbarWidth: 'none' }}>
           {navItems.map((item) => {

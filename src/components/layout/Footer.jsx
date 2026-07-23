@@ -12,12 +12,10 @@ const footerLinks = {
   ],
   forHosts: [
     { label: 'Become a Host', href: '/sign-up' },
-    { label: 'How It Works', href: '/how-it-works' },
   ],
   company: [
     { label: 'About Us', href: '/about' },
     { label: 'Contact', href: '/contact' },
-    { label: 'How It Works', href: '/how-it-works' },
   ],
   support: [
     { label: 'Contact Us', href: '/contact' },
