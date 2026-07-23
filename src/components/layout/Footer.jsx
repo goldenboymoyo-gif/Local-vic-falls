@@ -12,21 +12,16 @@ const footerLinks = {
   ],
   forHosts: [
     { label: 'Become a Host', href: '/sign-up' },
-    { label: 'Host Dashboard', href: '/dashboard/host' },
-    { label: 'Success Stories', href: '#' },
-    { label: 'Pricing', href: '#' },
+    { label: 'How It Works', href: '/how-it-works' },
   ],
-  community: [
-    { label: 'Local Stories', href: '/about' },
-    { label: 'Community Projects', href: '#' },
-    { label: 'Events', href: '#' },
-    { label: 'Volunteer', href: '#' },
+  company: [
+    { label: 'About Us', href: '/about' },
+    { label: 'Contact', href: '/contact' },
+    { label: 'How It Works', href: '/how-it-works' },
   ],
   support: [
-    { label: 'Help Center', href: '#' },
     { label: 'Contact Us', href: '/contact' },
-    { label: 'Safety Tips', href: '#' },
-    { label: 'Report Abuse', href: '#' },
+    { label: 'Help Center', href: '/contact' },
   ],
 }
 
@@ -127,17 +122,6 @@ export default function Footer() {
               <span>hello@localvicfalls.com</span>
               <span>+263 78 123 4567</span>
             </div>
-            <div className="flex items-center gap-3">
-              <a href="#" className="w-8 h-8 rounded-lg bg-white/[0.06] flex items-center justify-center hover:bg-white/[0.1] transition-colors">
-                <Globe className="w-4 h-4 text-white/50" />
-              </a>
-              <a href="#" className="w-8 h-8 rounded-lg bg-white/[0.06] flex items-center justify-center hover:bg-white/[0.1] transition-colors">
-                <Heart className="w-4 h-4 text-white/50" />
-              </a>
-              <a href="#" className="w-8 h-8 rounded-lg bg-white/[0.06] flex items-center justify-center hover:bg-white/[0.1] transition-colors">
-                <Share2 className="w-4 h-4 text-white/50" />
-              </a>
-            </div>
           </div>
 
           {/* Link columns */}
@@ -166,9 +150,9 @@ export default function Footer() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-sm text-gray-500">&copy; 2026 Local Vic Falls. All rights reserved.</p>
           <div className="flex items-center gap-6">
-            <Link to="#" className="text-sm text-gray-500 hover:text-white transition-colors">Privacy</Link>
-            <Link to="#" className="text-sm text-gray-500 hover:text-white transition-colors">Terms</Link>
-            <Link to="#" className="text-sm text-gray-500 hover:text-white transition-colors">Cookies</Link>
+            <Link to="/contact" className="text-sm text-gray-500 hover:text-white transition-colors">Privacy</Link>
+            <Link to="/contact" className="text-sm text-gray-500 hover:text-white transition-colors">Terms</Link>
+            <Link to="/contact" className="text-sm text-gray-500 hover:text-white transition-colors">Cookies</Link>
           </div>
         </div>
       </div>

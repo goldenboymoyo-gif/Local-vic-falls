@@ -127,7 +127,7 @@ export default function Hero() {
           className="w-full h-full object-cover"
           poster="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=1920&h=1080&fit=crop"
         >
-          <source src="https://cdn.coverr.co/videos/coverr-aerial-view-of-victoria-falls-1584/1080p.mp4" type="video/mp4" />
+          <source src="https://videos.pexels.com/video-files/16680514/16680514-uhd_2560_1440_30fps.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-gradient-to-b from-[#050816]/75 via-[#050816]/30 to-[#050816]/95" />
         <div className="absolute inset-0 bg-gradient-to-r from-[#050816]/30 via-transparent to-[#050816]/30" />

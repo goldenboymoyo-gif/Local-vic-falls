@@ -11,6 +11,8 @@ const navLinks = [
   { label: 'Eat & Drink', path: '/search?pillar=eat-drink' },
   { label: 'Culture', path: '/search?pillar=culture' },
   { label: 'About', path: '/about' },
+  { label: 'How It Works', path: '/how-it-works' },
+  { label: 'Contact', path: '/contact' },
 ]
 
 export default function PremiumNav() {

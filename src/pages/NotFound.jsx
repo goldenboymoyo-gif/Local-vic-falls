@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom'
 import { Home, Search, Grid3X3, MessageCircle, ArrowRight } from 'lucide-react'
 
 const quickLinks = [
-  { label: 'Browse Categories', to: '/', icon: Grid3X3 },
-  { label: 'Search Services', to: '/search', icon: Search },
-  { label: 'Contact Support', to: '/', icon: MessageCircle },
+  { label: 'Browse Experiences', to: '/search', icon: Grid3X3 },
+  { label: 'Search Adventures', to: '/search?pillar=adventure', icon: Search },
+  { label: 'Contact Support', to: '/contact', icon: MessageCircle },
 ]
 
 export default function NotFound() {
