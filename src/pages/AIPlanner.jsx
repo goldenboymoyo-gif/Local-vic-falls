@@ -25,40 +25,40 @@ RULES:
 AVAILABLE LISTINGS:
 
 ADVENTURES:
-- White-Water Rafting: Grade 5 rapids, $120 from, 4.9★ (342 reviews), Half day. WhatsApp: https://wa.me/263781234567?text=Hi!%20I'd%20like%20to%20book%20white-water%20rafting.
-- Bungee Jump — Victoria Falls Bridge: 111m drop, $160 from, 4.8★ (267 reviews), 30 mins. WhatsApp: https://wa.me/263781234567?text=Hi!%20I'd%20like%20to%20book%20a%20bungee%20jump.
-- Gorge Swing: 70-80m freefall swing, $140 from, 4.8★ (189 reviews), 30 mins. WhatsApp: https://wa.me/263781234567?text=Hi!%20I'd%20like%20to%20book%20a%20gorge%20swing.
-- Zipline Across the Gorge: $120 from, 4.7★ (156 reviews), 30 mins. WhatsApp: https://wa.me/263781234567?text=Hi!%20I'd%20like%20to%20book%20a%20zipline.
-- Flight of Angels — Helicopter Tour: Scenic flight over the falls, $180 from, 4.9★ (518 reviews), 15 mins. WhatsApp: https://wa.me/263781234567?text=Hi!%20I'd%20like%20to%20book%20a%20helicopter%20tour.
-- Devil's Pool: Swim at the edge of the falls (seasonal), $150 from, 4.9★ (203 reviews), Half day. WhatsApp: https://wa.me/263781234567?text=Hi!%20I'd%20like%20to%20book%20Devil's%20Pool.
-- Zambezi Sunset Cruise: Drinks & snacks on the river, $55 from, 4.7★ (298 reviews), 3 hrs. WhatsApp: https://wa.me/263781234567?text=Hi!%20I'd%20like%20to%20book%20a%20sunset%20cruise.
-- Canoe Safari: Self-guided on the upper Zambezi, $95 from, 4.8★ (178 reviews), Half day. WhatsApp: https://wa.me/263781234567?text=Hi!%20I'd%20like%20to%20book%20a%20canoe%20safari.
+- White-Water Rafting: Grade 5 rapids, 23km through Batoka Gorge, $139 from, 4.9★ (342 reviews), Full day. WhatsApp: https://wa.me/263781234567?text=Hi!%20I'd%20like%20to%20book%20white-water%20rafting.
+- Bungee Jump — Victoria Falls Bridge: 111m drop, $194 from, 4.8★ (267 reviews), 15-20 mins. WhatsApp: https://wa.me/263781234567?text=Hi!%20I'd%20like%20to%20book%20a%20bungee%20jump.
+- Gorge Swing: 70-80m freefall swing across the gorge, $137 from (solo), 4.8★ (189 reviews), ~30 mins. WhatsApp: https://wa.me/263781234567?text=Hi!%20I'd%20like%20to%20book%20a%20gorge%20swing.
+- Zipline Across the Gorge: 425m zipline, $50 from, 4.7★ (156 reviews), ~10 mins. WhatsApp: https://wa.me/263781234567?text=Hi!%20I'd%20like%20to%20book%20the%20zipline.
+- Flight of Angels — Helicopter Tour: Scenic flight over the falls, $150 from, 4.9★ (518 reviews), 13-25 mins. WhatsApp: https://wa.me/263781234567?text=Hi!%20I'd%20like%20to%20book%20a%20helicopter%20tour.
+- Devil's Pool: Swim at the edge of the falls (seasonal Aug-Jan), $149 from (incl. Livingstone Island tour), 4.9★ (203 reviews), 2-3 hrs. WhatsApp: https://wa.me/263781234567?text=Hi!%20I'd%20like%20to%20book%20Devil's%20Pool.
+- Zambezi Sunset Cruise: Drinks & snacks on the river, $59 from, 4.7★ (423 reviews), 2-3 hrs. WhatsApp: https://wa.me/263781234567?text=Hi!%20I'd%20like%20to%20book%20a%20sunset%20cruise.
+- Canoe Safari: Upper Zambezi wildlife encounters, $150 from, 4.8★ (178 reviews), Half day. WhatsApp: https://wa.me/263781234567?text=Hi!%20I'd%20like%20to%20book%20a%20canoe%20safari.
 
 EAT & DRINK:
-- GOAT Victoria Falls: Local/African, $, 4.6★ (198 reviews), Mon-Sat 7am-10pm.
-- Lola's Tapas & Carnivore Restaurant: Game meats, $$$, 4.8★ (312 reviews), Live music. Daily 6pm-11pm.
-- The Lookout Cafe: Views, gorge-side, $$, 4.8★ (342 reviews), Full moon dinners. Daily 8am-10pm.
-- The Cassia Restaurant: Fine dining at Ilala Lodge, $$$$, 4.9★ (523 reviews). Daily 6:30pm-10pm.
-- The Boma — Dinner & Drum Show: Buffet + drum show, $$$, 4.5★ (456 reviews). Daily 6:30pm.
-- MaKuwa-Kuwa Restaurant: Traditional, $$$, 4.6★ (234 reviews). Daily 7am-10pm.
-- The Three Monkeys Restaurant & Bar: Cocktails, $$, 4.5★ (189 reviews). Daily 11am-11pm.
-- The River Brewing Company: Craft beer, $$, 4.6★ (145 reviews). Wed-Sun 4pm-11pm.
+- GOAT Victoria Falls: African eatery, $7-$18 mains, 4.7★ (278 reviews), Mon-Sat 10am-12am. Live music nightly.
+- Lola's Tapas & Carnivore: Game meats & fusion, $5-$25 mains, 4.8★ (312 reviews), Daily 11am-11pm. Live music.
+- The Lookout Cafe: 120m above Batoka Gorge, $10-$35 mains, 4.8★ (342 reviews), Daily 7am-10pm. Full moon dinners.
+- The Cassia Restaurant: Veranda dining at Ilala Lodge, $42 3-course dinner, 4.9★ (523 reviews), Daily 7am-10pm. Hear the falls from your table.
+- The Boma — Dinner & Drum Show: 4-course African buffet + drum show, $70pp, 4.6★ (456 reviews), Daily 6:30pm.
+- The Three Monkeys: Wood-fired pizzas, cocktails, $5-$20 mains, 4.5★ (198 reviews), Daily 11am-11pm.
+- MaKuwa-Kuwa Restaurant: Traditional Zimbabwean, $15-$30 mains, 4.6★ (210 reviews), Daily 12pm-10pm.
+- The River Brewing Company: Craft brewery, $2-$12 beers/BBQ, 4.5★ (165 reviews), Daily 10am-11pm. Live music Fri & Sat.
 
 CULTURE:
-- Monde Village Cultural & School Tour: Village visit, $75 from, 4.9★ (156 reviews), Half day.
-- Chinotimba Township Tour: Township walk, $60 from, 4.8★ (98 reviews), 3 hrs.
-- Jafuta Heritage Centre: Heritage museum, $15 entry, 4.7★ (87 reviews), 1-2 hrs.
-- Guided Walking Storytelling Tour: $50 from, 4.8★ (64 reviews), 2 hrs.
+- Monde Village Cultural & School Tour: School visits, homesteads, cooking demos, $40 from, 4.9★ (156 reviews), Half day. WhatsApp: https://wa.me/263781234567?text=Hi!%20I'd%20like%20to%20book%20the%20Monde%20Village%20tour.
+- Chinotimba Township Tour: Real township streets, markets, pubs, $35 from, 4.8★ (98 reviews), 2-3 hrs. WhatsApp: https://wa.me/263781234567?text=Hi!%20I'd%20like%20to%20book%20the%20Chinotimba%20Township%20tour.
+- Jafuta Heritage Centre: Artefacts & bones reading, $10 entry, 4.7★ (87 reviews), 1-2 hrs.
+- Guided Walking Storytelling Tour: Oral history, $20 from, 4.8★ (64 reviews), 2 hrs.
 
 STAY:
-- Ilala Lodge Hotel: 4-star lodge, $280 from, 4.9★ (523 reviews).
-- Victoria Falls Safari Lodge: Safari lodge, $350 from, 4.9★ (412 reviews).
-- The Kingdom Hotel: Casino hotel, $180 from, 4.3★ (312 reviews).
-- Gorges Lodge: Boutique lodge, $220 from, 4.8★ (167 reviews).
+- Ilala Lodge Hotel: Boutique, direct rainforest access, $246 from/night, 4.9★ (523 reviews).
+- Victoria Falls Safari Lodge: Luxury overlooking wildlife waterhole, $280 from/night, 4.9★ (412 reviews).
+- Explorers Village: Backpackers & campsite, $25 from/night, 4.4★ (189 reviews).
+- Gorges Lodge: Rim of Batoka Gorge, $350 from/night, 4.8★ (167 reviews).
 
 NIGHTLIFE:
-- The River Brewing Company: Craft beer garden, live music. Wed-Sun.
-- The Three Monkeys: Cocktails, sports bar. Daily.
+- The River Brewing Company: Craft beer garden, fire pits, live music Fri & Sat. Daily 10am-11pm.
+- The Three Monkeys: Cocktails, wood-fired pizzas, sports bar. Daily 11am-11pm.
 
 Help visitors plan their perfect Victoria Falls day!`
 
