@@ -38,17 +38,17 @@ export default function MustDoSection() {
   }, [])
 
   return (
-    <section ref={sectionRef} className="py-20 lg:py-28 bg-gradient-to-b from-[#050816] to-[#0a1628]">
+    <section ref={sectionRef} className="py-20 lg:py-28 bg-gray-50">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="must-header text-center max-w-2xl mx-auto mb-14">
-          <span className="inline-flex items-center gap-1.5 text-[11px] font-medium text-amber-400 uppercase tracking-[0.2em]">
+          <span className="inline-flex items-center gap-1.5 text-[11px] font-medium text-amber-600 uppercase tracking-[0.2em]">
             <Flame className="w-3.5 h-3.5" />
             Don't Miss
           </span>
-          <h2 className="text-3xl lg:text-[2.5rem] font-bold mt-3 tracking-tight leading-[1.1] text-white">
+          <h2 className="text-3xl lg:text-[2.5rem] font-bold mt-3 tracking-tight leading-[1.1] text-gray-900">
             Must-do experiences
           </h2>
-          <p className="text-white/40 mt-3 text-sm leading-relaxed max-w-md mx-auto">
+          <p className="text-gray-400 mt-3 text-sm leading-relaxed max-w-md mx-auto">
             The five things you can't leave Victoria Falls without doing.
           </p>
         </div>
@@ -58,14 +58,14 @@ export default function MustDoSection() {
             <div
               key={item.id}
               ref={(el) => { cardsRef.current[i] = el }}
-              className="group relative bg-white/[0.04] backdrop-blur-sm rounded-2xl overflow-hidden border border-white/[0.06] hover:border-amber-500/30 hover:shadow-2xl hover:shadow-amber-500/5 transition-all duration-500"
+              className="group relative bg-white rounded-2xl overflow-hidden border border-gray-100 hover:shadow-xl hover:shadow-gray-200/50 hover:border-amber-200 transition-all duration-500"
             >
               {/* Rank badge */}
               <div className="absolute top-3 left-3 z-10 w-8 h-8 rounded-full bg-amber-500 flex items-center justify-center text-[#050816] text-sm font-black shadow-lg shadow-amber-500/30">
                 {item.rank}
               </div>
 
-              <div className="relative h-52 overflow-hidden bg-white/[0.04]">
+              <div className="relative h-52 overflow-hidden bg-gray-100">
                 <img
                   src={item.image}
                   alt={item.name}
@@ -88,13 +88,13 @@ export default function MustDoSection() {
               </div>
 
               <div className="p-4">
-                <h3 className="text-white font-bold text-sm tracking-tight line-clamp-1 group-hover:text-amber-400 transition-colors">
+                <h3 className="text-gray-900 font-bold text-sm tracking-tight line-clamp-1 group-hover:text-amber-600 transition-colors">
                   {item.name}
                 </h3>
-                <p className="text-white/35 text-xs mt-1 line-clamp-2 leading-relaxed">
+                <p className="text-gray-500 text-xs mt-1 line-clamp-2 leading-relaxed">
                   {item.shortDesc}
                 </p>
-                <div className="flex items-center gap-2 mt-3 text-[10px] text-white/30">
+                <div className="flex items-center gap-2 mt-3 text-[10px] text-gray-400">
                   <Clock className="w-3 h-3" />
                   <span>{item.duration}</span>
                 </div>

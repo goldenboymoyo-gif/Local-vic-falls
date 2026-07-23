@@ -34,22 +34,16 @@ export default function CTA() {
   }, [])
 
   return (
-    <section ref={sectionRef} className="relative bg-[#050816] overflow-hidden">
-      {/* Ambient */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-[-20%] left-[20%] w-[600px] h-[600px] bg-teal-600/10 rounded-full blur-[140px]" />
-        <div className="absolute bottom-[-15%] right-[15%] w-[500px] h-[500px] bg-amber-500/5 rounded-full blur-[120px]" />
-      </div>
-
+    <section ref={sectionRef} className="relative bg-gray-50 overflow-hidden">
       <div className="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-24 lg:py-32 text-center">
         <div className="cta-content">
-          <span className="text-[11px] font-medium text-white/30 uppercase tracking-[0.2em]">
+          <span className="text-[11px] font-medium text-gray-400 uppercase tracking-[0.2em]">
             Get started
           </span>
-          <h2 className="text-3xl lg:text-[2.75rem] font-bold mt-4 tracking-tight leading-[1.08] text-white">
+          <h2 className="text-3xl lg:text-[2.75rem] font-bold mt-4 tracking-tight leading-[1.08] text-gray-900">
             Ready to discover Victoria Falls?
           </h2>
-          <p className="text-white/35 mt-5 text-base leading-relaxed max-w-lg mx-auto">
+          <p className="text-gray-500 mt-5 text-base leading-relaxed max-w-lg mx-auto">
             Find, book, and manage unforgettable experiences — all in one place.
           </p>
 
@@ -75,9 +69,9 @@ export default function CTA() {
           {/* Feature pills */}
           <div className="flex flex-wrap items-center justify-center gap-5 mt-10">
             {features.map((item) => (
-              <div key={item.label} className="flex items-center gap-2.5 text-sm text-white/40">
-                <div className="w-7 h-7 rounded-full bg-white/[0.05] flex items-center justify-center">
-                  <item.icon className="w-3.5 h-3.5 text-white/50" />
+              <div key={item.label} className="flex items-center gap-2.5 text-sm text-gray-500">
+                <div className="w-7 h-7 rounded-full bg-gray-100 flex items-center justify-center">
+                  <item.icon className="w-3.5 h-3.5 text-gray-400" />
                 </div>
                 {item.label}
               </div>

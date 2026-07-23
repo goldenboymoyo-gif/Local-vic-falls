@@ -51,20 +51,20 @@ export default function FeaturedSection() {
   }, [])
 
   return (
-    <section ref={sectionRef} className="py-20 lg:py-28 bg-[#050816]">
+    <section ref={sectionRef} className="py-20 lg:py-28 bg-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="feat-header flex items-end justify-between mb-12">
           <div>
-            <span className="text-[11px] font-medium text-teal-400 uppercase tracking-[0.2em]">
+            <span className="text-[11px] font-medium text-teal-600 uppercase tracking-[0.2em]">
               Staff Picks
             </span>
-            <h2 className="text-3xl lg:text-[2.5rem] font-bold mt-3 tracking-tight leading-[1.1] text-white">
+            <h2 className="text-3xl lg:text-[2.5rem] font-bold mt-3 tracking-tight leading-[1.1] text-gray-900">
               Featured
             </h2>
           </div>
           <Link
             to="/search"
-            className="hidden sm:inline-flex items-center gap-1.5 text-sm font-medium text-white/50 hover:text-teal-400 transition-colors group"
+            className="hidden sm:inline-flex items-center gap-1.5 text-sm font-medium text-gray-900 hover:text-teal-600 transition-colors group"
           >
             View all
             <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
@@ -77,9 +77,9 @@ export default function FeaturedSection() {
               key={item.id}
               ref={(el) => { cardsRef.current[i] = el }}
               to={`/business/${item.slug}`}
-              className="group bg-white/[0.04] backdrop-blur-sm rounded-2xl overflow-hidden border border-white/[0.06] hover:border-teal-500/30 hover:shadow-2xl hover:shadow-teal-500/5 transition-all duration-500"
+              className="group bg-white rounded-2xl overflow-hidden border border-gray-100 hover:shadow-xl hover:shadow-gray-200/50 hover:border-gray-200 transition-all duration-500"
             >
-              <div className="relative h-48 overflow-hidden bg-white/[0.04]">
+              <div className="relative h-48 overflow-hidden bg-gray-100">
                 <img
                   src={item.image}
                   alt={item.name}
@@ -100,10 +100,10 @@ export default function FeaturedSection() {
                 </div>
               </div>
               <div className="p-4">
-                <h3 className="text-white font-bold text-sm tracking-tight line-clamp-1 group-hover:text-teal-400 transition-colors">
+                <h3 className="text-gray-900 font-bold text-sm tracking-tight line-clamp-1 group-hover:text-teal-600 transition-colors">
                   {item.name}
                 </h3>
-                <p className="text-white/35 text-xs mt-1 line-clamp-1">
+                <p className="text-gray-500 text-xs mt-1 line-clamp-1">
                   {item.shortDesc || item.description?.slice(0, 60)}
                 </p>
               </div>

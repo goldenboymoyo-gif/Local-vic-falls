@@ -63,15 +63,16 @@ export default function Hero() {
   }
 
   return (
-    <div ref={heroRef} className="relative bg-[#050816] overflow-hidden">
+    <div ref={heroRef} className="relative bg-[#050816] overflow-hidden" style={{ minHeight: '85vh' }}>
       {/* Video background */}
       <div className="absolute inset-0">
         <iframe
-          src="https://www.youtube.com/embed/UZ3DV7rCCH4?autoplay=1&mute=1&loop=1&playlist=UZ3DV7rCCH4&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1"
+          src="https://www.youtube.com/embed/UZ3DV7rCCH4?autoplay=1&mute=1&loop=1&playlist=UZ3DV7rCCH4&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&iv_load_policy=3&disablekb=1"
           title="Victoria Falls background"
-          className="absolute inset-0 w-full h-full pointer-events-none"
+          className="absolute top-1/2 left-1/2 w-[178%] h-[178%] -translate-x-1/2 -translate-y-1/2 pointer-events-none"
           allow="autoplay; encrypted-media"
           allowFullScreen={false}
+          style={{ border: 'none' }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-[#050816]/70 via-[#050816]/40 to-[#050816]/95" />
         <div className="absolute inset-0 bg-gradient-to-r from-[#050816]/30 via-transparent to-[#050816]/30" />
