@@ -18,7 +18,6 @@ export default function Hero() {
   const subRef = useRef(null)
   const pillsRef = useRef(null)
   const searchRef = useRef(null)
-  const videoRef = useRef(null)
   const navigate = useNavigate()
   const [searchQuery, setSearchQuery] = useState('')
 
@@ -51,12 +50,6 @@ export default function Hero() {
           opacity: 1, y: 0, scale: 1, duration: 0.8, delay: 1.8, ease: 'power3.out',
         })
       }
-
-      if (videoRef.current) {
-        gsap.to(videoRef.current, {
-          scale: 1.1, duration: 30, repeat: -1, yoyo: true, ease: 'sine.inOut',
-        })
-      }
     }, heroRef)
 
     return () => ctx.revert()
@@ -73,14 +66,13 @@ export default function Hero() {
     <div ref={heroRef} className="relative bg-[#050816] overflow-hidden">
       {/* Video background */}
       <div className="absolute inset-0">
-        <video
-          ref={videoRef}
-          autoPlay loop muted playsInline
-          className="w-full h-full object-cover"
-          poster="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=1920&h=1080&fit=crop"
-        >
-          <source src="https://videos.pexels.com/video-files/16680514/16680514-uhd_2560_1440_30fps.mp4" type="video/mp4" />
-        </video>
+        <iframe
+          src="https://www.youtube.com/embed/UZ3DV7rCCH4?autoplay=1&mute=1&loop=1&playlist=UZ3DV7rCCH4&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1"
+          title="Victoria Falls background"
+          className="absolute top-1/2 left-1/2 w-[120%] h-[120%] -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+          allow="autoplay; encrypted-media"
+          allowFullScreen={false}
+        />
         <div className="absolute inset-0 bg-gradient-to-b from-[#050816]/70 via-[#050816]/40 to-[#050816]/95" />
         <div className="absolute inset-0 bg-gradient-to-r from-[#050816]/30 via-transparent to-[#050816]/30" />
       </div>
