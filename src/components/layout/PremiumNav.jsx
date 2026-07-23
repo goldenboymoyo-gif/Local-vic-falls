@@ -93,7 +93,7 @@ export default function PremiumNav() {
                 <polyline points="9 22 9 12 15 12 15 22" />
               </svg>
             </div>
-            <span className="text-lg font-bold text-white tracking-tight">ConnectHub</span>
+            <span className="text-lg font-bold text-white tracking-tight">Local Vic Falls</span>
           </a>
 
           {/* Center nav links */}

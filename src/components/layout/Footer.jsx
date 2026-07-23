@@ -80,14 +80,14 @@ export default function Footer() {
           <div className="col-span-2 md:col-span-3 lg:col-span-1">
             <Link to="/" className="flex items-center gap-2 mb-4">
               <Logo className="w-8 h-8" />
-              <span className="text-lg font-semibold">ConnectHub</span>
+              <span className="text-lg font-semibold">Local Vic Falls</span>
             </Link>
             <p className="text-sm text-gray-400 mb-6 leading-relaxed">
-              Connecting you with trusted local service providers. Quality service, right in your neighborhood.
+              The digital heartbeat of Victoria Falls. Discover, explore, and book authentic local experiences.
             </p>
             <div className="flex flex-col gap-2 text-sm text-gray-400">
               <span>Victoria Falls, Zimbabwe</span>
-              <span>hello@connecthub.com</span>
+              <span>hello@localvicfalls.com</span>
               <span>+263 78 123 4567</span>
             </div>
           </div>
@@ -114,7 +114,7 @@ export default function Footer() {
 
       <div className="border-t border-white/10">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-gray-500">© 2026 ConnectHub. All rights reserved.</p>
+          <p className="text-sm text-gray-500">© 2026 Local Vic Falls. All rights reserved.</p>
           <div className="flex items-center gap-6">
             <Link to="#" className="text-sm text-gray-500 hover:text-white transition-colors">Privacy</Link>
             <Link to="#" className="text-sm text-gray-500 hover:text-white transition-colors">Terms</Link>

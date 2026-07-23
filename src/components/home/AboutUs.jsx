@@ -32,17 +32,15 @@ export default function AboutUs() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="about-content">
-            <span className="text-xs font-medium text-blue-400 uppercase tracking-widest">About ConnectHub</span>
+            <span className="text-xs font-medium text-blue-400 uppercase tracking-widest">About Local Vic Falls</span>
             <h2 className="text-3xl lg:text-4xl font-bold text-white mt-3 tracking-tight leading-tight">
-              Your trusted partner for local services
+              Your gateway to authentic Victoria Falls
             </h2>
             <p className="text-white/50 mt-4 leading-relaxed max-w-lg">
-              ConnectHub makes it easy to find, compare, and book trusted local service providers.
-              We verify every professional on our platform so you can hire with confidence.
+              Local Vic Falls is the digital heartbeat of Victoria Falls, connecting tourists, locals, businesses, and communities in one immersive platform.
             </p>
             <p className="text-white/50 mt-3 leading-relaxed max-w-lg">
-              From electricians and plumbers to photographers and cleaners — discover the best
-              talent in your community, all in one place.
+              From world-class restaurants and thrilling adventures to cultural experiences and hidden gems — discover the real Victoria Falls.
             </p>
             <Link
               to="/about"

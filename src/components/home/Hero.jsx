@@ -173,7 +173,7 @@ export default function Hero() {
             </h1>
 
             <p ref={subtitleRef} className="text-base sm:text-lg text-white/70 max-w-2xl mx-auto mb-10 leading-relaxed">
-              ConnectHub helps local businesses showcase their services, reach new customers, receive enquiries and grow their business from one modern platform.
+              Local Vic Falls connects you with the best restaurants, adventures, hotels, experiences, and hidden gems in Victoria Falls. Discover the real Zimbabwe.
             </p>
 
             <div ref={buttonsRef} className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
