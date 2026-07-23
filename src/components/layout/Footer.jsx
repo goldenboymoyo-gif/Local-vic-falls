@@ -14,7 +14,6 @@ const footerLinks = {
     { label: 'Become a Host', href: '/sign-up' },
   ],
   company: [
-    { label: 'About Us', href: '/about' },
     { label: 'Contact', href: '/contact' },
   ],
   support: [

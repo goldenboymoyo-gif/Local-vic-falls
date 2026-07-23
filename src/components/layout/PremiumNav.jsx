@@ -10,7 +10,6 @@ const navLinks = [
   { label: 'Adventures', path: '/adventures' },
   { label: 'Eat & Drink', path: '/eat-drink' },
   { label: 'Culture', path: '/culture' },
-  { label: 'About', path: '/about' },
   { label: 'Contact', path: '/contact' },
 ]
 
@@ -121,47 +120,56 @@ export default function PremiumNav() {
 
           {/* Right side */}
           <div className="flex items-center gap-2 shrink-0">
-            {/* Search icon + dropdown */}
+            {/* Inline expanding search */}
             <div ref={searchWrapRef} className="relative">
-              <button
-                onClick={() => setSearchOpen(!searchOpen)}
-                className="w-10 h-10 flex items-center justify-center text-white/50 hover:text-white rounded-xl hover:bg-white/[0.06] transition-colors"
-                aria-label="Search"
+              <form
+                onSubmit={handleSearch}
+                className={`flex items-center h-10 rounded-xl border transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] ${
+                  searchOpen
+                    ? 'w-56 sm:w-64 bg-white/[0.06] border-white/[0.12]'
+                    : 'w-10 bg-transparent border-transparent hover:bg-white/[0.06]'
+                }`}
               >
-                <Search className="w-4.5 h-4.5" />
-              </button>
-
-              {/* Search dropdown */}
-              <AnimatePresence>
+                <button
+                  type={searchOpen ? 'submit' : 'button'}
+                  onClick={() => { if (!searchOpen) setSearchOpen(true) }}
+                  className="shrink-0 w-10 h-10 flex items-center justify-center text-white/50 hover:text-white rounded-xl transition-colors"
+                >
+                  <Search className="w-4.5 h-4.5" />
+                </button>
+                <input
+                  ref={searchInputRef}
+                  type="text"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  placeholder="Search experiences..."
+                  className={`flex-1 bg-transparent border-none outline-none text-sm text-white placeholder-white/40 min-w-0 transition-all duration-300 ${
+                    searchOpen ? 'opacity-100 pr-2' : 'opacity-0 w-0'
+                  }`}
+                />
                 {searchOpen && (
+                  <button
+                    type="button"
+                    onClick={() => { setSearchOpen(false); setSearchQuery(''); setSearchResults([]) }}
+                    className="shrink-0 p-2 text-white/40 hover:text-white"
+                  >
+                    <X className="w-3.5 h-3.5" />
+                  </button>
+                )}
+              </form>
+
+              {/* Results dropdown */}
+              <AnimatePresence>
+                {searchOpen && (searchResults.length > 0 || searchQuery.trim().length > 0) && (
                   <motion.div
                     initial={{ opacity: 0, y: 4 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 4 }}
                     transition={{ duration: 0.15 }}
-                    className="absolute top-full right-0 mt-2 w-[340px] bg-[#0a0f1e] border border-white/[0.08] rounded-xl shadow-2xl overflow-hidden z-50"
+                    className="absolute top-full right-0 mt-2 w-80 bg-[#0a0f1e] border border-white/[0.08] rounded-xl shadow-2xl overflow-hidden z-50"
                   >
-                    <form onSubmit={handleSearch} className="p-3">
-                      <div className="flex items-center gap-2 bg-white/[0.06] rounded-lg px-3 py-2 border border-white/[0.08] focus-within:border-teal-500/40 transition-colors">
-                        <Search className="w-4 h-4 text-white/40 shrink-0" />
-                        <input
-                          ref={searchInputRef}
-                          type="text"
-                          value={searchQuery}
-                          onChange={(e) => setSearchQuery(e.target.value)}
-                          placeholder="Search experiences, places..."
-                          className="flex-1 bg-transparent border-none outline-none text-sm text-white placeholder-white/40 min-w-0"
-                        />
-                        {searchQuery && (
-                          <button type="button" onClick={() => setSearchQuery('')} className="text-white/40 hover:text-white shrink-0">
-                            <X className="w-3.5 h-3.5" />
-                          </button>
-                        )}
-                      </div>
-                    </form>
-
                     {searchResults.length > 0 && (
-                      <div className="py-1 border-t border-white/[0.06]">
+                      <div className="py-2">
                         {searchResults.map((r, i) => (
                           <Link
                             key={i}
@@ -182,18 +190,14 @@ export default function PremiumNav() {
                     )}
 
                     {searchQuery.trim().length > 0 && searchResults.length === 0 && (
-                      <div className="py-5 text-center border-t border-white/[0.06]">
+                      <div className="py-5 text-center">
                         <p className="text-sm text-white/30">No results for &quot;{searchQuery}&quot;</p>
                       </div>
                     )}
 
                     {searchQuery.trim().length > 0 && (
                       <div className="border-t border-white/[0.06] px-4 py-2.5">
-                        <button
-                          type="submit"
-                          onClick={(e) => { e.preventDefault(); handleSearch(e) }}
-                          className="text-xs font-medium text-teal-400 hover:text-teal-300"
-                        >
+                        <button type="submit" className="text-xs font-medium text-teal-400 hover:text-teal-300">
                           Search all results →
                         </button>
                       </div>
