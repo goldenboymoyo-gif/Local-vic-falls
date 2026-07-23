@@ -1,8 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { Search, Compass, Mountain, UtensilsCrossed, Users, Hotel, Music } from 'lucide-react'
+import { Search } from 'lucide-react'
 import gsap from 'gsap'
 import { heroCategoryPills } from '../../data/listings'
+import { Mountain, UtensilsCrossed, Users, Hotel, Music } from 'lucide-react'
 
 const iconMap = { Mountain, UtensilsCrossed, Users, Hotel, Music }
 
@@ -10,16 +11,6 @@ const headlines = [
   "Victoria Falls isn't just a view.",
   "It's a whole town.",
 ]
-
-const particles = Array.from({ length: 30 }, (_, i) => ({
-  id: i,
-  x: Math.random() * 100,
-  y: Math.random() * 100,
-  size: Math.random() * 3 + 1,
-  duration: Math.random() * 20 + 15,
-  delay: Math.random() * 10,
-  opacity: Math.random() * 0.25 + 0.05,
-}))
 
 export default function Hero() {
   const heroRef = useRef(null)
@@ -30,22 +21,9 @@ export default function Hero() {
   const videoRef = useRef(null)
   const navigate = useNavigate()
   const [searchQuery, setSearchQuery] = useState('')
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 })
-
-  useEffect(() => {
-    const handleMouse = (e) => {
-      setMousePos({
-        x: (e.clientX / window.innerWidth - 0.5) * 20,
-        y: (e.clientY / window.innerHeight - 0.5) * 20,
-      })
-    }
-    window.addEventListener('mousemove', handleMouse)
-    return () => window.removeEventListener('mousemove', handleMouse)
-  }, [])
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Headline word-by-word spring reveal
       if (headlineRef.current) {
         const words = headlineRef.current.querySelectorAll('.hw')
         gsap.fromTo(words,
@@ -54,14 +32,12 @@ export default function Hero() {
         )
       }
 
-      // Subhead
       if (subRef.current) {
         gsap.fromTo(subRef.current, { opacity: 0, y: 30 }, {
           opacity: 1, y: 0, duration: 0.8, delay: 1.0, ease: 'power3.out',
         })
       }
 
-      // Category pills
       if (pillsRef.current) {
         const pills = pillsRef.current.querySelectorAll('.cat-pill')
         gsap.fromTo(pills,
@@ -70,14 +46,12 @@ export default function Hero() {
         )
       }
 
-      // Search bar
       if (searchRef.current) {
         gsap.fromTo(searchRef.current, { opacity: 0, y: 20, scale: 0.98 }, {
           opacity: 1, y: 0, scale: 1, duration: 0.8, delay: 1.8, ease: 'power3.out',
         })
       }
 
-      // Video slow zoom
       if (videoRef.current) {
         gsap.to(videoRef.current, {
           scale: 1.1, duration: 30, repeat: -1, yoyo: true, ease: 'sine.inOut',
@@ -97,29 +71,7 @@ export default function Hero() {
 
   return (
     <div ref={heroRef} className="relative bg-[#050816] overflow-hidden">
-      {/* Ambient glows */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-[-20%] left-[-10%] w-[700px] h-[700px] bg-teal-600/15 rounded-full blur-[160px]" />
-        <div className="absolute bottom-[-15%] right-[-5%] w-[600px] h-[600px] bg-emerald-600/10 rounded-full blur-[140px]" />
-        <div className="absolute top-[30%] right-[10%] w-[400px] h-[400px] bg-amber-500/5 rounded-full blur-[120px]" />
-
-        {particles.map((p) => (
-          <div
-            key={p.id}
-            className="absolute rounded-full bg-white"
-            style={{
-              left: `${p.x}%`,
-              top: `${p.y}%`,
-              width: `${p.size}px`,
-              height: `${p.size}px`,
-              opacity: p.opacity,
-              animation: `float-particle ${p.duration}s ${p.delay}s infinite ease-in-out`,
-            }}
-          />
-        ))}
-      </div>
-
-      {/* Video background — full bleed */}
+      {/* Video background */}
       <div className="absolute inset-0">
         <video
           ref={videoRef}
@@ -129,21 +81,18 @@ export default function Hero() {
         >
           <source src="https://videos.pexels.com/video-files/16680514/16680514-uhd_2560_1440_30fps.mp4" type="video/mp4" />
         </video>
-        <div className="absolute inset-0 bg-gradient-to-b from-[#050816]/75 via-[#050816]/30 to-[#050816]/95" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#050816]/70 via-[#050816]/40 to-[#050816]/95" />
         <div className="absolute inset-0 bg-gradient-to-r from-[#050816]/30 via-transparent to-[#050816]/30" />
       </div>
 
       {/* Content */}
-      <div className="relative z-10 overflow-hidden">
+      <div className="relative z-10">
         <div className="h-16 lg:h-18" />
 
-        <div
-          className="flex items-center justify-center px-5 sm:px-10 lg:px-14 py-14 sm:py-20 lg:py-28"
-          style={{ transform: `translate(${mousePos.x * 0.3}px, ${mousePos.y * 0.3}px)` }}
-        >
+        <div className="flex items-center justify-center px-5 sm:px-10 lg:px-14 py-14 sm:py-20 lg:py-28">
           <div className="text-center max-w-4xl">
-            {/* Headline — bold, opinionated */}
-            <h1 ref={headlineRef} className="text-3xl sm:text-5xl md:text-6xl lg:text-[4.5rem] font-black tracking-tight text-white leading-[1.05] mb-6" style={{ perspective: '600px' }}>
+            {/* Headline */}
+            <h1 ref={headlineRef} className="text-3xl sm:text-5xl md:text-6xl lg:text-[4.5rem] font-black tracking-tight text-white leading-[1.05] mb-6">
               {headlines[0].split(' ').map((word, i) => (
                 <span key={i} className="hw inline-block mr-[0.25em]">{word}</span>
               ))}
@@ -153,7 +102,7 @@ export default function Hero() {
               ))}
             </h1>
 
-            {/* Subhead — specific, not abstract */}
+            {/* Subhead */}
             <p ref={subRef} className="text-base sm:text-lg text-white/65 max-w-2xl mx-auto mb-10 leading-relaxed">
               Grade 5 rapids on the Zambezi. Oxtail at a rooftop bar. A village classroom 20 minutes out. This is the version of Victoria Falls locals actually live in.
             </p>
@@ -217,15 +166,6 @@ export default function Hero() {
           </div>
         </div>
       </div>
-
-      <style>{`
-        @keyframes float-particle {
-          0%, 100% { transform: translateY(0px) translateX(0px); }
-          25% { transform: translateY(-20px) translateX(10px); }
-          50% { transform: translateY(-10px) translateX(-5px); }
-          75% { transform: translateY(-30px) translateX(8px); }
-        }
-      `}</style>
     </div>
   )
 }
