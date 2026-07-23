@@ -27,13 +27,13 @@ export default function Hero() {
         const words = headlineRef.current.querySelectorAll('.hw')
         gsap.fromTo(words,
           { opacity: 0, y: 40, rotationX: -40 },
-          { opacity: 1, y: 0, rotationX: 0, duration: 0.8, stagger: 0.1, delay: 0.3, ease: 'power3.out' }
+          { opacity: 1, y: 0, rotationX: 0, duration: 0.8, stagger: 0.1, delay: 0.3, ease: 'power3.out', clearProps: 'all' }
         )
       }
 
       if (subRef.current) {
         gsap.fromTo(subRef.current, { opacity: 0, y: 30 }, {
-          opacity: 1, y: 0, duration: 0.8, delay: 1.0, ease: 'power3.out',
+          opacity: 1, y: 0, duration: 0.8, delay: 1.0, ease: 'power3.out', clearProps: 'all',
         })
       }
 
@@ -41,18 +41,25 @@ export default function Hero() {
         const pills = pillsRef.current.querySelectorAll('.cat-pill')
         gsap.fromTo(pills,
           { opacity: 0, y: 20, scale: 0.95 },
-          { opacity: 1, y: 0, scale: 1, duration: 0.5, stagger: 0.06, delay: 1.4, ease: 'power3.out' }
+          { opacity: 1, y: 0, scale: 1, duration: 0.5, stagger: 0.06, delay: 1.4, ease: 'power3.out', clearProps: 'all' }
         )
       }
 
       if (searchRef.current) {
         gsap.fromTo(searchRef.current, { opacity: 0, y: 20, scale: 0.98 }, {
-          opacity: 1, y: 0, scale: 1, duration: 0.8, delay: 1.8, ease: 'power3.out',
+          opacity: 1, y: 0, scale: 1, duration: 0.8, delay: 1.8, ease: 'power3.out', clearProps: 'all',
         })
       }
     }, heroRef)
 
-    return () => ctx.revert()
+    const fallback = setTimeout(() => {
+      document.querySelectorAll('.hw, .cat-pill, [ref="subRef"], [ref="searchRef"]').forEach(el => {
+        el.style.opacity = '1'
+        el.style.transform = 'none'
+      })
+    }, 3000)
+
+    return () => { ctx.revert(); clearTimeout(fallback) }
   }, [])
 
   function handleSearch(e) {
@@ -147,7 +154,7 @@ export default function Hero() {
                 return (
                   <Link
                     key={pill.slug}
-                    to={pill.slug === 'nightlife' || pill.slug === 'stay' ? `/search?pillar=${pill.slug}` : `/${pill.slug}`}
+                    to={pill.slug === 'adventure' ? '/adventures' : pill.slug === 'nightlife' || pill.slug === 'stay' ? `/search?pillar=${pill.slug}` : `/${pill.slug}`}
                     className="cat-pill inline-flex items-center gap-2 bg-white/[0.06] backdrop-blur-sm border border-white/[0.1] hover:bg-white/[0.12] hover:border-white/[0.2] text-white/70 hover:text-white px-4 py-2 rounded-full text-xs sm:text-sm font-medium transition-all duration-300"
                   >
                     {Icon && <Icon className="w-3.5 h-3.5" />}
