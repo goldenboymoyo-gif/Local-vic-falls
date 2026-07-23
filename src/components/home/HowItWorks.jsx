@@ -113,7 +113,7 @@ export default function HowItWorks() {
             Getting started is simple
           </h2>
           <p className="text-gray-500 mt-4 text-base leading-relaxed">
-            From search to service completion — here's how ConnectHub helps you get things done.
+            From search to experience completion — here's how Local Vic Falls helps you discover Victoria Falls.
           </p>
         </div>
 

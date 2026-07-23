@@ -4,16 +4,16 @@ import { Link } from 'react-router-dom'
 import { ChevronLeft, Shield, Users, Target, Heart, CheckCircle, Star, MapPin, ArrowRight } from 'lucide-react'
 
 const values = [
-  { icon: Shield, title: 'Trust & Safety', description: 'Every provider is verified and background-checked before listing on our platform.' },
-  { icon: Users, title: 'Community First', description: 'Built for local communities, supporting small businesses and skilled professionals.' },
-  { icon: Target, title: 'Quality Assurance', description: 'Real reviews and ratings ensure you always get the best service available.' },
-  { icon: Heart, title: 'Customer Care', description: 'Dedicated support team ready to help with any booking or service issue.' },
+  { icon: Shield, title: 'Trust & Safety', description: 'Every host is verified and reviewed before listing on our platform.' },
+  { icon: Users, title: 'Community First', description: 'Built for local communities, supporting small businesses and cultural preservation.' },
+  { icon: Target, title: 'Quality Assurance', description: 'Real reviews and ratings ensure you always get the best experience available.' },
+  { icon: Heart, title: 'Visitor Care', description: 'Dedicated support team ready to help with any booking or experience issue.' },
 ]
 
 const stats = [
-  { value: '2,500+', label: 'Verified Providers' },
-  { value: '15,000+', label: 'Happy Customers' },
-  { value: '50+', label: 'Service Categories' },
+  { value: '500+', label: 'Local Hosts' },
+  { value: '15,000+', label: 'Happy Visitors' },
+  { value: '200+', label: 'Experiences' },
   { value: '4.8', label: 'Average Rating' },
 ]
 
@@ -31,9 +31,9 @@ export default function About() {
       {/* Hero */}
       <section className="relative h-[50vh] min-h-[400px] flex items-end overflow-hidden bg-slate-900">
         <div className="absolute inset-0">
-          <img
-            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&h=800&fit=crop"
-            alt="Team collaboration"
+            <img
+            src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=1920&h=800&fit=crop"
+            alt="Victoria Falls"
             className="w-full h-full object-cover opacity-30"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-slate-900/80 to-slate-900/95" />
@@ -44,10 +44,10 @@ export default function About() {
           </Link>
           <span className="text-xs font-medium text-blue-400 uppercase tracking-widest block mb-3">About Us</span>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight max-w-2xl">
-            Connecting communities with trusted local services
+            The digital heartbeat of Victoria Falls
           </h1>
           <p className="text-white/50 mt-3 text-base sm:text-lg max-w-xl leading-relaxed">
-            We are building the most trusted platform for finding and booking local services in Zimbabwe.
+            Connecting tourists, locals, businesses, and communities through authentic experiences.
           </p>
         </div>
       </section>
@@ -57,22 +57,22 @@ export default function About() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <span className="text-xs font-medium text-blue-600 uppercase tracking-widest">Our Mission</span>
-              <h2 className="text-3xl lg:text-4xl font-bold mt-3 tracking-tight">
-                Making quality services accessible to everyone
-              </h2>
+            <span className="text-xs font-medium text-emerald-600 uppercase tracking-widest">Our Mission</span>
+            <h2 className="text-3xl lg:text-4xl font-bold mt-3 tracking-tight">
+              Becoming the digital heartbeat of Victoria Falls
+            </h2>
               <p className="text-gray-500 mt-4 leading-relaxed">
-                ConnectHub was founded with a simple goal: make it easy for people to find reliable, trusted service providers in their local area. We believe everyone deserves access to quality home services, professional help, and skilled tradespeople.
+                Local Vic Falls was founded with a simple goal: become the definitive digital platform for Victoria Falls — connecting tourists with unforgettable experiences, locals with opportunities, and communities with direct benefits from tourism.
               </p>
               <p className="text-gray-500 mt-4 leading-relaxed">
-                Starting in Victoria Falls, we are connecting the community with verified electricians, plumbers, cleaners, photographers, and hundreds of other professionals — all at the click of a button.
+                From world-class restaurants and thrilling adventures to cultural experiences and hidden gems — discover the real Victoria Falls, all in one beautiful platform.
               </p>
               <div className="mt-8">
                 <Link
                   to="/search"
-                  className="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-xl text-sm font-medium hover:bg-blue-700 transition-colors"
+                  className="inline-flex items-center gap-2 bg-emerald-600 text-white px-6 py-3 rounded-xl text-sm font-medium hover:bg-emerald-700 transition-colors"
                 >
-                  Explore services <ArrowRight className="w-4 h-4" />
+                  Explore experiences <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
             </div>
@@ -89,7 +89,7 @@ export default function About() {
                   <Star className="w-5 h-5 text-yellow-400 fill-yellow-400" />
                   <span className="text-2xl font-bold">4.8</span>
                 </div>
-                <p className="text-sm text-gray-500">Average provider rating across all categories</p>
+                <p className="text-sm text-gray-500">Average experience rating across all categories</p>
               </div>
             </div>
           </div>
@@ -100,14 +100,14 @@ export default function About() {
       <section className="py-20 lg:py-28 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
-            <span className="text-xs font-medium text-blue-600 uppercase tracking-widest">Our Values</span>
+            <span className="text-xs font-medium text-emerald-600 uppercase tracking-widest">Our Values</span>
             <h2 className="text-3xl lg:text-4xl font-bold mt-3 tracking-tight">What drives us</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {values.map((v) => (
               <div key={v.title} className="bg-white p-6 rounded-2xl border border-gray-100 hover:shadow-lg transition-all duration-300">
-                <div className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center mb-4">
-                  <v.icon className="w-6 h-6 text-blue-600" />
+                <div className="w-12 h-12 rounded-xl bg-emerald-50 flex items-center justify-center mb-4">
+                  <v.icon className="w-6 h-6 text-emerald-600" />
                 </div>
                 <h3 className="font-semibold text-lg mb-2">{v.title}</h3>
                 <p className="text-sm text-gray-500 leading-relaxed">{v.description}</p>
@@ -123,7 +123,7 @@ export default function About() {
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {stats.map((s) => (
               <div key={s.label} className="text-center">
-                <div className="text-3xl lg:text-4xl font-bold text-blue-600">{s.value}</div>
+                <div className="text-3xl lg:text-4xl font-bold text-emerald-600">{s.value}</div>
                 <div className="text-sm text-gray-500 mt-1">{s.label}</div>
               </div>
             ))}
@@ -135,8 +135,8 @@ export default function About() {
       <section className="py-20 lg:py-28 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
-            <span className="text-xs font-medium text-blue-600 uppercase tracking-widest">Our Team</span>
-            <h2 className="text-3xl lg:text-4xl font-bold mt-3 tracking-tight">Meet the people behind ConnectHub</h2>
+            <span className="text-xs font-medium text-emerald-600 uppercase tracking-widest">Our Team</span>
+            <h2 className="text-3xl lg:text-4xl font-bold mt-3 tracking-tight">Meet the people behind Local Vic Falls</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-3xl mx-auto">
             {team.map((member) => (
@@ -155,16 +155,16 @@ export default function About() {
       {/* CTA */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl lg:text-4xl font-bold tracking-tight">Ready to find a service provider?</h2>
+          <h2 className="text-3xl lg:text-4xl font-bold tracking-tight">Ready to discover Victoria Falls?</h2>
           <p className="text-gray-500 mt-3 max-w-lg mx-auto">
-            Browse thousands of verified professionals in your area.
+            Browse hundreds of experiences, restaurants, adventures, and hidden gems.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
             <Link to="/search" className="bg-black text-white px-8 py-3 rounded-xl text-sm font-medium hover:bg-gray-800 transition-colors">
               Get started
             </Link>
             <Link to="/sign-up" className="border border-gray-200 text-gray-700 px-8 py-3 rounded-xl text-sm font-medium hover:bg-gray-50 transition-colors">
-              Join as a provider
+              Become a Host
             </Link>
           </div>
         </div>

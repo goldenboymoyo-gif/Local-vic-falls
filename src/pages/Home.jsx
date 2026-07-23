@@ -1,12 +1,11 @@
 import React, { useEffect } from 'react'
 import { motion } from 'framer-motion'
 import Hero from '../components/home/Hero'
-import FeaturedBusinesses from '../components/home/FeaturedBusinesses'
-import PopularProfessionals from '../components/home/PopularProfessionals'
-import HowItWorks from '../components/home/HowItWorks'
-import Testimonials from '../components/home/Testimonials'
-import Cities from '../components/home/Cities'
-import AboutUs from '../components/home/AboutUs'
+import ExploreByMood from '../components/home/ExploreByMood'
+import FeaturedExperiences from '../components/home/FeaturedExperiences'
+import LocalStories from '../components/home/LocalStories'
+import CommunityImpact from '../components/home/CommunityImpact'
+import BecomeHost from '../components/home/BecomeHost'
 import CTA from '../components/home/CTA'
 
 export default function Home() {
@@ -22,12 +21,11 @@ export default function Home() {
       transition={{ duration: 0.3 }}
     >
       <Hero />
-      <FeaturedBusinesses />
-      <PopularProfessionals />
-      <HowItWorks />
-      <Testimonials />
-      <Cities />
-      <AboutUs />
+      <ExploreByMood />
+      <FeaturedExperiences />
+      <LocalStories />
+      <CommunityImpact />
+      <BecomeHost />
       <CTA />
     </motion.main>
   )

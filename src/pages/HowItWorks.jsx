@@ -7,7 +7,7 @@ const steps = [
   {
     icon: Search,
     title: 'Search & Discover',
-    description: 'Browse categories, search for specific services, and discover trusted local businesses. Every provider on ConnectHub is verified and reviewed by real customers.',
+    description: 'Browse categories, search for specific experiences, and discover trusted local businesses. Every host on Local Vic Falls is verified and reviewed by real visitors.',
     details: [
       'Search by service type, location, or business name',
       'Filter by ratings, price range, and availability',
@@ -77,8 +77,8 @@ export default function HowItWorks() {
       <section className="relative h-[45vh] min-h-[350px] flex items-end overflow-hidden bg-slate-900">
         <div className="absolute inset-0">
           <img
-            src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1920&h=800&fit=crop"
-            alt="Team working together"
+            src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=1920&h=800&fit=crop"
+            alt="Victoria Falls"
             className="w-full h-full object-cover opacity-25"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-slate-900/80 to-slate-900/95" />
@@ -92,7 +92,7 @@ export default function HowItWorks() {
             Getting started is simple
           </h1>
           <p className="text-white/50 mt-3 text-base sm:text-lg max-w-xl leading-relaxed">
-            From search to service completion — here's how ConnectHub helps you get things done.
+            From search to experience completion — here's how Local Vic Falls helps you discover the best of Victoria Falls.
           </p>
         </div>
       </section>
@@ -194,14 +194,14 @@ export default function HowItWorks() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl lg:text-4xl font-bold tracking-tight">Ready to get started?</h2>
           <p className="text-gray-500 mt-3 max-w-lg mx-auto">
-            Join thousands of happy customers and trusted providers on ConnectHub.
+            Join thousands of happy visitors and trusted hosts on Local Vic Falls.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-            <Link to="/search" className="bg-black text-white px-8 py-3 rounded-xl text-sm font-medium hover:bg-gray-800 transition-colors inline-flex items-center gap-2">
-              Find a service <ArrowRight className="w-4 h-4" />
+              <Link to="/search" className="bg-black text-white px-8 py-3 rounded-xl text-sm font-medium hover:bg-gray-800 transition-colors inline-flex items-center gap-2">
+              Explore experiences <ArrowRight className="w-4 h-4" />
             </Link>
             <Link to="/sign-up" className="border border-gray-200 text-gray-700 px-8 py-3 rounded-xl text-sm font-medium hover:bg-gray-50 transition-colors">
-              Join as a provider
+              Become a Host
             </Link>
           </div>
         </div>

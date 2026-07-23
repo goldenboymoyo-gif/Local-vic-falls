@@ -18,7 +18,7 @@ export default function DemoShowcase() {
             Explore the platform with pre-configured accounts
           </h2>
           <p className="text-gray-500 mt-2 text-sm">
-            No registration needed. Click any account to see how ConnectHub works for customers, providers, and admins.
+            No registration needed. Click any account to see how Local Vic Falls works for visitors, hosts, and admins.
           </p>
         </div>
 

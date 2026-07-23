@@ -67,7 +67,7 @@ export default function Testimonials() {
             What our customers say
           </h2>
           <p className="text-gray-500 mt-4 text-base leading-relaxed">
-            Real stories from real people who found trusted services through ConnectHub.
+            Real stories from real people who discovered amazing experiences through Local Vic Falls.
           </p>
         </div>
 
@@ -174,7 +174,7 @@ export default function Testimonials() {
               <Star className="w-6 h-6 text-blue-600 fill-blue-600" />
             </div>
             <p className="text-sm font-semibold text-gray-800 mb-1">Join 15,000+ happy customers</p>
-            <p className="text-xs text-gray-500">Share your experience on ConnectHub</p>
+            <p className="text-xs text-gray-500">Share your experience on Local Vic Falls</p>
           </div>
         </div>
       </div>

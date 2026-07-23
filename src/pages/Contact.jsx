@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { ChevronLeft, Mail, Phone, MapPin, Clock, Send, MessageCircle, HelpCircle, Building2 } from 'lucide-react'
 
 const contactInfo = [
-  { icon: Mail, label: 'Email', value: 'hello@connecthub.co.zw', href: 'mailto:hello@connecthub.co.zw' },
+  { icon: Mail, label: 'Email', value: 'hello@localvicfalls.com', href: 'mailto:hello@localvicfalls.com' },
   { icon: Phone, label: 'Phone', value: '+263 78 123 4567', href: 'tel:+263781234567' },
   { icon: MapPin, label: 'Office', value: '123 Adamson Drive, Victoria Falls, Zimbabwe', href: null },
   { icon: Clock, label: 'Hours', value: 'Mon - Fri: 8:00 AM - 5:00 PM', href: null },
@@ -12,20 +12,20 @@ const contactInfo = [
 
 const faqs = [
   {
-    q: 'How do I list my business on ConnectHub?',
-    a: 'Click "Register Business" and fill out the form. Our team will review your application and verify your credentials within 48 hours.',
+    q: 'How do I list my business on Local Vic Falls?',
+    a: 'Click "Become a Host" and fill out the form. Our team will review your application and verify your credentials within 48 hours.',
   },
   {
-    q: 'Is ConnectHub free for customers?',
-    a: 'Yes! Searching, browsing, and booking services on ConnectHub is completely free for customers. You only pay for the services you book.',
+    q: 'Is Local Vic Falls free for visitors?',
+    a: 'Yes! Searching, browsing, and discovering experiences on Local Vic Falls is completely free. You only pay for the experiences you book.',
   },
   {
-    q: 'How are providers verified?',
-    a: 'Every provider goes through a thorough verification process including background checks, credential verification, and reference checks before being listed on our platform.',
+    q: 'How are hosts verified?',
+    a: 'Every host goes through a thorough verification process including identity checks, business credential verification, and reference checks before being listed on our platform.',
   },
   {
-    q: 'What if I\'m not satisfied with a service?',
-    a: 'Contact our support team within 24 hours of service completion. We\'ll work with you and the provider to resolve any issues, and may offer a refund if appropriate.',
+    q: 'What if I\'m not satisfied with an experience?',
+    a: 'Contact our support team within 24 hours of your experience. We\'ll work with you and the host to resolve any issues, and may offer a refund if appropriate.',
   },
 ]
 
@@ -55,7 +55,7 @@ export default function Contact() {
           <Link to="/" className="inline-flex items-center gap-1 text-sm text-white/60 hover:text-white mb-6 transition-colors">
             <ChevronLeft className="w-4 h-4" /> Back to home
           </Link>
-          <span className="text-xs font-medium text-blue-400 uppercase tracking-widest block mb-3">Contact Us</span>
+            <span className="text-xs font-medium text-emerald-400 uppercase tracking-widest block mb-3">Contact Us</span>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight max-w-2xl">
             We'd love to hear from you
           </h1>
@@ -76,8 +76,8 @@ export default function Contact() {
 
               {submitted ? (
                 <div className="bg-gray-50 rounded-2xl p-12 text-center border border-gray-100">
-                  <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <Send className="w-7 h-7 text-green-600" />
+                  <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <Send className="w-7 h-7 text-emerald-600" />
                   </div>
                   <h3 className="text-xl font-bold mb-2">Message sent!</h3>
                   <p className="text-gray-500 text-sm">Thank you for reaching out. We'll get back to you within 24 hours.</p>
@@ -123,8 +123,8 @@ export default function Contact() {
               <div className="space-y-6">
                 {contactInfo.map((item) => (
                   <div key={item.label} className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-gray-50 flex items-center justify-center shrink-0">
-                      <item.icon className="w-5 h-5 text-gray-600" />
+                    <div className="w-10 h-10 rounded-xl bg-emerald-50 flex items-center justify-center shrink-0">
+                      <item.icon className="w-5 h-5 text-emerald-600" />
                     </div>
                     <div>
                       <div className="text-xs font-medium text-gray-400 uppercase tracking-wider mb-0.5">{item.label}</div>
@@ -140,8 +140,8 @@ export default function Contact() {
 
               <div className="mt-10 p-6 bg-gray-50 rounded-2xl border border-gray-100">
                 <div className="flex items-center gap-2 mb-3">
-                  <Building2 className="w-5 h-5 text-blue-600" />
-                  <h3 className="font-semibold text-sm">ConnectHub HQ</h3>
+                  <Building2 className="w-5 h-5 text-emerald-600" />
+                  <h3 className="font-semibold text-sm">Local Vic Falls HQ</h3>
                 </div>
                 <p className="text-sm text-gray-500 leading-relaxed">
                   Located in the heart of Victoria Falls, our team is dedicated to connecting communities with trusted local services.
@@ -156,14 +156,14 @@ export default function Contact() {
       <section className="py-20 bg-gray-50">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <span className="text-xs font-medium text-blue-600 uppercase tracking-widest">FAQ</span>
+            <span className="text-xs font-medium text-emerald-600 uppercase tracking-widest">FAQ</span>
             <h2 className="text-3xl font-bold mt-3 tracking-tight">Frequently asked questions</h2>
           </div>
           <div className="space-y-4">
             {faqs.map((faq) => (
               <div key={faq.q} className="bg-white rounded-2xl p-6 border border-gray-100">
                 <div className="flex items-start gap-3">
-                  <HelpCircle className="w-5 h-5 text-blue-600 shrink-0 mt-0.5" />
+                    <HelpCircle className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
                   <div>
                     <h3 className="font-semibold text-sm mb-1.5">{faq.q}</h3>
                     <p className="text-sm text-gray-500 leading-relaxed">{faq.a}</p>

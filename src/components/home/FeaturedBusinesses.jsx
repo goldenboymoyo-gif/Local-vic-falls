@@ -54,14 +54,14 @@ export default function FeaturedBusinesses() {
         {/* Header */}
         <div className="biz-header flex items-end justify-between mb-14">
           <div>
-            <span className="text-[11px] font-medium text-gray-400 uppercase tracking-[0.2em]">
+            <span className="text-[11px] font-medium text-emerald-600 uppercase tracking-[0.2em]">
               Featured
             </span>
             <h2 className="text-3xl lg:text-[2.5rem] font-bold mt-3 tracking-tight leading-[1.1] text-gray-900">
               Top-rated businesses
             </h2>
             <p className="text-gray-400 mt-3 text-sm leading-relaxed max-w-md">
-              Discover our most trusted and highly recommended service providers.
+              Discover our most trusted and highly recommended experiences in Victoria Falls.
             </p>
           </div>
           <Link
@@ -127,7 +127,7 @@ export default function FeaturedBusinesses() {
                   <div className={`flex items-center gap-3 mt-6 ${isReversed ? 'md:justify-end' : ''}`}>
                     <Link
                       to={`/business/${biz.slug}`}
-                      className="inline-flex items-center gap-2 bg-gray-900 text-white px-6 py-2.5 rounded-full text-sm font-medium hover:bg-blue-600 transition-colors duration-300"
+                      className="inline-flex items-center gap-2 bg-gray-900 text-white px-6 py-2.5 rounded-full text-sm font-medium hover:bg-emerald-600 transition-colors duration-300"
                     >
                       View profile
                       <ChevronRight className="w-4 h-4" />
