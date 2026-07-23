@@ -100,7 +100,7 @@ export default function PremiumNav() {
           </a>
 
           {/* Center nav links */}
-          <div className="hidden lg:flex items-center flex-1 min-w-0 justify-center">
+          <div className="hidden lg:flex items-center shrink-0 w-[420px] justify-center">
             <div className="flex items-center gap-1">
               {navLinks.map((link) => (
                 <Link
