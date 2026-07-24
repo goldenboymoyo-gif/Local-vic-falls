@@ -64,7 +64,7 @@ export default function Cities() {
     <section ref={sectionRef} className="py-20 lg:py-28 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-10">
-          <span className="text-xs font-medium text-blue-600 uppercase tracking-widest">Destination</span>
+          <span className="text-xs font-medium text-teal-600 uppercase tracking-widest">Destination</span>
           <h2 className="text-3xl lg:text-4xl font-bold mt-3 tracking-tight">
             Victoria Falls, Zimbabwe
           </h2>
@@ -111,7 +111,7 @@ export default function Cities() {
 
                 <Link
                   to="/search?city=Victoria%20Falls"
-                  className="inline-flex items-center gap-2 bg-white text-black px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-gray-100 transition-all duration-200"
+                  className="inline-flex items-center gap-2 bg-white text-gray-900 px-5 py-2.5 rounded-lg text-sm font-semibold hover:bg-gray-100 transition-colors duration-150"
                 >
                   Explore Victoria Falls
                   <ArrowUpRight className="w-4 h-4" />
@@ -129,8 +129,8 @@ export default function Cities() {
               ref={(el) => { cardsRef.current[i] = el }}
               className="flex items-center gap-4 p-4 rounded-xl border border-gray-100 bg-gray-50/50 hover:bg-white hover:shadow-md hover:border-gray-200 transition-all duration-300 cursor-pointer group"
             >
-              <div className="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center shrink-0 group-hover:bg-blue-100 transition-colors">
-                <h.icon className="w-4.5 h-4.5 text-blue-600" />
+              <div className="w-10 h-10 rounded-lg bg-teal-50 flex items-center justify-center shrink-0 group-hover:bg-teal-100 transition-colors">
+                <h.icon className="w-4.5 h-4.5 text-teal-600" />
               </div>
               <div>
                 <h4 className="text-sm font-semibold text-gray-800">{h.label}</h4>
@@ -150,7 +150,7 @@ export default function Cities() {
                 to={`/search?city=${encodeURIComponent(area.name)}`}
                 className="group block p-4 rounded-xl border border-gray-100 hover:border-gray-200 hover:shadow-md transition-all duration-300"
               >
-                <h4 className="text-sm font-semibold text-gray-800 group-hover:text-blue-600 transition-colors">{area.name}</h4>
+                <h4 className="text-sm font-semibold text-gray-800 group-hover:text-teal-600 transition-colors">{area.name}</h4>
                 <p className="text-xs text-gray-500 mt-1">{area.providers} providers</p>
               </Link>
             ))}

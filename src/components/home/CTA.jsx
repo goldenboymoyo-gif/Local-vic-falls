@@ -50,7 +50,7 @@ export default function CTA() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mt-8">
             <Link
               to="/sign-up"
-              className="magnetic-btn inline-flex items-center gap-2 bg-gradient-to-r from-teal-500 to-emerald-500 text-white px-8 py-3.5 rounded-full text-sm font-semibold hover:from-teal-400 hover:to-emerald-400 transition-all duration-300 shadow-lg shadow-teal-500/20"
+              className="magnetic-btn inline-flex items-center gap-2 bg-teal-600 text-white px-7 py-3 rounded-lg text-sm font-semibold hover:bg-teal-700 transition-colors duration-150"
             >
               Become a Host
               <ArrowRight className="w-4 h-4" />
@@ -59,7 +59,7 @@ export default function CTA() {
               href="https://wa.me/263781234567?text=Hi!%20I'd%20like%20to%20know%20more%20about%20Local%20Vic%20Falls."
               target="_blank"
               rel="noopener noreferrer"
-              className="magnetic-btn inline-flex items-center gap-2 bg-[#25D366]/10 text-[#25D366] border border-[#25D366]/20 px-8 py-3.5 rounded-full text-sm font-semibold hover:bg-[#25D366]/20 transition-all duration-300"
+              className="magnetic-btn inline-flex items-center gap-2 bg-[#25D366] text-white px-7 py-3 rounded-lg text-sm font-semibold hover:bg-[#20BA5C] transition-colors duration-150"
             >
               <MessageCircle className="w-4 h-4" />
               Chat on WhatsApp
@@ -67,10 +67,10 @@ export default function CTA() {
           </div>
 
           {/* Feature pills */}
-          <div className="flex flex-wrap items-center justify-center gap-5 mt-10">
+          <div className="flex flex-wrap items-center justify-center gap-4 mt-10">
             {features.map((item) => (
-              <div key={item.label} className="flex items-center gap-2.5 text-sm text-gray-500">
-                <div className="w-7 h-7 rounded-full bg-gray-100 flex items-center justify-center">
+              <div key={item.label} className="flex items-center gap-2 text-sm text-gray-500">
+                <div className="w-7 h-7 rounded-lg bg-gray-100 flex items-center justify-center">
                   <item.icon className="w-3.5 h-3.5 text-gray-400" />
                 </div>
                 {item.label}

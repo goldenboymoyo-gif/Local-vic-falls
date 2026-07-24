@@ -123,7 +123,7 @@ export default function AdventureSection() {
                   href={adv.whatsapp}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 w-full bg-[#25D366] hover:bg-[#20BA5C] text-white text-xs font-semibold py-2.5 rounded-xl transition-colors duration-200"
+                  className="flex items-center justify-center gap-2 w-full bg-[#25D366] hover:bg-[#20BA5C] text-white text-xs font-semibold py-2.5 rounded-lg transition-colors duration-150"
                 >
                   <MessageCircle className="w-3.5 h-3.5" />
                   Book on WhatsApp

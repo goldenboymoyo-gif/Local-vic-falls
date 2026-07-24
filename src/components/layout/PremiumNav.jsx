@@ -85,7 +85,7 @@ export default function PremiumNav() {
         <div className="flex items-center justify-between h-16 lg:h-18 gap-4">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2.5 shrink-0 group">
-            <div className="w-9 h-9 bg-gradient-to-br from-teal-500 to-emerald-600 rounded-xl flex items-center justify-center group-hover:from-teal-400 group-hover:to-emerald-500 transition-all duration-300 shadow-lg shadow-teal-500/20">
+            <div className="w-9 h-9 bg-teal-600 rounded-xl flex items-center justify-center transition-colors duration-150">
               <Compass className="w-5 h-5 text-white" />
             </div>
             <span className="text-lg font-bold text-white tracking-tight">
@@ -179,7 +179,7 @@ export default function PremiumNav() {
             <Link to="/sign-in" className="hidden sm:inline-flex text-sm text-white/60 hover:text-white px-3 py-2 transition-colors">
               Login
             </Link>
-            <Link to="/sign-up" className="hidden lg:inline-flex items-center gap-1.5 text-sm font-semibold bg-gradient-to-r from-teal-500 to-emerald-500 text-white px-5 py-2.5 rounded-xl hover:from-teal-400 hover:to-emerald-400 transition-all duration-300 shadow-lg shadow-teal-500/20">
+            <Link to="/sign-up" className="hidden lg:inline-flex items-center gap-1.5 text-sm font-semibold bg-teal-600 text-white px-5 py-2 rounded-lg hover:bg-teal-700 transition-colors duration-150">
               Become a Host
             </Link>
 
@@ -234,7 +234,7 @@ export default function PremiumNav() {
               <Link to="/sign-in" className="px-4 py-3 text-sm text-white/60 hover:text-white rounded-xl hover:bg-white/[0.04]">
                 Login
               </Link>
-              <Link to="/sign-up" className="px-4 py-3 text-sm font-semibold bg-gradient-to-r from-teal-500 to-emerald-500 text-white rounded-xl text-center mt-1">
+              <Link to="/sign-up" className="px-4 py-3 text-sm font-semibold bg-teal-600 text-white rounded-lg text-center mt-1">
                 Become a Host
               </Link>
             </div>

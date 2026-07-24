@@ -57,8 +57,8 @@ export default function Search({ defaultPillar = '' }) {
       <div className="bg-white border-b border-gray-100 sticky top-16 z-30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center gap-4">
-            <div className="flex-1 flex items-center gap-3 bg-gray-50 rounded-xl px-4 py-2.5 border border-gray-200 focus-within:border-gray-400 transition-colors">
-              <SearchIcon className="w-5 h-5 text-gray-400" />
+            <div className="flex-1 flex items-center gap-3 bg-gray-100/80 rounded-lg px-4 py-2.5 border border-gray-200 focus-within:border-gray-400 transition-colors">
+              <SearchIcon className="w-4 h-4 text-gray-400" />
               <input
                 type="text" value={query} onChange={(e) => setQuery(e.target.value)}
                 placeholder="Search adventures, restaurants, tours, hotels..."
@@ -72,14 +72,14 @@ export default function Search({ defaultPillar = '' }) {
             </div>
             <button
               onClick={() => setShowFilters(!showFilters)}
-              className={`flex items-center gap-2 px-4 py-2.5 rounded-xl border text-sm font-medium transition-colors ${
-                showFilters || pillar ? 'bg-black text-white border-black' : 'bg-white text-gray-700 border-gray-200 hover:bg-gray-50'
+              className={`flex items-center gap-2 px-4 py-2.5 rounded-lg border text-sm font-medium transition-colors ${
+                showFilters || pillar ? 'bg-gray-900 text-white border-gray-900' : 'bg-white text-gray-700 border-gray-200 hover:bg-gray-50'
               }`}
             >
               <SlidersHorizontal className="w-4 h-4" /> Filters
               {pillar && <span className="w-1.5 h-1.5 bg-white rounded-full" />}
             </button>
-            <div className="hidden sm:flex items-center border border-gray-200 rounded-xl overflow-hidden" role="group" aria-label="View mode">
+            <div className="hidden sm:flex items-center border border-gray-200 rounded-lg overflow-hidden" role="group" aria-label="View mode">
               <button
                 onClick={() => setViewMode('grid')}
                 className={`p-2.5 transition-colors ${viewMode === 'grid' ? 'bg-gray-100 text-gray-900' : 'bg-white text-gray-400 hover:bg-gray-50'}`}
@@ -112,7 +112,7 @@ export default function Search({ defaultPillar = '' }) {
                         onClick={() => setPillar(pillar === p.slug ? '' : p.slug)}
                         className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium border transition-colors ${
                           pillar === p.slug
-                            ? 'bg-black text-white border-black'
+                            ? 'bg-gray-900 text-white border-gray-900'
                             : 'bg-gray-50 text-gray-700 border-gray-200 hover:bg-gray-100'
                         }`}
                       >
@@ -153,7 +153,7 @@ export default function Search({ defaultPillar = '' }) {
                     <button
                       key={p.slug}
                       onClick={() => { setPillar(p.slug); window.scrollTo(0, 0) }}
-                      className="flex flex-col items-center gap-2 p-5 bg-white rounded-2xl border border-gray-100 hover:shadow-md hover:border-gray-200 transition-all group"
+                      className="flex flex-col items-center gap-2 p-5 bg-white rounded-xl border border-gray-100 hover:shadow-md hover:border-gray-200 transition-all group"
                     >
                       <div className="w-12 h-12 rounded-xl bg-teal-50 flex items-center justify-center group-hover:bg-teal-100 transition-colors">
                         {Icon && <Icon className="w-6 h-6 text-teal-600" />}
@@ -274,10 +274,10 @@ export default function Search({ defaultPillar = '' }) {
             </p>
             <div className="flex items-center justify-center gap-3">
               {pillar && (
-                <button onClick={() => setPillar('')} className="px-5 py-2.5 text-sm font-medium border border-gray-200 text-gray-700 rounded-xl hover:bg-gray-50 transition-colors">Clear filter</button>
+                <button onClick={() => setPillar('')} className="px-5 py-2.5 text-sm font-medium border border-gray-200 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors">Clear filter</button>
               )}
               {query && (
-                <button onClick={() => setQuery('')} className="px-5 py-2.5 text-sm font-medium bg-black text-white rounded-xl hover:bg-gray-800 transition-colors">Browse all</button>
+                <button onClick={() => setQuery('')} className="px-5 py-2.5 text-sm font-medium bg-gray-900 text-white rounded-lg hover:bg-black transition-colors">Browse all</button>
               )}
             </div>
           </motion.div>

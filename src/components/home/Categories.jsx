@@ -115,7 +115,7 @@ export default function Categories() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex items-end justify-between mb-12">
           <div>
-            <span className="text-xs font-medium text-blue-600 uppercase tracking-widest">Categories</span>
+            <span className="text-xs font-medium text-teal-600 uppercase tracking-widest">Categories</span>
             <h2 className="text-3xl lg:text-4xl font-bold mt-3 tracking-tight">
               Browse by category
             </h2>
@@ -123,7 +123,7 @@ export default function Categories() {
               Find exactly what you need from our curated selection of service categories.
             </p>
           </div>
-          <Link to="/search" className="hidden sm:flex items-center gap-1 text-sm font-medium text-gray-900 hover:text-blue-600 transition-colors group">
+          <Link to="/search" className="hidden sm:flex items-center gap-1 text-sm font-medium text-gray-900 hover:text-teal-600 transition-colors group">
             View all
             <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
           </Link>
@@ -170,7 +170,7 @@ export default function Categories() {
         </div>
 
         <div className="mt-6 text-center sm:hidden">
-          <Link to="/search" className="inline-flex items-center gap-1 text-sm font-medium text-blue-600">
+          <Link to="/search" className="inline-flex items-center gap-1 text-sm font-medium text-teal-600">
             View all categories <ArrowRight className="w-3.5 h-3.5" />
           </Link>
         </div>

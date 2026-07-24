@@ -151,7 +151,7 @@ export default function AIPlanner() {
             <ArrowLeft className="w-5 h-5" />
           </Link>
           <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-teal-500 to-emerald-500 flex items-center justify-center">
+            <div className="w-8 h-8 rounded-full bg-teal-600 flex items-center justify-center">
               <Sparkles className="w-4 h-4 text-white" />
             </div>
             <div>
@@ -181,14 +181,14 @@ export default function AIPlanner() {
               value={apiKey}
               onChange={(e) => setApiKey(e.target.value)}
               placeholder="sk-..."
-              className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-gray-900 placeholder-gray-400 text-sm mb-4 focus:outline-none focus:border-teal-500"
+              className="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-gray-900 placeholder-gray-400 text-sm mb-4 focus:outline-none focus:border-teal-500"
               onKeyDown={(e) => e.key === 'Enter' && saveApiKey()}
             />
             <div className="flex items-center gap-3">
               <button
                 onClick={saveApiKey}
                 disabled={!apiKey.trim()}
-                className="flex-1 bg-gradient-to-r from-teal-500 to-emerald-500 text-white py-2.5 rounded-xl text-sm font-semibold hover:from-teal-400 hover:to-emerald-400 transition-all disabled:opacity-30 disabled:cursor-not-allowed"
+                className="flex-1 bg-teal-600 text-white py-2.5 rounded-lg text-sm font-semibold hover:bg-teal-700 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
               >
                 Save & Start
               </button>
@@ -217,12 +217,12 @@ export default function AIPlanner() {
               className={`flex gap-3 ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
             >
               {msg.role === 'assistant' && (
-                <div className="w-7 h-7 rounded-full bg-gradient-to-br from-teal-500 to-emerald-500 flex items-center justify-center shrink-0 mt-0.5">
+                <div className="w-7 h-7 rounded-full bg-teal-600 flex items-center justify-center shrink-0 mt-0.5">
                   <Bot className="w-3.5 h-3.5 text-white" />
                 </div>
               )}
               <div
-                className={`max-w-[80%] rounded-2xl px-4 py-3 text-sm leading-relaxed ${
+                className={`max-w-[80%] rounded-xl px-4 py-3 text-sm leading-relaxed ${
                   msg.role === 'user'
                     ? 'bg-teal-50 text-teal-900 border border-teal-100'
                     : 'bg-gray-50 text-gray-700 border border-gray-100'
@@ -240,7 +240,7 @@ export default function AIPlanner() {
 
           {loading && (
             <div className="flex gap-3">
-              <div className="w-7 h-7 rounded-full bg-gradient-to-br from-teal-500 to-emerald-500 flex items-center justify-center shrink-0">
+              <div className="w-7 h-7 rounded-full bg-teal-600 flex items-center justify-center shrink-0">
                 <Bot className="w-3.5 h-3.5 text-white" />
               </div>
               <div className="bg-gray-50 border border-gray-100 rounded-2xl px-4 py-3 flex items-center gap-2">
@@ -262,7 +262,7 @@ export default function AIPlanner() {
               <button
                 key={s}
                 onClick={() => sendMessage(s)}
-                className="bg-gray-50 border border-gray-200 text-gray-600 hover:text-teal-700 hover:bg-teal-50 hover:border-teal-200 px-3.5 py-2 rounded-full text-xs font-medium transition-all duration-200"
+                className="bg-gray-50 border border-gray-200 text-gray-600 hover:text-teal-700 hover:bg-teal-50 hover:border-teal-200 px-3.5 py-2 rounded-lg text-xs font-medium transition-colors duration-150"
               >
                 {s}
               </button>
@@ -274,7 +274,7 @@ export default function AIPlanner() {
       {/* Input */}
       <div className="sticky bottom-0 bg-white/80 backdrop-blur-xl border-t border-gray-100">
         <div className="max-w-3xl mx-auto px-4 py-3">
-          <div className="flex items-center gap-2 bg-gray-50 border border-gray-200 rounded-2xl p-1.5 focus-within:border-teal-300 transition-colors">
+          <div className="flex items-center gap-2 bg-gray-100/80 border border-gray-200 rounded-lg p-1.5 focus-within:border-teal-400 transition-colors">
             <input
               ref={inputRef}
               type="text"
@@ -282,13 +282,13 @@ export default function AIPlanner() {
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={handleKeyDown}
               placeholder="Describe your ideal day..."
-              className="flex-1 bg-transparent text-gray-900 placeholder-gray-400 text-sm px-3 py-2.5 outline-none"
+              className="flex-1 bg-transparent text-gray-900 placeholder-gray-400 text-sm px-3 py-2 outline-none"
               disabled={loading}
             />
             <button
               onClick={() => sendMessage()}
               disabled={!input.trim() || loading}
-              className="w-10 h-10 rounded-xl bg-gradient-to-r from-teal-500 to-emerald-500 flex items-center justify-center text-white hover:from-teal-400 hover:to-emerald-400 transition-all disabled:opacity-30 disabled:cursor-not-allowed shrink-0"
+              className="w-9 h-9 rounded-lg bg-teal-600 flex items-center justify-center text-white hover:bg-teal-700 transition-colors disabled:opacity-30 disabled:cursor-not-allowed shrink-0"
             >
               <Send className="w-4 h-4" />
             </button>

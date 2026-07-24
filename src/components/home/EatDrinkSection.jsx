@@ -71,9 +71,9 @@ export default function EatDrinkSection() {
             <button
               key={f}
               onClick={() => setActiveFilter(f)}
-              className={`shrink-0 px-4 py-2 rounded-full text-xs font-semibold transition-all duration-200 border ${
+              className={`shrink-0 px-4 py-2 rounded-lg text-xs font-semibold transition-colors duration-150 border ${
                 activeFilter === f
-                  ? 'bg-amber-500 text-white border-amber-500 shadow-lg shadow-amber-500/20'
+                  ? 'bg-amber-600 text-white border-amber-600'
                   : 'bg-gray-50 text-gray-600 border-gray-200 hover:bg-gray-100 hover:border-gray-300'
               }`}
             >

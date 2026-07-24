@@ -49,7 +49,7 @@ export default function Footer() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 lg:py-10">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-2xl bg-[#25D366]/20 flex items-center justify-center">
+              <div className="w-12 h-12 rounded-xl bg-[#25D366]/20 flex items-center justify-center">
                 <MessageCircle className="w-6 h-6 text-[#25D366]" />
               </div>
               <div>
@@ -61,7 +61,7 @@ export default function Footer() {
               href="https://wa.me/263781234567?text=Hi!%20I'd%20like%20to%20know%20more%20about%20Local%20Vic%20Falls."
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20BA5C] text-white px-6 py-3 rounded-xl text-sm font-semibold transition-colors duration-200 shrink-0"
+              className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20BA5C] text-white px-6 py-3 rounded-lg text-sm font-semibold transition-colors duration-150 shrink-0"
             >
               <MessageCircle className="w-4 h-4" />
               Chat with us
@@ -85,11 +85,11 @@ export default function Footer() {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your email"
                 required
-                className="flex-1 lg:w-72 px-4 py-2.5 bg-white/[0.06] border border-white/[0.08] rounded-xl text-sm text-white placeholder-gray-500 focus:outline-none focus:border-teal-400/50 transition-colors"
+                className="flex-1 lg:w-72 px-4 py-2.5 bg-white/[0.06] border border-white/[0.1] rounded-lg text-sm text-white placeholder-gray-500 focus:outline-none focus:border-teal-400/50 transition-colors"
               />
               <button
                 type="submit"
-                className="px-6 py-2.5 bg-gradient-to-r from-teal-500 to-emerald-500 text-white text-sm font-medium rounded-xl hover:from-teal-400 hover:to-emerald-400 transition-all duration-300 shrink-0 flex items-center gap-2"
+                className="px-6 py-2.5 bg-teal-600 text-white text-sm font-medium rounded-lg hover:bg-teal-700 transition-colors duration-150 shrink-0 flex items-center gap-2"
               >
                 {subscribed ? <><Check className="w-4 h-4" /> Subscribed</> : 'Subscribe'}
               </button>

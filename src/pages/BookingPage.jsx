@@ -33,7 +33,7 @@ export default function BookingPage() {
         animate={{ opacity: 1 }}
         className="min-h-screen flex items-center justify-center bg-gray-50"
       >
-        <div className="bg-white rounded-3xl p-8 lg:p-12 max-w-md text-center shadow-lg border border-gray-100">
+      <div className="bg-white rounded-2xl p-8 lg:p-12 max-w-md text-center shadow-lg border border-gray-100">
           <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
             <Check className="w-8 h-8 text-green-600" />
           </div>
@@ -50,12 +50,12 @@ export default function BookingPage() {
               href={listing.whatsapp}
               target="_blank"
               rel="noopener noreferrer"
-              className="block w-full bg-[#25D366] text-white py-3 rounded-xl text-sm font-medium hover:bg-[#20BA5C] transition-colors text-center mb-3"
+              className="block w-full bg-[#25D366] text-white py-3 rounded-lg text-sm font-medium hover:bg-[#20BA5C] transition-colors text-center mb-3"
             >
               Confirm on WhatsApp
             </a>
           )}
-          <Link to="/" className="block w-full bg-black text-white py-3 rounded-xl text-sm font-medium hover:bg-gray-800 transition-colors">Back to home</Link>
+          <Link to="/" className="block w-full bg-gray-900 text-white py-3 rounded-lg text-sm font-medium hover:bg-black transition-colors">Back to home</Link>
         </div>
       </motion.div>
     )
@@ -133,18 +133,18 @@ export default function BookingPage() {
                 <div className="flex items-center gap-3">
                   <button
                     onClick={() => setPartySize(Math.max(1, partySize - 1))}
-                    className="w-10 h-10 rounded-xl border border-gray-200 flex items-center justify-center hover:bg-gray-50 transition-colors text-lg font-medium"
+                    className="w-10 h-10 rounded-lg border border-gray-200 flex items-center justify-center hover:bg-gray-50 transition-colors text-lg font-medium"
                   >
                     -
                   </button>
-                  <div className="flex items-center gap-2 px-4 py-2 bg-gray-50 rounded-xl">
+                  <div className="flex items-center gap-2 px-4 py-2 bg-gray-50 rounded-lg">
                     <Users className="w-4 h-4 text-gray-400" />
                     <span className="font-medium">{partySize}</span>
                     <span className="text-sm text-gray-500">{partySize === 1 ? 'person' : 'people'}</span>
                   </div>
                   <button
                     onClick={() => setPartySize(Math.min(20, partySize + 1))}
-                    className="w-10 h-10 rounded-xl border border-gray-200 flex items-center justify-center hover:bg-gray-50 transition-colors text-lg font-medium"
+                    className="w-10 h-10 rounded-lg border border-gray-200 flex items-center justify-center hover:bg-gray-50 transition-colors text-lg font-medium"
                   >
                     +
                   </button>
@@ -160,7 +160,7 @@ export default function BookingPage() {
 
               <button
                 onClick={nextStep}
-                className="w-full bg-teal-600 text-white py-3 rounded-xl text-sm font-medium hover:bg-teal-700 transition-colors"
+                className="w-full bg-teal-600 text-white py-3 rounded-lg text-sm font-medium hover:bg-teal-700 transition-colors"
               >
                 Continue
               </button>
@@ -177,7 +177,7 @@ export default function BookingPage() {
                   type="date"
                   value={selectedDate}
                   onChange={(e) => setSelectedDate(e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm focus:outline-none focus:border-teal-400"
+                  className="w-full px-4 py-3 border border-gray-200 rounded-lg text-sm focus:outline-none focus:border-teal-400"
                   min={new Date().toISOString().split('T')[0]}
                 />
               </div>
@@ -189,7 +189,7 @@ export default function BookingPage() {
                       <button
                         key={t}
                         onClick={() => setSelectedTime(t)}
-                        className={`py-2.5 rounded-xl text-sm font-medium border transition-colors ${
+                        className={`py-2.5 rounded-lg text-sm font-medium border transition-colors ${
                           selectedTime === t
                             ? 'bg-teal-600 text-white border-teal-600'
                             : 'border-gray-200 text-gray-600 hover:border-gray-300'
@@ -204,7 +204,7 @@ export default function BookingPage() {
               <button
                 onClick={nextStep}
                 disabled={!selectedDate || !selectedTime}
-                className="mt-8 w-full bg-teal-600 text-white py-3 rounded-xl text-sm font-medium hover:bg-teal-700 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+                className="mt-8 w-full bg-teal-600 text-white py-3 rounded-lg text-sm font-medium hover:bg-teal-700 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
               >
                 Continue
               </button>
@@ -248,7 +248,7 @@ export default function BookingPage() {
                   <p className="text-xs text-gray-400">You'll receive a confirmation via WhatsApp after booking.</p>
                 </div>
               </div>
-              <button onClick={nextStep} className="w-full bg-teal-600 text-white py-3 rounded-xl text-sm font-medium hover:bg-teal-700 transition-colors">Confirm booking</button>
+              <button onClick={nextStep} className="w-full bg-teal-600 text-white py-3 rounded-lg text-sm font-medium hover:bg-teal-700 transition-colors">Confirm booking</button>
             </div>
           )}
         </div>

@@ -110,20 +110,20 @@ export default function Hero() {
             {/* Search bar */}
             <div ref={searchRef} className="max-w-xl mx-auto mb-8">
               <form onSubmit={handleSearch} className="relative">
-                <div className="flex items-center bg-white/[0.08] backdrop-blur-xl border border-white/[0.12] rounded-2xl p-1.5 hover:bg-white/[0.1] hover:border-white/[0.18] transition-all duration-300 shadow-2xl shadow-black/20">
+                <div className="flex items-center bg-white/[0.07] border border-white/[0.15] rounded-xl p-1.5 hover:bg-white/[0.1] hover:border-white/[0.22] transition-all duration-200 shadow-lg shadow-black/15">
                   <div className="flex items-center gap-2 flex-1 px-4">
-                    <Search className="w-5 h-5 text-white/40" />
+                    <Search className="w-4 h-4 text-white/40" />
                     <input
                       type="text"
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}
                       placeholder="What are you looking for?"
-                      className="flex-1 bg-transparent border-none outline-none text-white placeholder-white/40 text-sm sm:text-base py-3"
+                      className="flex-1 bg-transparent border-none outline-none text-white placeholder-white/40 text-sm sm:text-base py-2.5"
                     />
                   </div>
                   <button
                     type="submit"
-                    className="bg-gradient-to-r from-teal-500 to-emerald-500 text-white px-6 sm:px-8 py-3 rounded-xl font-semibold text-sm hover:from-teal-400 hover:to-emerald-400 transition-all duration-300 shadow-lg shadow-teal-500/20 shrink-0"
+                    className="bg-white text-gray-900 px-6 sm:px-7 py-2.5 rounded-lg font-semibold text-sm hover:bg-gray-100 transition-colors duration-150 shrink-0"
                   >
                     Explore
                   </button>
@@ -135,27 +135,27 @@ export default function Hero() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-10">
               <Link
                 to="#categories"
-                className="magnetic-btn inline-flex items-center gap-2 bg-white text-[#050816] px-7 py-3 rounded-full text-sm font-semibold hover:bg-white/90 transition-colors duration-200"
+                className="magnetic-btn inline-flex items-center gap-2 bg-teal-600 text-white px-7 py-3 rounded-lg text-sm font-semibold hover:bg-teal-700 transition-colors duration-150"
               >
                 Explore what's on
               </Link>
               <Link
                 to="/plan-your-day"
-                className="magnetic-btn inline-flex items-center gap-2 text-sm font-medium text-white/70 px-7 py-3 border border-white/15 rounded-full hover:border-white/30 hover:text-white transition-colors duration-200"
+                className="magnetic-btn inline-flex items-center gap-2 text-sm font-medium text-white/70 px-7 py-3 border border-white/20 rounded-lg hover:border-white/35 hover:text-white transition-colors duration-150"
               >
                 Plan your day
               </Link>
             </div>
 
             {/* Category pills strip */}
-            <div ref={pillsRef} className="flex flex-wrap items-center justify-center gap-2 sm:gap-3">
+            <div ref={pillsRef} className="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5">
               {heroCategoryPills.map((pill) => {
                 const Icon = iconMap[pill.icon]
                 return (
                   <Link
                     key={pill.slug}
                     to={pill.slug === 'adventure' ? '/adventures' : pill.slug === 'nightlife' || pill.slug === 'stay' ? `/search?pillar=${pill.slug}` : `/${pill.slug}`}
-                    className="cat-pill inline-flex items-center gap-2 bg-white/[0.06] backdrop-blur-sm border border-white/[0.1] hover:bg-white/[0.12] hover:border-white/[0.2] text-white/70 hover:text-white px-4 py-2 rounded-full text-xs sm:text-sm font-medium transition-all duration-300"
+                    className="cat-pill inline-flex items-center gap-1.5 bg-white/[0.06] border border-white/[0.1] hover:bg-white/[0.12] hover:border-white/[0.2] text-white/70 hover:text-white px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-medium transition-colors duration-150"
                   >
                     {Icon && <Icon className="w-3.5 h-3.5" />}
                     {pill.label}

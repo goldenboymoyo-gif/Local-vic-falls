@@ -82,7 +82,7 @@ export default function BusinessProfile() {
             </button>
             <Link
               to={`/booking/${listing.slug}`}
-              className="flex items-center gap-2 bg-teal-600 text-white px-6 py-2.5 rounded-xl text-sm font-medium hover:bg-teal-700 transition-colors"
+              className="flex items-center gap-2 bg-teal-600 text-white px-6 py-2.5 rounded-lg text-sm font-medium hover:bg-teal-700 transition-colors"
             >
               <Calendar className="w-4 h-4" /> Book now
             </Link>
@@ -107,7 +107,7 @@ export default function BusinessProfile() {
       <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-100 p-4 z-30 flex gap-3">
         <Link
           to={`/booking/${listing.slug}`}
-          className="flex-1 flex items-center justify-center gap-2 bg-teal-600 text-white px-6 py-3 rounded-xl text-sm font-medium"
+          className="flex-1 flex items-center justify-center gap-2 bg-teal-600 text-white px-6 py-3 rounded-lg text-sm font-medium"
         >
           <Calendar className="w-4 h-4" /> Book now
         </Link>
@@ -238,7 +238,7 @@ export default function BusinessProfile() {
                   href={listing.whatsapp}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 w-full bg-[#25D366] text-white px-6 py-3 rounded-xl text-sm font-medium hover:bg-[#20BA5C] transition-colors"
+                  className="flex items-center justify-center gap-2 w-full bg-[#25D366] text-white px-6 py-3 rounded-lg text-sm font-medium hover:bg-[#20BA5C] transition-colors"
                 >
                   <MessageCircle className="w-4 h-4" /> Chat on WhatsApp
                 </a>
@@ -247,7 +247,7 @@ export default function BusinessProfile() {
               {listing.phone && (
                 <a
                   href={`tel:${listing.phone}`}
-                  className="flex items-center justify-center gap-2 w-full border border-gray-200 text-gray-700 px-6 py-3 rounded-xl text-sm font-medium hover:bg-gray-50 transition-colors"
+                  className="flex items-center justify-center gap-2 w-full border border-gray-200 text-gray-700 px-6 py-3 rounded-lg text-sm font-medium hover:bg-gray-50 transition-colors"
                 >
                   <Phone className="w-4 h-4" /> Call {listing.phone}
                 </a>

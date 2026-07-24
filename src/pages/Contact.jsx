@@ -87,16 +87,16 @@ export default function Contact() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-1.5">Full name</label>
-                      <input type="text" required placeholder="Your name" className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm focus:outline-none focus:border-gray-400 transition-colors" />
+                      <input type="text" required placeholder="Your name" className="w-full px-4 py-3 border border-gray-200 rounded-lg text-sm focus:outline-none focus:border-gray-400 transition-colors" />
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-1.5">Email</label>
-                      <input type="email" required placeholder="you@example.com" className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm focus:outline-none focus:border-gray-400 transition-colors" />
+                      <input type="email" required placeholder="you@example.com" className="w-full px-4 py-3 border border-gray-200 rounded-lg text-sm focus:outline-none focus:border-gray-400 transition-colors" />
                     </div>
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1.5">Subject</label>
-                    <select className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm text-gray-700 focus:outline-none focus:border-gray-400 transition-colors">
+                    <select className="w-full px-4 py-3 border border-gray-200 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-gray-400 transition-colors">
                       <option>General inquiry</option>
                       <option>Support</option>
                       <option>Business listing</option>
@@ -106,9 +106,9 @@ export default function Contact() {
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1.5">Message</label>
-                    <textarea rows={5} required placeholder="How can we help?" className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm focus:outline-none focus:border-gray-400 transition-colors resize-none" />
+                    <textarea rows={5} required placeholder="How can we help?" className="w-full px-4 py-3 border border-gray-200 rounded-lg text-sm focus:outline-none focus:border-gray-400 transition-colors resize-none" />
                   </div>
-                  <button type="submit" className="bg-black text-white px-8 py-3 rounded-xl text-sm font-medium hover:bg-gray-800 transition-colors inline-flex items-center gap-2">
+                  <button type="submit" className="bg-gray-900 text-white px-8 py-3 rounded-lg text-sm font-medium hover:bg-black transition-colors inline-flex items-center gap-2">
                     <Send className="w-4 h-4" /> Send message
                   </button>
                 </form>
@@ -129,7 +129,7 @@ export default function Contact() {
                     <div>
                       <div className="text-xs font-medium text-gray-400 uppercase tracking-wider mb-0.5">{item.label}</div>
                       {item.href ? (
-                        <a href={item.href} className="text-sm font-medium hover:text-blue-600 transition-colors">{item.value}</a>
+                        <a href={item.href} className="text-sm font-medium hover:text-teal-600 transition-colors">{item.value}</a>
                       ) : (
                         <span className="text-sm font-medium">{item.value}</span>
                       )}

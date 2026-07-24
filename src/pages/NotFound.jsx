@@ -42,7 +42,7 @@ export default function NotFound() {
 
         <Link
           to="/"
-          className="inline-flex items-center gap-2 bg-black text-white px-7 py-3.5 rounded-full text-sm font-medium hover:bg-gray-800 transition-colors mb-12"
+          className="inline-flex items-center gap-2 bg-gray-900 text-white px-7 py-3.5 rounded-lg text-sm font-medium hover:bg-black transition-colors mb-12"
         >
           <Home className="w-4 h-4" />
           Go Home
@@ -53,7 +53,7 @@ export default function NotFound() {
             <Link
               key={label}
               to={to}
-              className="flex items-center gap-2 px-5 py-2.5 text-sm text-gray-600 bg-white border border-gray-200 rounded-full hover:border-gray-300 hover:shadow-sm transition-all"
+              className="flex items-center gap-2 px-5 py-2.5 text-sm text-gray-600 bg-white border border-gray-200 rounded-lg hover:border-gray-300 hover:shadow-sm transition-all"
             >
               <Icon className="w-4 h-4" />
               {label}

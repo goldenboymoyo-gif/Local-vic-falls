@@ -7,7 +7,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
 
 const cardBg = [
-  'bg-blue-50/70 border-blue-100',
+  'bg-teal-50/70 border-teal-100',
   'bg-white border-gray-100',
   'bg-emerald-50/60 border-emerald-100',
   'bg-white border-gray-100',
@@ -60,7 +60,7 @@ export default function Testimonials() {
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative">
         <div ref={headingRef} className="text-center max-w-2xl mx-auto mb-16 lg:mb-20">
-          <span className="text-xs font-medium text-blue-600 uppercase tracking-widest block">
+          <span className="text-xs font-medium text-teal-600 uppercase tracking-widest block">
             Testimonials
           </span>
           <h2 className="text-3xl lg:text-5xl font-bold mt-3 tracking-tight">
@@ -72,8 +72,8 @@ export default function Testimonials() {
         </div>
 
         <div className="testimonial-grid grid grid-cols-1 md:grid-cols-3 gap-5 auto-rows-auto">
-          <div className="testimonial-card md:col-span-2 rounded-2xl border border-gray-100 p-8 lg:p-10 bg-gradient-to-br from-blue-50/80 via-white to-blue-50/40 flex flex-col justify-between relative overflow-hidden">
-            <div className="absolute -top-20 -right-20 w-64 h-64 bg-blue-100/30 rounded-full blur-3xl pointer-events-none" />
+          <div className="testimonial-card md:col-span-2 rounded-2xl border border-gray-100 p-8 lg:p-10 bg-gradient-to-br from-teal-50/80 via-white to-teal-50/40 flex flex-col justify-between relative overflow-hidden">
+            <div className="absolute -top-20 -right-20 w-64 h-64 bg-teal-100/30 rounded-full blur-3xl pointer-events-none" />
             <div>
               <div className="flex items-center gap-0.5 mb-5">
                 {[...Array(5)].map((_, idx) => (
@@ -88,7 +88,7 @@ export default function Testimonials() {
               <img
                 src={testimonials[0].avatar}
                 alt={testimonials[0].name}
-                className="w-14 h-14 rounded-full object-cover ring-2 ring-blue-100"
+                className="w-14 h-14 rounded-full object-cover ring-2 ring-teal-100"
               />
               <div>
                 <div className="font-bold text-base">{testimonials[0].name}</div>
@@ -170,8 +170,8 @@ export default function Testimonials() {
           </div>
 
           <div className="testimonial-card hidden md:flex rounded-2xl border border-gray-100 p-6 lg:p-8 bg-gradient-to-br from-gray-50 to-gray-100/50 flex-col items-center justify-center text-center">
-            <div className="w-14 h-14 rounded-full bg-blue-100 flex items-center justify-center mb-4">
-              <Star className="w-6 h-6 text-blue-600 fill-blue-600" />
+            <div className="w-14 h-14 rounded-full bg-teal-100 flex items-center justify-center mb-4">
+              <Star className="w-6 h-6 text-teal-600 fill-teal-600" />
             </div>
             <p className="text-sm font-semibold text-gray-800 mb-1">Join 15,000+ happy customers</p>
             <p className="text-xs text-gray-500">Share your experience on Local Vic Falls</p>

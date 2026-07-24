@@ -74,9 +74,9 @@ export default function BuildYourDay() {
                 <button
                   key={v.id}
                   onClick={() => setVibe(v.id)}
-                  className={`inline-flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-semibold transition-all duration-200 border ${
+                  className={`inline-flex items-center gap-2 px-5 py-3 rounded-lg text-sm font-semibold transition-colors duration-150 border ${
                     vibe === v.id
-                      ? `bg-gradient-to-r ${v.color} text-white border-transparent shadow-lg`
+                      ? `bg-gradient-to-r ${v.color} text-white border-transparent shadow-md`
                       : 'bg-gray-50 text-gray-600 border-gray-200 hover:bg-gray-100 hover:border-gray-300'
                   }`}
                 >
@@ -96,9 +96,9 @@ export default function BuildYourDay() {
                   <button
                     key={t.id}
                     onClick={() => setTimeBudget(t.id)}
-                    className={`inline-flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-semibold transition-all duration-200 border ${
+                    className={`inline-flex items-center gap-2 px-5 py-3 rounded-lg text-sm font-semibold transition-colors duration-150 border ${
                       timeBudget === t.id
-                        ? 'bg-teal-500 text-white border-transparent shadow-lg shadow-teal-500/20'
+                        ? 'bg-teal-600 text-white border-transparent shadow-md shadow-teal-500/15'
                         : 'bg-gray-50 text-gray-600 border-gray-200 hover:bg-gray-100 hover:border-gray-300'
                     }`}
                   >
@@ -144,7 +144,7 @@ export default function BuildYourDay() {
               <div className="flex items-center gap-3 mt-6">
                 <button
                   onClick={shareWhatsApp}
-                  className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20BA5C] text-white px-5 py-2.5 rounded-xl text-sm font-semibold transition-colors duration-200"
+                  className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20BA5C] text-white px-5 py-2.5 rounded-lg text-sm font-semibold transition-colors duration-150"
                 >
                   <Share2 className="w-4 h-4" />
                   Share on WhatsApp

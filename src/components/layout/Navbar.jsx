@@ -89,20 +89,13 @@ export default function Navbar() {
                 <Link
                   key={link.path}
                   to={link.path}
-                  className={`relative text-sm font-medium px-3 py-2 rounded-lg transition-all duration-200 ${
+                  className={`relative text-sm font-medium px-3 py-2 rounded-lg transition-colors duration-150 ${
                     isActive(link.path)
                       ? 'text-black bg-gray-100/80'
                       : 'text-gray-500 hover:text-black hover:bg-gray-50'
                   }`}
                 >
                   {link.label}
-                  {isActive(link.path) && (
-                    <motion.span
-                      layoutId="activeNav"
-                      className="absolute bottom-0 left-1/2 -translate-x-1/2 w-5 h-0.5 bg-blue-600 rounded-full"
-                      transition={{ type: 'spring', stiffness: 500, damping: 30 }}
-                    />
-                  )}
                 </Link>
               ))}
 
@@ -125,7 +118,7 @@ export default function Navbar() {
             {/* Desktop search - inline input */}
             <div className="hidden md:flex items-center gap-3" ref={searchRef}>
               <div className="relative">
-                <div className={`flex items-center gap-2 bg-gray-50 border rounded-full px-4 py-2 transition-all duration-300 ${searchFocused ? 'border-blue-300 bg-white shadow-lg shadow-blue-500/5 w-80' : 'border-gray-200 w-60 hover:border-gray-300'}`}>
+                <div className={`flex items-center gap-2 bg-gray-100/80 border rounded-lg px-3.5 py-2 transition-colors duration-200 ${searchFocused ? 'border-gray-300 bg-white shadow-sm w-80' : 'border-gray-200 w-56 hover:border-gray-300'}`}>
                   <Search className="w-4 h-4 text-gray-400 shrink-0" />
                   <input
                     ref={inputRef}
@@ -156,11 +149,11 @@ export default function Navbar() {
                 <AnimatePresence>
                   {searchFocused && (searchResults.length > 0 || searchQuery.trim().length > 0) && (
                     <motion.div
-                      initial={{ opacity: 0, y: 8, scale: 0.98 }}
-                      animate={{ opacity: 1, y: 0, scale: 1 }}
-                      exit={{ opacity: 0, y: 8, scale: 0.98 }}
-                      transition={{ duration: 0.2 }}
-                      className="absolute top-full right-0 mt-2 w-80 bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden"
+                      initial={{ opacity: 0, y: 8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 8 }}
+                      transition={{ duration: 0.15 }}
+                      className="absolute top-full right-0 mt-2 w-80 bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden"
                     >
                       {searchResults.length > 0 ? (
                         <div className="py-2">
@@ -171,7 +164,7 @@ export default function Navbar() {
                               onClick={() => { setSearchQuery(''); setSearchFocused(false) }}
                               className="flex items-center gap-3 px-4 py-2.5 hover:bg-gray-50 transition-colors"
                             >
-                              <div className={`w-8 h-8 rounded-lg flex items-center justify-center text-xs font-bold shrink-0 ${r.type === 'category' ? 'bg-blue-50 text-blue-600' : 'bg-gray-100 text-gray-600'}`}>
+                              <div className={`w-8 h-8 rounded-lg flex items-center justify-center text-xs font-bold shrink-0 ${r.type === 'category' ? 'bg-teal-50 text-teal-600' : 'bg-gray-100 text-gray-600'}`}>
                                 {r.name.charAt(0)}
                               </div>
                               <div className="min-w-0 flex-1">
@@ -188,7 +181,7 @@ export default function Navbar() {
                           <Link
                             to={`/search?q=${encodeURIComponent(searchQuery)}`}
                             onClick={() => { setSearchQuery(''); setSearchFocused(false) }}
-                            className="text-xs text-blue-600 hover:text-blue-700 font-medium mt-1 inline-block"
+                            className="text-xs text-teal-600 hover:text-teal-700 font-medium mt-1 inline-block"
                           >
                             Search all results
                           </Link>
@@ -200,7 +193,7 @@ export default function Navbar() {
                           <Link
                             to={`/search?q=${encodeURIComponent(searchQuery)}`}
                             onClick={() => { setSearchQuery(''); setSearchFocused(false) }}
-                            className="text-xs font-medium text-blue-600 hover:text-blue-700 flex items-center gap-1"
+                            className="text-xs font-medium text-teal-600 hover:text-teal-700 flex items-center gap-1"
                           >
                             View all results <ArrowRight className="w-3 h-3" />
                           </Link>
@@ -215,7 +208,7 @@ export default function Navbar() {
             {/* Desktop right */}
             <div className="hidden md:flex items-center gap-3">
               <Link to="/sign-in" className="text-sm font-medium text-gray-600 hover:text-black px-3 py-2 transition-colors">Sign in</Link>
-              <Link to="/sign-up" className="text-sm font-medium bg-black text-white px-5 py-2.5 rounded-full hover:bg-gray-800 transition-all duration-200 hover:shadow-lg hover:shadow-black/10">Get started</Link>
+              <Link to="/sign-up" className="text-sm font-medium bg-gray-900 text-white px-5 py-2 rounded-lg hover:bg-black transition-colors duration-150">Get started</Link>
             </div>
 
             {/* Mobile toggle */}
@@ -232,11 +225,11 @@ export default function Navbar() {
           <>
             <div className="fixed inset-0 z-40" onClick={() => setCategoriesOpen(false)} />
             <motion.div
-              initial={{ opacity: 0, y: 8, scale: 0.97 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: 8, scale: 0.97 }}
-              transition={{ duration: 0.2 }}
-              className="fixed top-18 left-1/2 -translate-x-1/2 z-50 w-80 bg-white rounded-2xl shadow-2xl border border-gray-100 p-3 grid grid-cols-2 gap-0.5"
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 8 }}
+              transition={{ duration: 0.15 }}
+              className="fixed top-18 left-1/2 -translate-x-1/2 z-50 w-80 bg-white rounded-xl shadow-2xl border border-gray-100 p-3 grid grid-cols-2 gap-0.5"
             >
               {categories.map((cat) => (
                 <Link
@@ -249,7 +242,7 @@ export default function Navbar() {
                   {cat.name}
                 </Link>
               ))}
-              <Link to="/search" className="col-span-2 px-3 py-2.5 text-sm font-medium text-blue-600 hover:bg-blue-50 rounded-xl mt-1 border-t border-gray-100 pt-3 flex items-center gap-1" onClick={() => setCategoriesOpen(false)}>
+              <Link to="/search" className="col-span-2 px-3 py-2.5 text-sm font-medium text-teal-600 hover:bg-teal-50 rounded-xl mt-1 border-t border-gray-100 pt-3 flex items-center gap-1" onClick={() => setCategoriesOpen(false)}>
                 View all categories <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             </motion.div>
@@ -269,7 +262,7 @@ export default function Navbar() {
           >
             <div className="p-4 flex flex-col gap-1">
               {/* Mobile search */}
-              <div className="flex items-center gap-2 bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 mb-3">
+              <div className="flex items-center gap-2 bg-gray-100/80 border border-gray-200 rounded-lg px-4 py-3 mb-3">
                 <Search className="w-4 h-4 text-gray-400" />
                 <input
                   type="text"
@@ -336,7 +329,7 @@ export default function Navbar() {
 
               <div className="border-t border-gray-100 my-3" />
               <Link to="/sign-in" className="px-4 py-3 text-sm font-medium rounded-xl hover:bg-gray-50" onClick={() => setMobileOpen(false)}>Sign in</Link>
-              <Link to="/sign-up" className="px-4 py-3 text-sm font-medium bg-black text-white rounded-xl mt-1 text-center" onClick={() => setMobileOpen(false)}>Get started</Link>
+              <Link to="/sign-up" className="px-4 py-3 text-sm font-medium bg-gray-900 text-white rounded-lg mt-1 text-center" onClick={() => setMobileOpen(false)}>Get started</Link>
             </div>
           </motion.div>
         )}
