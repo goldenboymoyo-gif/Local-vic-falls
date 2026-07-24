@@ -1,8 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { Search, ArrowRight, Mountain, UtensilsCrossed, Users, Hotel, Music } from 'lucide-react'
+import { Search, ArrowRight, Mountain, UtensilsCrossed, Users, Hotel, Music, Sun } from 'lucide-react'
 import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { heroCategoryPills } from '../../data/listings'
+
+gsap.registerPlugin(ScrollTrigger)
 
 const iconMap = { Mountain, UtensilsCrossed, Users, Hotel, Music }
 
@@ -11,12 +14,20 @@ const headlines = [
   "It's a whole town.",
 ]
 
+const hostAvatars = [
+  { name: 'Tendai', src: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120&h=120&fit=crop&q=80' },
+  { name: 'Nomsa', src: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=120&h=120&fit=crop&q=80' },
+  { name: 'Grace', src: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=120&h=120&fit=crop&q=80' },
+]
+
 export default function Hero() {
   const heroRef = useRef(null)
   const headlineRef = useRef(null)
   const subRef = useRef(null)
+  const proofRef = useRef(null)
   const pillsRef = useRef(null)
   const searchRef = useRef(null)
+  const localRef = useRef(null)
   const navigate = useNavigate()
   const [searchQuery, setSearchQuery] = useState('')
   const [searchFocused, setSearchFocused] = useState(false)
@@ -37,18 +48,43 @@ export default function Hero() {
         })
       }
 
+      if (proofRef.current) {
+        gsap.fromTo(proofRef.current, { opacity: 0, y: 20 }, {
+          opacity: 1, y: 0, duration: 0.8, delay: 1.5, ease: 'power3.out', clearProps: 'all',
+        })
+      }
+
       if (searchRef.current) {
         gsap.fromTo(searchRef.current, { opacity: 0, y: 24, scale: 0.97 }, {
-          opacity: 1, y: 0, scale: 1, duration: 0.9, delay: 1.6, ease: 'power3.out', clearProps: 'all',
+          opacity: 1, y: 0, scale: 1, duration: 0.9, delay: 1.8, ease: 'power3.out', clearProps: 'all',
+        })
+      }
+
+      if (localRef.current) {
+        gsap.fromTo(localRef.current, { opacity: 0, y: 16 }, {
+          opacity: 1, y: 0, duration: 0.7, delay: 2.2, ease: 'power3.out', clearProps: 'all',
         })
       }
 
       if (pillsRef.current) {
         const pills = pillsRef.current.querySelectorAll('.cat-pill')
-        gsap.fromTo(pills,
-          { opacity: 0, y: 16 },
-          { opacity: 1, y: 0, duration: 0.6, stagger: 0.06, delay: 2.0, ease: 'power3.out', clearProps: 'all' }
-        )
+        gsap.set(pills, { opacity: 0, y: 20 })
+
+        ScrollTrigger.create({
+          trigger: pillsRef.current,
+          start: 'top 90%',
+          once: true,
+          onEnter: () => {
+            gsap.to(pills, {
+              opacity: 1,
+              y: 0,
+              duration: 0.5,
+              stagger: 0.1,
+              ease: 'power3.out',
+              clearProps: 'all',
+            })
+          },
+        })
       }
     }, heroRef)
 
@@ -57,7 +93,7 @@ export default function Hero() {
         el.style.opacity = '1'
         el.style.transform = 'none'
       })
-    }, 3500)
+    }, 4000)
 
     return () => { ctx.revert(); clearTimeout(fallback) }
   }, [])
@@ -103,12 +139,21 @@ export default function Hero() {
             </h1>
 
             {/* Subhead */}
-            <p ref={subRef} className="text-base sm:text-lg text-white/65 max-w-xl mx-auto mb-12 leading-relaxed font-light">
+            <p ref={subRef} className="text-base sm:text-lg text-white/65 max-w-xl mx-auto mb-3 leading-relaxed font-light">
               Rapids, rooftop bars, village classrooms. The version locals live in.
             </p>
 
+            {/* Proof point */}
+            <div ref={proofRef} className="flex items-center justify-center gap-2 text-sm text-white/45 mb-10 font-light">
+              <span>34 experiences</span>
+              <span className="w-1 h-1 rounded-full bg-white/30" />
+              <span>6 local guides</span>
+              <span className="w-1 h-1 rounded-full bg-white/30" />
+              <span>1 town</span>
+            </div>
+
             {/* Search bar — premium, journey-starting */}
-            <div ref={searchRef} className="max-w-2xl mx-auto mb-10">
+            <div ref={searchRef} className="max-w-2xl mx-auto mb-5">
               <form onSubmit={handleSearch} className="relative">
                 <div className={`flex items-center bg-white rounded-2xl p-2 transition-all duration-500 ${
                   searchFocused
@@ -123,7 +168,7 @@ export default function Hero() {
                       onChange={(e) => setSearchQuery(e.target.value)}
                       onFocus={() => setSearchFocused(true)}
                       onBlur={() => setSearchFocused(false)}
-                      placeholder="Where do you want to start your adventure?"
+                      placeholder="Bungee at dawn? Sunset cruise? We've got both."
                       className="flex-1 bg-transparent border-none outline-none text-[var(--color-ink)] placeholder-[var(--color-ink-muted)] text-sm sm:text-base py-3"
                     />
                   </div>
@@ -136,6 +181,24 @@ export default function Hero() {
                   </button>
                 </div>
               </form>
+            </div>
+
+            {/* Curated by locals — human element */}
+            <div ref={localRef} className="flex items-center justify-center gap-3 mb-10">
+              <div className="flex -space-x-2">
+                {hostAvatars.map((host) => (
+                  <img
+                    key={host.name}
+                    src={host.src}
+                    alt={host.name}
+                    className="w-7 h-7 rounded-full border-2 border-white/80 object-cover"
+                    loading="lazy"
+                  />
+                ))}
+              </div>
+              <span className="text-xs text-white/50 font-light">
+                Curated by locals who actually live here
+              </span>
             </div>
 
             {/* CTAs */}
@@ -154,7 +217,15 @@ export default function Hero() {
               </Link>
             </div>
 
-            {/* Category pills */}
+            {/* Local detail callout — hyper-specific */}
+            <div className="flex items-center justify-center gap-2 mb-8 text-xs text-white/40 font-light">
+              <Sun className="w-3.5 h-3.5 text-[var(--color-accent-light)]/60" />
+              <span>
+                Best sunset right now: the Lookout Café, 5:45 PM — grab a Zambezi lager and watch the gorge glow.
+              </span>
+            </div>
+
+            {/* Category pills — scroll-triggered staggered animation */}
             <div ref={pillsRef} className="flex flex-wrap items-center justify-center gap-2.5">
               {heroCategoryPills.map((pill) => {
                 const Icon = iconMap[pill.icon]
@@ -162,7 +233,7 @@ export default function Hero() {
                   <Link
                     key={pill.slug}
                     to={pill.slug === 'adventure' ? '/adventures' : pill.slug === 'nightlife' || pill.slug === 'stay' ? `/search?pillar=${pill.slug}` : `/${pill.slug}`}
-                    className="cat-pill inline-flex items-center gap-2 bg-white/8 backdrop-blur-sm border border-white/10 hover:bg-white/15 hover:border-white/20 text-white/70 hover:text-white px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all duration-200"
+                    className="cat-pill inline-flex items-center gap-2 bg-black/25 backdrop-blur-md border border-white/15 hover:bg-black/35 hover:border-white/25 text-white/80 hover:text-white px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all duration-200"
                   >
                     {Icon && <Icon className="w-4 h-4" />}
                     {pill.label}
