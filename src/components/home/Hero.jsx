@@ -106,7 +106,7 @@ export default function Hero() {
   }
 
   return (
-    <div ref={heroRef} className="relative overflow-hidden" style={{ minHeight: '100vh' }}>
+    <div ref={heroRef} className="relative overflow-hidden" style={{ minHeight: '90vh' }}>
       {/* Video background */}
       <div className="absolute inset-0">
         <iframe
@@ -127,7 +127,7 @@ export default function Hero() {
       <div className="relative z-10">
         <div className="h-16 lg:h-[4.5rem]" />
 
-        <div className="flex items-center justify-center px-5 sm:px-8 lg:px-12 pt-20 sm:pt-28 lg:pt-36 pb-28 sm:pb-36 lg:pb-44">
+        <div className="flex items-center justify-center px-5 sm:px-8 lg:px-12 pt-12 sm:pt-16 lg:pt-20 pb-12 sm:pb-16 lg:pb-20">
           <div className="text-center max-w-4xl">
             {/* Headline */}
             <h1 ref={headlineRef} className="font-[family-name:var(--font-display)] text-4xl sm:text-5xl md:text-6xl lg:text-[5rem] font-black tracking-tight text-white leading-[1.05] mb-6">

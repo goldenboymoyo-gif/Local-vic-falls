@@ -21,6 +21,23 @@ export default function BookingPage() {
 
   const listing = allListings.find(l => l.slug === businessId)
 
+  // Helper to parse price string like "$139" or "$139.50"
+  const parsePrice = (priceStr) => {
+    if (!priceStr) return 0
+    const num = parseFloat(priceStr.replace(/[^\d.-]/g, ''))
+    return isNaN(num) ? 0 : num
+  }
+
+  const pricePerPerson = parsePrice(listing?.price)
+  const totalPrice = pricePerPerson * partySize
+
+  const formatPrice = (amount) => {
+    return amount.toLocaleString('en-US', {
+      style: 'currency',
+      currency: 'USD',
+    })
+  }
+
   const nextStep = () => {
     if (step < 3) setStep(step + 1)
     else setConfirmed(true)
@@ -33,7 +50,7 @@ export default function BookingPage() {
         animate={{ opacity: 1 }}
         className="min-h-screen flex items-center justify-center bg-gray-50"
       >
-      <div className="bg-white rounded-2xl p-8 lg:p-12 max-w-md text-center shadow-lg border border-gray-100">
+        <div className="bg-white rounded-2xl p-8 lg:p-12 max-w-md text-center shadow-lg border border-gray-100">
           <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
             <Check className="w-8 h-8 text-green-600" />
           </div>
@@ -44,9 +61,18 @@ export default function BookingPage() {
             <p className="text-gray-700 font-medium">{listing?.name || 'Experience'}</p>
             <p className="text-gray-500">{selectedDate} at {selectedTime}</p>
             <p className="text-gray-500">{partySize} {partySize === 1 ? 'person' : 'people'}</p>
+            {listing.price && (
+              <div className="mt-2">
+                <span className="font-medium">Price per person:</span> <span className="text-gray-700">{formatPrice(pricePerPerson)}</span>
+              </div>
+            )}
+            {listing.price && (
+              <div className="mt-1">
+                <span className="font-medium">Total:</span> <span className="text-gray-700">{formatPrice(totalPrice)}</span>
+              </div>
+            )}
           </div>
           <Link to="/" className="block w-full bg-[var(--color-primary)] text-white py-3 rounded-lg text-sm font-medium hover:bg-[var(--color-primary-dark)] transition-colors text-center mb-3">Back to Home</Link>
-          <Link to="/" className="block w-full bg-gray-900 text-white py-3 rounded-lg text-sm font-medium hover:bg-black transition-colors">Back to home</Link>
         </div>
       </motion.div>
     )
@@ -60,7 +86,7 @@ export default function BookingPage() {
         </div>
         <h2 className="text-xl font-semibold mb-2">Listing not found</h2>
         <p className="text-gray-500 text-sm mb-4">This experience doesn't exist or has been removed.</p>
-        <Link to="/search" className="text-teal-600 text-sm font-medium">Browse all experiences &rarr;</Link>
+        <Link to="/search" className="text-teal-600 text-sm font-medium">Browse all experiences &rarr-medium">Browse all experiences &rarr;</Link>
       </div>
     )
   }
@@ -112,7 +138,12 @@ export default function BookingPage() {
                 </div>
                 {listing.price && (
                   <div className="text-right shrink-0">
-                    <span className="text-lg font-bold text-teal-600">{listing.price}</span>
+                    <div className="mb-2">
+                      <span className="font-medium text-gray-600">Price per person:</span> <span className="text-lg font-bold text-teal-600">{listing.price}</span>
+                    </div>
+                    <div className="mb-1">
+                      <span className="font-medium text-gray-600">Total for {partySize} {partySize === 1 ? 'person' : 'people'}:</span> <span className="text-lg font-bold text-teal-600">{formatPrice(totalPrice)}</span>
+                    </div>
                     {listing.priceNote && <p className="text-xs text-gray-400">{listing.priceNote}</p>}
                   </div>
                 )}
@@ -213,8 +244,14 @@ export default function BookingPage() {
                 </div>
                 {listing.price && (
                   <div className="flex justify-between text-sm">
-                    <span className="text-gray-500">Price</span>
-                    <span className="font-medium">{listing.price} {listing.priceNote}</span>
+                    <span className="text-gray-500">Price per person</span>
+                    <span className="font-medium">{listing.price}</span>
+                  </div>
+                )}
+                {listing.price && (
+                  <div className="flex justify-between text-sm">
+                    <span className="text-gray-500">Total price</span>
+                    <span className="font-medium">{formatPrice(totalPrice)}</span>
                   </div>
                 )}
                 <div className="flex justify-between text-sm">
