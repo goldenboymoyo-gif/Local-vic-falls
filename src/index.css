@@ -28,7 +28,6 @@
 
   input:focus, textarea:focus, select:focus {
     outline: none;
-    box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.12);
     border-color: #0d9488;
   }
 
@@ -305,7 +304,6 @@
 
 .input:focus {
   border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.1);
   outline: none;
 }
 

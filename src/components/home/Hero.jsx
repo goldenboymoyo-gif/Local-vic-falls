@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { Search, ArrowRight, Mountain, UtensilsCrossed, Users, Hotel, Music, Sparkles } from 'lucide-react'
+import { Search, ArrowRight, Mountain, UtensilsCrossed, Users, Hotel, Music } from 'lucide-react'
 import gsap from 'gsap'
 import { heroCategoryPills } from '../../data/listings'
 
@@ -74,7 +74,7 @@ export default function Hero() {
       {/* Video background */}
       <div className="absolute inset-0">
         <iframe
-          src="https://www.youtube.com/embed/UZ3DV7rCCH4?autoplay=1&mute=1&loop=1&playlist=UZ3DV7rCCH4&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&iv_load_policy=3&disablekb=1"
+          src="https://www.youtube.com/embed/UZ3DV7rCCH4?autoplay=1&mute=1&loop=1&playlist=UZ3DV7rCCH4&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&iv_load_policy=3&disablekb=1&vq=hd2160&quality=hd2160"
           title="Victoria Falls background"
           className="absolute top-1/2 left-1/2 w-[178%] h-[178%] -translate-x-1/2 -translate-y-1/2 pointer-events-none"
           allow="autoplay; encrypted-media"
@@ -82,16 +82,16 @@ export default function Hero() {
           style={{ border: 'none' }}
         />
         {/* Cinematic gradient overlays */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/70" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-black/40" />
-        <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-[#fafaf8] to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/20 to-black/60" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-black/30" />
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#fafaf8] to-transparent" />
       </div>
 
       {/* Content */}
       <div className="relative z-10">
         <div className="h-16 lg:h-[4.5rem]" />
 
-        <div className="flex items-center justify-center px-5 sm:px-8 lg:px-12 py-20 sm:py-28 lg:py-36">
+        <div className="flex items-center justify-center px-5 sm:px-8 lg:px-12 pt-16 sm:pt-24 lg:pt-32 pb-24 sm:pb-32 lg:pb-40">
           <div className="text-center max-w-4xl">
             {/* Headline */}
             <h1 ref={headlineRef} className="font-[family-name:var(--font-display)] text-4xl sm:text-5xl md:text-6xl lg:text-[5rem] font-black tracking-tight text-white leading-[1.05] mb-6">
@@ -114,7 +114,7 @@ export default function Hero() {
               <form onSubmit={handleSearch} className="relative">
                 <div className={`flex items-center bg-white rounded-2xl p-2 transition-all duration-500 ${
                   searchFocused
-                    ? 'shadow-[0_8px_40px_rgba(0,0,0,0.15)] ring-2 ring-white/20'
+                    ? 'shadow-[0_8px_40px_rgba(0,0,0,0.15)]'
                     : 'shadow-[0_4px_24px_rgba(0,0,0,0.1)]'
                 }`}>
                   <div className="flex items-center gap-3 flex-1 px-4">
@@ -146,7 +146,6 @@ export default function Hero() {
                 to="#categories"
                 className="inline-flex items-center gap-2 bg-white text-[var(--color-ink)] px-8 py-3.5 rounded-xl text-sm font-semibold hover:bg-[var(--color-surface)] transition-all duration-200 shadow-lg hover:shadow-xl hover:-translate-y-0.5"
               >
-                <Sparkles className="w-4 h-4 text-[var(--color-primary)]" />
                 Explore what's on
               </Link>
               <Link
