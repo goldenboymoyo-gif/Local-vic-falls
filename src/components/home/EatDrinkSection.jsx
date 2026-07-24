@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Star, MapPin, Clock, ArrowRight, Phone } from 'lucide-react'
+import { Star, MapPin, Clock, ArrowRight, UtensilsCrossed } from 'lucide-react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { eatDrink } from '../../data/listings'
@@ -30,7 +30,6 @@ export default function EatDrinkSection() {
   }, [])
 
   useEffect(() => {
-    // Animate cards on filter change
     cardsRef.current.forEach((card, i) => {
       if (!card) return
       gsap.fromTo(card,
@@ -41,40 +40,39 @@ export default function EatDrinkSection() {
   }, [activeFilter])
 
   return (
-    <section ref={sectionRef} className="py-24 lg:py-32 bg-white">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section ref={sectionRef} className="section bg-white">
+      <div className="container-premium">
         {/* Header */}
-        <div className="eat-header flex items-end justify-between mb-10">
+        <div className="eat-header flex items-end justify-between mb-8">
           <div>
-            <span className="text-[11px] font-medium text-amber-600 uppercase tracking-[0.2em]">
+            <span className="section-label">
+              <UtensilsCrossed className="w-3.5 h-3.5" />
               Eat & Drink
             </span>
-            <h2 className="text-3xl lg:text-[2.5rem] font-bold mt-3 tracking-tight leading-[1.1] text-gray-900">
-              The town eats well
-            </h2>
-            <p className="text-gray-400 mt-3 text-sm leading-relaxed max-w-md">
+            <h2 className="section-title">The town eats well</h2>
+            <p className="section-subtitle">
               Oxtail, tapas, sundowners. Real restaurants, real menus.
             </p>
           </div>
           <Link
             to="/eat-drink"
-            className="hidden sm:inline-flex items-center gap-1.5 text-sm font-medium text-gray-900 hover:text-amber-600 transition-colors group"
+            className="hidden sm:inline-flex items-center gap-1.5 text-sm font-medium text-[var(--color-ink)] hover:text-[var(--color-accent)] transition-colors group"
           >
             View all restaurants
             <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
           </Link>
         </div>
 
-        {/* Filters — TripAdvisor style */}
+        {/* Filters */}
         <div className="flex items-center gap-2 mb-8 overflow-x-auto no-scrollbar pb-1">
           {filters.map((f) => (
             <button
               key={f}
               onClick={() => setActiveFilter(f)}
-              className={`shrink-0 px-4 py-2 rounded-lg text-xs font-semibold transition-colors duration-150 border ${
+              className={`shrink-0 px-4 py-2 rounded-lg text-xs font-semibold transition-all duration-200 border ${
                 activeFilter === f
-                  ? 'bg-amber-600 text-white border-amber-600'
-                  : 'bg-gray-50 text-gray-600 border-gray-200 hover:bg-gray-100 hover:border-gray-300'
+                  ? 'bg-[var(--color-accent)] text-white border-[var(--color-accent)] shadow-sm'
+                  : 'bg-[var(--color-surface)] text-[var(--color-ink-light)] border-[var(--color-border)] hover:bg-[var(--color-surface-warm)] hover:border-[var(--color-border)]'
               }`}
             >
               {f}
@@ -88,54 +86,54 @@ export default function EatDrinkSection() {
             <div
               key={item.id}
               ref={(el) => { cardsRef.current[i] = el }}
-              className="group bg-white rounded-2xl overflow-hidden border border-gray-100 hover:shadow-xl hover:shadow-gray-200/50 hover:border-gray-200 transition-all duration-500"
+              className="card group"
             >
               {/* Image */}
-              <div className="relative h-48 overflow-hidden bg-gray-100">
+              <div className="card-image h-52 relative">
                 <img
                   src={item.image}
                   alt={item.name}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                  className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent" />
 
                 {/* Badges */}
                 <div className="absolute top-3 left-3 flex items-center gap-1.5 flex-wrap">
                   {item.badges?.slice(0, 2).map((badge) => (
-                    <span key={badge} className="bg-white/90 backdrop-blur-sm text-gray-800 text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full">
+                    <span key={badge} className="badge bg-white/90 text-[var(--color-ink)]">
                       {badge}
                     </span>
                   ))}
                 </div>
 
                 {/* Rating */}
-                <div className="absolute bottom-3 left-3 flex items-center gap-1 bg-black/50 backdrop-blur-sm rounded-full px-2 py-1">
+                <div className="absolute bottom-3 left-3 flex items-center gap-1 bg-black/40 backdrop-blur-sm rounded-full px-2.5 py-1">
                   <Star className="w-3 h-3 text-yellow-400 fill-yellow-400" />
-                  <span className="text-white text-xs font-bold">{item.rating}</span>
+                  <span className="text-white text-xs font-semibold">{item.rating}</span>
                   <span className="text-white/50 text-[10px]">({item.reviews})</span>
                 </div>
 
                 {/* Price */}
-                <div className="absolute bottom-3 right-3 bg-white/95 backdrop-blur-sm rounded-lg px-2 py-1">
-                  <span className="text-sm font-bold text-gray-900">{item.price}</span>
+                <div className="absolute bottom-3 right-3 bg-white rounded-lg px-2.5 py-1 shadow-md">
+                  <span className="text-sm font-bold text-[var(--color-ink)]">{item.price}</span>
                 </div>
               </div>
 
               {/* Content */}
-              <div className="p-4">
+              <div className="card-body">
                 <div className="flex items-center gap-2 mb-2">
-                  <span className="text-[10px] font-medium text-amber-600 bg-amber-50 px-2 py-0.5 rounded-full">{item.category}</span>
+                  <span className="badge badge-accent">{item.category}</span>
                 </div>
 
-                <h3 className="text-gray-900 font-bold text-sm tracking-tight mb-1.5 line-clamp-1 group-hover:text-amber-600 transition-colors">
+                <h3 className="text-[var(--color-ink)] font-semibold text-sm tracking-tight mb-1.5 line-clamp-1 group-hover:text-[var(--color-accent)] transition-colors">
                   {item.name}
                 </h3>
 
-                <p className="text-gray-500 text-xs leading-relaxed line-clamp-2 mb-3">
+                <p className="text-[var(--color-ink-muted)] text-xs leading-relaxed line-clamp-2 mb-3">
                   {item.shortDesc}
                 </p>
 
-                <div className="flex flex-col gap-1.5 text-[10px] text-gray-400">
+                <div className="flex flex-col gap-1.5 text-[10px] text-[var(--color-ink-muted)]">
                   <div className="flex items-center gap-1.5">
                     <Clock className="w-3 h-3" />
                     <span>{item.hours}</span>

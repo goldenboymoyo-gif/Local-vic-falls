@@ -1,9 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { Search } from 'lucide-react'
+import { Search, ArrowRight, Mountain, UtensilsCrossed, Users, Hotel, Music, Sparkles } from 'lucide-react'
 import gsap from 'gsap'
 import { heroCategoryPills } from '../../data/listings'
-import { Mountain, UtensilsCrossed, Users, Hotel, Music } from 'lucide-react'
 
 const iconMap = { Mountain, UtensilsCrossed, Users, Hotel, Music }
 
@@ -20,44 +19,45 @@ export default function Hero() {
   const searchRef = useRef(null)
   const navigate = useNavigate()
   const [searchQuery, setSearchQuery] = useState('')
+  const [searchFocused, setSearchFocused] = useState(false)
 
   useEffect(() => {
     const ctx = gsap.context(() => {
       if (headlineRef.current) {
         const words = headlineRef.current.querySelectorAll('.hw')
         gsap.fromTo(words,
-          { opacity: 0, y: 40, rotationX: -40 },
-          { opacity: 1, y: 0, rotationX: 0, duration: 0.8, stagger: 0.1, delay: 0.3, ease: 'power3.out', clearProps: 'all' }
+          { opacity: 0, y: 50, rotationX: -30 },
+          { opacity: 1, y: 0, rotationX: 0, duration: 1, stagger: 0.12, delay: 0.4, ease: 'power3.out', clearProps: 'all' }
         )
       }
 
       if (subRef.current) {
         gsap.fromTo(subRef.current, { opacity: 0, y: 30 }, {
-          opacity: 1, y: 0, duration: 0.8, delay: 1.0, ease: 'power3.out', clearProps: 'all',
+          opacity: 1, y: 0, duration: 0.9, delay: 1.2, ease: 'power3.out', clearProps: 'all',
+        })
+      }
+
+      if (searchRef.current) {
+        gsap.fromTo(searchRef.current, { opacity: 0, y: 24, scale: 0.97 }, {
+          opacity: 1, y: 0, scale: 1, duration: 0.9, delay: 1.6, ease: 'power3.out', clearProps: 'all',
         })
       }
 
       if (pillsRef.current) {
         const pills = pillsRef.current.querySelectorAll('.cat-pill')
         gsap.fromTo(pills,
-          { opacity: 0, y: 20, scale: 0.95 },
-          { opacity: 1, y: 0, scale: 1, duration: 0.5, stagger: 0.06, delay: 1.4, ease: 'power3.out', clearProps: 'all' }
+          { opacity: 0, y: 16 },
+          { opacity: 1, y: 0, duration: 0.6, stagger: 0.06, delay: 2.0, ease: 'power3.out', clearProps: 'all' }
         )
-      }
-
-      if (searchRef.current) {
-        gsap.fromTo(searchRef.current, { opacity: 0, y: 20, scale: 0.98 }, {
-          opacity: 1, y: 0, scale: 1, duration: 0.8, delay: 1.8, ease: 'power3.out', clearProps: 'all',
-        })
       }
     }, heroRef)
 
     const fallback = setTimeout(() => {
-      document.querySelectorAll('.hw, .cat-pill, [ref="subRef"], [ref="searchRef"]').forEach(el => {
+      document.querySelectorAll('.hw, .cat-pill').forEach(el => {
         el.style.opacity = '1'
         el.style.transform = 'none'
       })
-    }, 3000)
+    }, 3500)
 
     return () => { ctx.revert(); clearTimeout(fallback) }
   }, [])
@@ -70,7 +70,7 @@ export default function Hero() {
   }
 
   return (
-    <div ref={heroRef} className="relative bg-[#050816] overflow-hidden" style={{ minHeight: '85vh' }}>
+    <div ref={heroRef} className="relative overflow-hidden" style={{ minHeight: '90vh' }}>
       {/* Video background */}
       <div className="absolute inset-0">
         <iframe
@@ -81,83 +81,93 @@ export default function Hero() {
           allowFullScreen={false}
           style={{ border: 'none' }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#050816]/70 via-[#050816]/40 to-[#050816]/95" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#050816]/30 via-transparent to-[#050816]/30" />
+        {/* Cinematic gradient overlays */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/70" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-black/40" />
+        <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-[#fafaf8] to-transparent" />
       </div>
 
       {/* Content */}
       <div className="relative z-10">
-        <div className="h-16 lg:h-18" />
+        <div className="h-16 lg:h-[4.5rem]" />
 
-        <div className="flex items-center justify-center px-5 sm:px-10 lg:px-14 py-14 sm:py-20 lg:py-28">
+        <div className="flex items-center justify-center px-5 sm:px-8 lg:px-12 py-20 sm:py-28 lg:py-36">
           <div className="text-center max-w-4xl">
             {/* Headline */}
-            <h1 ref={headlineRef} className="text-3xl sm:text-5xl md:text-6xl lg:text-[4.5rem] font-black tracking-tight text-white leading-[1.05] mb-6">
+            <h1 ref={headlineRef} className="font-[family-name:var(--font-display)] text-4xl sm:text-5xl md:text-6xl lg:text-[5rem] font-black tracking-tight text-white leading-[1.05] mb-6">
               {headlines[0].split(' ').map((word, i) => (
-                <span key={i} className="hw inline-block mr-[0.25em]">{word}</span>
+                <span key={i} className="hw inline-block mr-[0.28em]">{word}</span>
               ))}
               <br />
               {headlines[1].split(' ').map((word, i) => (
-                <span key={i} className={`hw inline-block mr-[0.25em] ${i === 0 ? '' : 'text-teal-400'}`}>{word}</span>
+                <span key={i} className={`hw inline-block mr-[0.28em] ${i === 0 ? '' : 'text-[var(--color-primary-light)]'}`}>{word}</span>
               ))}
             </h1>
 
             {/* Subhead */}
-            <p ref={subRef} className="text-base sm:text-lg text-white/65 max-w-2xl mx-auto mb-10 leading-relaxed">
+            <p ref={subRef} className="text-base sm:text-lg text-white/60 max-w-xl mx-auto mb-12 leading-relaxed font-light">
               Rapids, rooftop bars, village classrooms. The version locals live in.
             </p>
 
-            {/* Search bar */}
-            <div ref={searchRef} className="max-w-xl mx-auto mb-8">
+            {/* Search bar — premium, journey-starting */}
+            <div ref={searchRef} className="max-w-2xl mx-auto mb-10">
               <form onSubmit={handleSearch} className="relative">
-                <div className="flex items-center bg-white/[0.07] border border-white/[0.15] rounded-xl p-1.5 hover:bg-white/[0.1] hover:border-white/[0.22] transition-all duration-200 shadow-lg shadow-black/15">
-                  <div className="flex items-center gap-2 flex-1 px-4">
-                    <Search className="w-4 h-4 text-white/40" />
+                <div className={`flex items-center bg-white rounded-2xl p-2 transition-all duration-500 ${
+                  searchFocused
+                    ? 'shadow-[0_8px_40px_rgba(0,0,0,0.15)] ring-2 ring-white/20'
+                    : 'shadow-[0_4px_24px_rgba(0,0,0,0.1)]'
+                }`}>
+                  <div className="flex items-center gap-3 flex-1 px-4">
+                    <Search className="w-5 h-5 text-[var(--color-ink-muted)]" />
                     <input
                       type="text"
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}
-                      placeholder="What are you looking for?"
-                      className="flex-1 bg-transparent border-none outline-none text-white placeholder-white/40 text-sm sm:text-base py-2.5"
+                      onFocus={() => setSearchFocused(true)}
+                      onBlur={() => setSearchFocused(false)}
+                      placeholder="Where do you want to start your adventure?"
+                      className="flex-1 bg-transparent border-none outline-none text-[var(--color-ink)] placeholder-[var(--color-ink-muted)] text-sm sm:text-base py-3"
                     />
                   </div>
                   <button
                     type="submit"
-                    className="bg-white text-gray-900 px-6 sm:px-7 py-2.5 rounded-lg font-semibold text-sm hover:bg-gray-100 transition-colors duration-150 shrink-0"
+                    className="bg-[var(--color-primary)] text-white px-7 sm:px-8 py-3 rounded-xl font-semibold text-sm hover:bg-[var(--color-primary-dark)] transition-all duration-200 shrink-0 flex items-center gap-2"
                   >
                     Explore
+                    <ArrowRight className="w-4 h-4" />
                   </button>
                 </div>
               </form>
             </div>
 
             {/* CTAs */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-10">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
               <Link
                 to="#categories"
-                className="magnetic-btn inline-flex items-center gap-2 bg-teal-600 text-white px-7 py-3 rounded-lg text-sm font-semibold hover:bg-teal-700 transition-colors duration-150"
+                className="inline-flex items-center gap-2 bg-white text-[var(--color-ink)] px-8 py-3.5 rounded-xl text-sm font-semibold hover:bg-[var(--color-surface)] transition-all duration-200 shadow-lg hover:shadow-xl hover:-translate-y-0.5"
               >
+                <Sparkles className="w-4 h-4 text-[var(--color-primary)]" />
                 Explore what's on
               </Link>
               <Link
                 to="/plan-your-day"
-                className="magnetic-btn inline-flex items-center gap-2 text-sm font-medium text-white/70 px-7 py-3 border border-white/20 rounded-lg hover:border-white/35 hover:text-white transition-colors duration-150"
+                className="inline-flex items-center gap-2 text-sm font-medium text-white/70 px-8 py-3.5 border border-white/20 rounded-xl hover:border-white/40 hover:text-white hover:bg-white/5 transition-all duration-200"
               >
                 Plan your day
               </Link>
             </div>
 
-            {/* Category pills strip */}
-            <div ref={pillsRef} className="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5">
+            {/* Category pills */}
+            <div ref={pillsRef} className="flex flex-wrap items-center justify-center gap-2.5">
               {heroCategoryPills.map((pill) => {
                 const Icon = iconMap[pill.icon]
                 return (
                   <Link
                     key={pill.slug}
                     to={pill.slug === 'adventure' ? '/adventures' : pill.slug === 'nightlife' || pill.slug === 'stay' ? `/search?pillar=${pill.slug}` : `/${pill.slug}`}
-                    className="cat-pill inline-flex items-center gap-1.5 bg-white/[0.06] border border-white/[0.1] hover:bg-white/[0.12] hover:border-white/[0.2] text-white/70 hover:text-white px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-medium transition-colors duration-150"
+                    className="cat-pill inline-flex items-center gap-2 bg-white/8 backdrop-blur-sm border border-white/10 hover:bg-white/15 hover:border-white/20 text-white/70 hover:text-white px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all duration-200"
                   >
-                    {Icon && <Icon className="w-3.5 h-3.5" />}
+                    {Icon && <Icon className="w-4 h-4" />}
                     {pill.label}
                   </Link>
                 )

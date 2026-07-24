@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { Clock, Share2, Sparkles } from 'lucide-react'
+import { Clock, Share2, Sparkles, RotateCcw } from 'lucide-react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { vibeOptions, timeBudgets, buildItinerary } from '../../data/listings'
@@ -48,18 +48,16 @@ export default function BuildYourDay() {
   }
 
   return (
-    <section id="build-your-day" ref={sectionRef} className="py-24 lg:py-32 bg-white relative overflow-hidden">
-      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 relative z-10">
+    <section id="build-your-day" ref={sectionRef} className="section bg-white relative overflow-hidden">
+      <div className="container-premium max-w-4xl relative z-10">
         {/* Header */}
-        <div className="byd-header text-center mb-14">
-          <span className="inline-flex items-center gap-1.5 text-[11px] font-medium text-teal-600 uppercase tracking-[0.2em]">
+        <div className="byd-header text-center mb-12">
+          <span className="section-label justify-center">
             <Sparkles className="w-3.5 h-3.5" />
             Build Your Day
           </span>
-          <h2 className="text-3xl lg:text-[2.5rem] font-bold mt-3 tracking-tight leading-[1.1] text-gray-900">
-            Plan your perfect Vic Falls day
-          </h2>
-          <p className="text-gray-400 mt-3 text-sm leading-relaxed max-w-md mx-auto">
+          <h2 className="section-title">Plan your perfect Vic Falls day</h2>
+          <p className="section-subtitle mx-auto">
             Pick a vibe, pick a time. We'll build your day.
           </p>
         </div>
@@ -68,16 +66,16 @@ export default function BuildYourDay() {
         <div className="byd-steps space-y-8">
           {/* Step 1: Pick a vibe */}
           <div className="byd-step">
-            <h3 className="text-gray-500 text-xs font-semibold uppercase tracking-wider mb-4">1. Pick your vibe</h3>
+            <h3 className="text-[var(--color-ink-muted)] text-xs font-semibold uppercase tracking-wider mb-4">1. Pick your vibe</h3>
             <div className="flex flex-wrap gap-3">
               {vibeOptions.map((v) => (
                 <button
                   key={v.id}
                   onClick={() => setVibe(v.id)}
-                  className={`inline-flex items-center gap-2 px-5 py-3 rounded-lg text-sm font-semibold transition-colors duration-150 border ${
+                  className={`inline-flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-semibold transition-all duration-200 border ${
                     vibe === v.id
-                      ? `bg-gradient-to-r ${v.color} text-white border-transparent shadow-md`
-                      : 'bg-gray-50 text-gray-600 border-gray-200 hover:bg-gray-100 hover:border-gray-300'
+                      ? 'bg-[var(--color-primary)] text-white border-[var(--color-primary)] shadow-md shadow-[var(--color-primary)]/15'
+                      : 'bg-[var(--color-surface)] text-[var(--color-ink-light)] border-[var(--color-border)] hover:bg-[var(--color-surface-warm)] hover:border-[var(--color-border)]'
                   }`}
                 >
                   <span className="text-lg">{v.emoji}</span>
@@ -90,16 +88,16 @@ export default function BuildYourDay() {
           {/* Step 2: Time budget */}
           {vibe && (
             <div className="byd-step">
-              <h3 className="text-gray-500 text-xs font-semibold uppercase tracking-wider mb-4">2. How much time?</h3>
+              <h3 className="text-[var(--color-ink-muted)] text-xs font-semibold uppercase tracking-wider mb-4">2. How much time?</h3>
               <div className="flex flex-wrap gap-3">
                 {timeBudgets.map((t) => (
                   <button
                     key={t.id}
                     onClick={() => setTimeBudget(t.id)}
-                    className={`inline-flex items-center gap-2 px-5 py-3 rounded-lg text-sm font-semibold transition-colors duration-150 border ${
+                    className={`inline-flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-semibold transition-all duration-200 border ${
                       timeBudget === t.id
-                        ? 'bg-teal-600 text-white border-transparent shadow-md shadow-teal-500/15'
-                        : 'bg-gray-50 text-gray-600 border-gray-200 hover:bg-gray-100 hover:border-gray-300'
+                        ? 'bg-[var(--color-primary)] text-white border-[var(--color-primary)] shadow-md shadow-[var(--color-primary)]/15'
+                        : 'bg-[var(--color-surface)] text-[var(--color-ink-light)] border-[var(--color-border)] hover:bg-[var(--color-surface-warm)] hover:border-[var(--color-border)]'
                     }`}
                   >
                     <Clock className="w-4 h-4" />
@@ -113,14 +111,14 @@ export default function BuildYourDay() {
           {/* Result */}
           {itinerary.length > 0 && (
             <div ref={resultRef} className="byd-step">
-              <h3 className="text-gray-500 text-xs font-semibold uppercase tracking-wider mb-4">Your day</h3>
+              <h3 className="text-[var(--color-ink-muted)] text-xs font-semibold uppercase tracking-wider mb-4">Your day</h3>
               <div className="space-y-3">
                 {itinerary.map((item, i) => (
                   <div
                     key={item.id}
-                    className="flex items-center gap-4 bg-gray-50 border border-gray-100 rounded-xl p-4 hover:bg-gray-100 transition-colors duration-200"
+                    className="flex items-center gap-4 bg-[var(--color-surface)] border border-[var(--color-border-light)] rounded-xl p-4 hover:bg-white hover:shadow-sm transition-all duration-200"
                   >
-                    <div className="w-8 h-8 rounded-full bg-teal-500/15 flex items-center justify-center text-teal-600 text-xs font-bold shrink-0">
+                    <div className="w-8 h-8 rounded-full bg-[var(--color-primary)]/10 flex items-center justify-center text-[var(--color-primary)] text-xs font-bold shrink-0">
                       {i + 1}
                     </div>
                     <img
@@ -129,12 +127,12 @@ export default function BuildYourDay() {
                       className="w-12 h-12 rounded-lg object-cover shrink-0"
                     />
                     <div className="flex-1 min-w-0">
-                      <h4 className="text-gray-900 font-semibold text-sm truncate">{item.name}</h4>
-                      <p className="text-gray-500 text-xs truncate">{item.shortDesc}</p>
+                      <h4 className="text-[var(--color-ink)] font-semibold text-sm truncate">{item.name}</h4>
+                      <p className="text-[var(--color-ink-muted)] text-xs truncate">{item.shortDesc}</p>
                     </div>
                     <div className="text-right shrink-0">
-                      <span className="text-gray-900 font-bold text-sm">{item.price}</span>
-                      <span className="text-gray-400 text-[10px] block">{item.priceNote}</span>
+                      <span className="text-[var(--color-ink)] font-bold text-sm">{item.price}</span>
+                      <span className="text-[var(--color-ink-muted)] text-[10px] block">{item.priceNote}</span>
                     </div>
                   </div>
                 ))}
@@ -144,15 +142,16 @@ export default function BuildYourDay() {
               <div className="flex items-center gap-3 mt-6">
                 <button
                   onClick={shareWhatsApp}
-                  className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20BA5C] text-white px-5 py-2.5 rounded-lg text-sm font-semibold transition-colors duration-150"
+                  className="btn btn-whatsapp"
                 >
                   <Share2 className="w-4 h-4" />
                   Share on WhatsApp
                 </button>
                 <button
                   onClick={() => { setVibe(null); setTimeBudget(null); setItinerary([]) }}
-                  className="text-gray-400 text-sm hover:text-gray-600 transition-colors"
+                  className="btn btn-ghost text-[var(--color-ink-muted)]"
                 >
+                  <RotateCcw className="w-4 h-4" />
                   Start over
                 </button>
               </div>

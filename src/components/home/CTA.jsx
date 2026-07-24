@@ -34,23 +34,21 @@ export default function CTA() {
   }, [])
 
   return (
-    <section ref={sectionRef} className="relative bg-gray-50 overflow-hidden">
-      <div className="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-24 lg:py-32 text-center">
+    <section ref={sectionRef} className="relative bg-[var(--color-surface)] overflow-hidden">
+      <div className="relative mx-auto max-w-4xl px-5 sm:px-8 lg:px-12 py-24 lg:py-32 text-center">
         <div className="cta-content">
-          <span className="text-[11px] font-medium text-gray-400 uppercase tracking-[0.2em]">
-            Get started
-          </span>
-          <h2 className="text-3xl lg:text-[2.75rem] font-bold mt-4 tracking-tight leading-[1.08] text-gray-900">
+          <span className="section-label justify-center">Get started</span>
+          <h2 className="section-title text-center mx-auto" style={{ maxWidth: '36rem' }}>
             Ready to discover Victoria Falls?
           </h2>
-          <p className="text-gray-500 mt-5 text-base leading-relaxed max-w-lg mx-auto">
+          <p className="section-subtitle mx-auto text-center mt-4">
             Find, book, and manage unforgettable experiences — all in one place.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mt-8">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10">
             <Link
               to="/sign-up"
-              className="magnetic-btn inline-flex items-center gap-2 bg-teal-600 text-white px-7 py-3 rounded-lg text-sm font-semibold hover:bg-teal-700 transition-colors duration-150"
+              className="btn btn-primary btn-lg"
             >
               Become a Host
               <ArrowRight className="w-4 h-4" />
@@ -59,7 +57,7 @@ export default function CTA() {
               href="https://wa.me/263781234567?text=Hi!%20I'd%20like%20to%20know%20more%20about%20Local%20Vic%20Falls."
               target="_blank"
               rel="noopener noreferrer"
-              className="magnetic-btn inline-flex items-center gap-2 bg-[#25D366] text-white px-7 py-3 rounded-lg text-sm font-semibold hover:bg-[#20BA5C] transition-colors duration-150"
+              className="btn btn-whatsapp btn-lg"
             >
               <MessageCircle className="w-4 h-4" />
               Chat on WhatsApp
@@ -67,11 +65,11 @@ export default function CTA() {
           </div>
 
           {/* Feature pills */}
-          <div className="flex flex-wrap items-center justify-center gap-4 mt-10">
+          <div className="flex flex-wrap items-center justify-center gap-5 mt-12">
             {features.map((item) => (
-              <div key={item.label} className="flex items-center gap-2 text-sm text-gray-500">
-                <div className="w-7 h-7 rounded-lg bg-gray-100 flex items-center justify-center">
-                  <item.icon className="w-3.5 h-3.5 text-gray-400" />
+              <div key={item.label} className="flex items-center gap-2.5 text-sm text-[var(--color-ink-light)]">
+                <div className="w-8 h-8 rounded-lg bg-[var(--color-primary)]/10 flex items-center justify-center">
+                  <item.icon className="w-4 h-4 text-[var(--color-primary)]" />
                 </div>
                 {item.label}
               </div>

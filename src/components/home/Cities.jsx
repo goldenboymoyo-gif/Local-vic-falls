@@ -52,7 +52,7 @@ export default function Cities() {
           {
             opacity: 1, y: 0, scale: 1,
             duration: 0.6, delay: i * 0.08, ease: 'power3.out',
-            scrollTrigger: { trigger: card, start: 'top 90%', toggleActions: 'play none none none' },
+            scrollTrigger: { trigger: card, start: 'top 92%', toggleActions: 'play none none none' },
           }
         )
       })
@@ -61,20 +61,21 @@ export default function Cities() {
   }, [])
 
   return (
-    <section ref={sectionRef} className="py-20 lg:py-28 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section ref={sectionRef} className="section bg-white">
+      <div className="container-premium">
         <div className="mb-10">
-          <span className="text-xs font-medium text-teal-600 uppercase tracking-widest">Destination</span>
-          <h2 className="text-3xl lg:text-4xl font-bold mt-3 tracking-tight">
-            Victoria Falls, Zimbabwe
-          </h2>
-          <p className="text-gray-500 mt-2 max-w-lg text-sm">
+          <span className="section-label">
+            <MapPin className="w-3.5 h-3.5" />
+            Destination
+          </span>
+          <h2 className="section-title">Victoria Falls, Zimbabwe</h2>
+          <p className="section-subtitle">
             The adventure capital of Africa — home to thousands of trusted service providers.
           </p>
         </div>
 
         {/* Main hero card */}
-        <div ref={heroRef} className="relative overflow-hidden rounded-2xl bg-gray-100 mb-8">
+        <div ref={heroRef} className="relative overflow-hidden rounded-2xl bg-[var(--color-border-light)] mb-8">
           <div className="relative aspect-[16/7]">
             <img
               src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=1400&h=600&fit=crop"
@@ -91,7 +92,7 @@ export default function Cities() {
               </div>
 
               <div className="max-w-lg">
-                <h3 className="text-2xl md:text-4xl font-bold text-white tracking-tight leading-[1.1] mb-3">
+                <h3 className="text-2xl md:text-4xl font-bold text-white tracking-tight leading-[1.1] mb-3" style={{ fontFamily: 'var(--font-display)' }}>
                   Victoria Falls
                 </h3>
                 <p className="text-white/60 text-sm leading-relaxed mb-5">
@@ -111,7 +112,7 @@ export default function Cities() {
 
                 <Link
                   to="/search?city=Victoria%20Falls"
-                  className="inline-flex items-center gap-2 bg-white text-gray-900 px-5 py-2.5 rounded-lg text-sm font-semibold hover:bg-gray-100 transition-colors duration-150"
+                  className="btn bg-white text-[var(--color-ink)] hover:bg-[var(--color-surface)]"
                 >
                   Explore Victoria Falls
                   <ArrowUpRight className="w-4 h-4" />
@@ -127,14 +128,14 @@ export default function Cities() {
             <div
               key={h.label}
               ref={(el) => { cardsRef.current[i] = el }}
-              className="flex items-center gap-4 p-4 rounded-xl border border-gray-100 bg-gray-50/50 hover:bg-white hover:shadow-md hover:border-gray-200 transition-all duration-300 cursor-pointer group"
+              className="flex items-center gap-4 p-4 rounded-xl border border-[var(--color-border-light)] bg-[var(--color-surface)]/50 hover:bg-white hover:shadow-sm hover:border-[var(--color-border)] transition-all duration-300 cursor-pointer group"
             >
-              <div className="w-10 h-10 rounded-lg bg-teal-50 flex items-center justify-center shrink-0 group-hover:bg-teal-100 transition-colors">
-                <h.icon className="w-4.5 h-4.5 text-teal-600" />
+              <div className="w-10 h-10 rounded-lg bg-[var(--color-primary)]/10 flex items-center justify-center shrink-0 group-hover:bg-[var(--color-primary)]/15 transition-colors">
+                <h.icon className="w-4 h-4 text-[var(--color-primary)]" />
               </div>
               <div>
-                <h4 className="text-sm font-semibold text-gray-800">{h.label}</h4>
-                <p className="text-xs text-gray-500 mt-0.5">{h.count}</p>
+                <h4 className="text-sm font-semibold text-[var(--color-ink)]">{h.label}</h4>
+                <p className="text-xs text-[var(--color-ink-muted)] mt-0.5">{h.count}</p>
               </div>
             </div>
           ))}
@@ -142,16 +143,16 @@ export default function Cities() {
 
         {/* Nearby areas */}
         <div ref={(el) => { cardsRef.current[3] = el }}>
-          <h3 className="text-lg font-bold text-gray-900 mb-4">Areas in Victoria Falls</h3>
+          <h3 className="text-lg font-bold text-[var(--color-ink)] mb-4" style={{ fontFamily: 'var(--font-display)' }}>Areas in Victoria Falls</h3>
           <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-4 gap-3">
             {nearbyAreas.map((area) => (
               <Link
                 key={area.name}
                 to={`/search?city=${encodeURIComponent(area.name)}`}
-                className="group block p-4 rounded-xl border border-gray-100 hover:border-gray-200 hover:shadow-md transition-all duration-300"
+                className="group block p-4 rounded-xl border border-[var(--color-border-light)] hover:border-[var(--color-border)] hover:shadow-sm transition-all duration-300"
               >
-                <h4 className="text-sm font-semibold text-gray-800 group-hover:text-teal-600 transition-colors">{area.name}</h4>
-                <p className="text-xs text-gray-500 mt-1">{area.providers} providers</p>
+                <h4 className="text-sm font-semibold text-[var(--color-ink)] group-hover:text-[var(--color-primary)] transition-colors">{area.name}</h4>
+                <p className="text-xs text-[var(--color-ink-muted)] mt-1">{area.providers} providers</p>
               </Link>
             ))}
           </div>

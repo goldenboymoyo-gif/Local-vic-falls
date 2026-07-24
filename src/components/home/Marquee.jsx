@@ -6,13 +6,13 @@ export function QuoteMarquee() {
   const doubled = [...marqueeQuotes, ...marqueeQuotes]
 
   return (
-    <div className="bg-[#050816] border-y border-white/[0.06] overflow-hidden py-4">
+    <div className="bg-[#0f172a] border-y border-white/[0.06] overflow-hidden py-4">
       <div className="marquee-track">
         {doubled.map((q, i) => (
           <div key={i} className="shrink-0 px-8 flex items-center gap-3">
-            <span className="text-white/50 text-sm italic whitespace-nowrap">"{q.text}"</span>
+            <span className="text-white/50 text-sm italic whitespace-nowrap font-light">"{q.text}"</span>
             <span className="text-white/25 text-xs whitespace-nowrap">— {q.author}</span>
-            <span className="text-teal-500/30 mx-4">•</span>
+            <span className="text-[var(--color-primary)]/30 mx-4">•</span>
           </div>
         ))}
       </div>
@@ -24,7 +24,7 @@ export function TagMarquee() {
   const doubled = [...marqueeTags, ...marqueeTags]
 
   return (
-    <div className="bg-[#050816] overflow-hidden py-3">
+    <div className="bg-[#0f172a] overflow-hidden py-3">
       <div className="marquee-track-reverse">
         {doubled.map((tag, i) => (
           <span

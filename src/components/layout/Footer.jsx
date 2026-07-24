@@ -36,24 +36,24 @@ export default function Footer() {
   }
 
   return (
-    <footer className="bg-[#050816] text-white relative overflow-hidden">
+    <footer className="bg-[#0f172a] text-white relative overflow-hidden">
       {/* Giant masked typography */}
       <div className="absolute bottom-0 left-0 right-0 pointer-events-none select-none overflow-hidden">
-        <span className="block text-[8rem] sm:text-[12rem] lg:text-[18rem] font-black text-white/[0.02] leading-none text-center -mb-10 sm:-mb-16 lg:-mb-24">
+        <span className="block text-[8rem] sm:text-[12rem] lg:text-[18rem] font-black text-white/[0.02] leading-none text-center -mb-10 sm:-mb-16 lg:-mb-24" style={{ fontFamily: 'var(--font-display)' }}>
           LOCAL VIC FALLS
         </span>
       </div>
 
       {/* WhatsApp CTA bar */}
       <div className="border-b border-white/[0.06]">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 lg:py-10">
+        <div className="container-premium py-8 lg:py-10">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-xl bg-[#25D366]/20 flex items-center justify-center">
+              <div className="w-12 h-12 rounded-xl bg-[#25D366]/15 flex items-center justify-center">
                 <MessageCircle className="w-6 h-6 text-[#25D366]" />
               </div>
               <div>
-                <h3 className="text-lg font-bold">Book on WhatsApp</h3>
+                <h3 className="text-lg font-bold" style={{ fontFamily: 'var(--font-display)' }}>Book on WhatsApp</h3>
                 <p className="text-white/40 text-sm">Quick answers, instant booking — it's how Zimbabwe communicates.</p>
               </div>
             </div>
@@ -61,7 +61,7 @@ export default function Footer() {
               href="https://wa.me/263781234567?text=Hi!%20I'd%20like%20to%20know%20more%20about%20Local%20Vic%20Falls."
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20BA5C] text-white px-6 py-3 rounded-lg text-sm font-semibold transition-colors duration-150 shrink-0"
+              className="btn btn-whatsapp shrink-0"
             >
               <MessageCircle className="w-4 h-4" />
               Chat with us
@@ -72,10 +72,10 @@ export default function Footer() {
 
       {/* Newsletter */}
       <div className="border-b border-white/[0.06]">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10">
+        <div className="container-premium py-10">
           <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
             <div className="max-w-md">
-              <h3 className="text-lg font-semibold mb-1">Stay in the loop</h3>
+              <h3 className="text-lg font-semibold mb-1" style={{ fontFamily: 'var(--font-display)' }}>Stay in the loop</h3>
               <p className="text-gray-400 text-sm">New experiences, local events, and stories from the town.</p>
             </div>
             <form onSubmit={handleSubscribe} className="flex w-full lg:w-auto gap-3">
@@ -85,11 +85,11 @@ export default function Footer() {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your email"
                 required
-                className="flex-1 lg:w-72 px-4 py-2.5 bg-white/[0.06] border border-white/[0.1] rounded-lg text-sm text-white placeholder-gray-500 focus:outline-none focus:border-teal-400/50 transition-colors"
+                className="flex-1 lg:w-72 px-4 py-2.5 bg-white/[0.06] border border-white/[0.1] rounded-xl text-sm text-white placeholder-gray-500 focus:outline-none focus:border-[var(--color-primary)]/50 focus:ring-2 focus:ring-[var(--color-primary)]/10 transition-all"
               />
               <button
                 type="submit"
-                className="px-6 py-2.5 bg-teal-600 text-white text-sm font-medium rounded-lg hover:bg-teal-700 transition-colors duration-150 shrink-0 flex items-center gap-2"
+                className="btn btn-primary shrink-0"
               >
                 {subscribed ? <><Check className="w-4 h-4" /> Subscribed</> : 'Subscribe'}
               </button>
@@ -99,16 +99,16 @@ export default function Footer() {
       </div>
 
       {/* Main footer */}
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+      <div className="container-premium py-16">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-12">
           {/* Brand column */}
           <div className="col-span-2 md:col-span-3 lg:col-span-1">
             <Link to="/" className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 bg-gradient-to-br from-teal-500 to-emerald-600 rounded-xl flex items-center justify-center">
+              <div className="w-8 h-8 bg-[var(--color-primary)] rounded-xl flex items-center justify-center">
                 <Compass className="w-4 h-4 text-white" />
               </div>
-              <span className="text-lg font-semibold">
-                Local <span className="text-teal-400">Vic Falls</span>
+              <span className="text-lg font-semibold" style={{ fontFamily: 'var(--font-display)' }}>
+                Local <span className="text-[var(--color-primary-light)]">Vic Falls</span>
               </span>
             </Link>
             <p className="text-sm text-gray-400 mb-5 leading-relaxed">
@@ -144,7 +144,7 @@ export default function Footer() {
 
       {/* Bottom bar */}
       <div className="border-t border-white/[0.06]">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="container-premium py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-sm text-gray-500">&copy; 2026 Local Vic Falls. All rights reserved.</p>
           <div className="flex items-center gap-6">
             <Link to="/contact" className="text-sm text-gray-500 hover:text-white transition-colors">Privacy</Link>

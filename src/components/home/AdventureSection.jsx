@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { Star, Clock, ArrowRight, MessageCircle } from 'lucide-react'
+import { Star, Clock, ArrowRight, MessageCircle, Mountain } from 'lucide-react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { adventures } from '../../data/listings'
@@ -24,7 +24,7 @@ export default function AdventureSection() {
           { opacity: 0, y: 50, scale: 0.97 },
           {
             opacity: 1, y: 0, scale: 1, duration: 0.7, delay: i * 0.08, ease: 'power3.out',
-            scrollTrigger: { trigger: card, start: 'top 88%', toggleActions: 'play none none none' }
+            scrollTrigger: { trigger: card, start: 'top 90%', toggleActions: 'play none none none' }
           }
         )
       })
@@ -33,27 +33,23 @@ export default function AdventureSection() {
   }, [])
 
   return (
-    <section
-      ref={sectionRef}
-      className="py-24 lg:py-32 bg-white relative overflow-hidden"
-    >
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
+    <section ref={sectionRef} className="section bg-white relative overflow-hidden">
+      <div className="container-premium relative z-10">
         {/* Header */}
-        <div className="adv-header flex items-end justify-between mb-14">
+        <div className="adv-header flex items-end justify-between mb-12">
           <div>
-            <span className="text-[11px] font-medium text-teal-600 uppercase tracking-[0.2em]">
+            <span className="section-label">
+              <Mountain className="w-3.5 h-3.5" />
               Adventure & Adrenaline
             </span>
-            <h2 className="text-3xl lg:text-[2.5rem] font-bold mt-3 tracking-tight leading-[1.1] text-gray-900">
-              The Zambezi doesn't do half measures
-            </h2>
-            <p className="text-gray-400 mt-3 text-sm leading-relaxed max-w-md">
+            <h2 className="section-title">The Zambezi doesn't do half measures</h2>
+            <p className="section-subtitle">
               Grade 5 rapids, 111m bungee drops, gorge swings — all below the falls.
             </p>
           </div>
           <Link
             to="/adventures"
-            className="hidden sm:inline-flex items-center gap-1.5 text-sm font-medium text-gray-900 hover:text-teal-600 transition-colors group"
+            className="hidden sm:inline-flex items-center gap-1.5 text-sm font-medium text-[var(--color-ink)] hover:text-[var(--color-primary)] transition-colors group"
           >
             View all adventures
             <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
@@ -66,55 +62,55 @@ export default function AdventureSection() {
             <div
               key={adv.id}
               ref={(el) => { cardsRef.current[i] = el }}
-              className="group bg-white rounded-2xl overflow-hidden border border-gray-100 hover:shadow-xl hover:shadow-gray-200/50 hover:border-gray-200 transition-all duration-500"
+              className="card group"
             >
               {/* Image */}
-              <div className="relative h-48 overflow-hidden bg-gray-100">
+              <div className="card-image h-52 relative">
                 <img
                   src={adv.image}
                   alt={adv.name}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+                  className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
 
                 {/* Badges */}
                 <div className="absolute top-3 left-3 flex items-center gap-1.5 flex-wrap">
                   {adv.badges?.slice(0, 2).map((badge) => (
-                    <span key={badge} className="bg-teal-500 text-white text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full">
+                    <span key={badge} className="badge bg-[var(--color-primary)] text-white">
                       {badge}
                     </span>
                   ))}
                 </div>
 
                 {/* Price badge */}
-                <div className="absolute bottom-3 right-3 bg-white/95 backdrop-blur-sm rounded-xl px-3 py-1.5 shadow-lg">
-                  <span className="text-[10px] text-gray-500 block leading-none">{adv.priceNote}</span>
-                  <span className="text-lg font-black text-gray-900 leading-none">{adv.price}</span>
+                <div className="absolute bottom-3 right-3 bg-white rounded-lg px-3 py-1.5 shadow-md">
+                  <span className="text-[10px] text-[var(--color-ink-muted)] block leading-none">{adv.priceNote}</span>
+                  <span className="text-lg font-bold text-[var(--color-ink)] leading-none">{adv.price}</span>
                 </div>
 
                 {/* Rating */}
-                <div className="absolute bottom-3 left-3 flex items-center gap-1 bg-black/50 backdrop-blur-sm rounded-full px-2 py-1">
+                <div className="absolute bottom-3 left-3 flex items-center gap-1 bg-black/40 backdrop-blur-sm rounded-full px-2.5 py-1">
                   <Star className="w-3 h-3 text-yellow-400 fill-yellow-400" />
-                  <span className="text-white text-xs font-bold">{adv.rating}</span>
+                  <span className="text-white text-xs font-semibold">{adv.rating}</span>
                   <span className="text-white/50 text-[10px]">({adv.reviews})</span>
                 </div>
               </div>
 
               {/* Content */}
-              <div className="p-4">
+              <div className="card-body">
                 <div className="flex items-center gap-2 mb-2">
-                  <span className="text-[10px] font-medium text-teal-600 bg-teal-50 px-2 py-0.5 rounded-full">{adv.category}</span>
-                  <div className="flex items-center gap-1 text-gray-400">
+                  <span className="badge badge-primary">{adv.category}</span>
+                  <div className="flex items-center gap-1 text-[var(--color-ink-muted)]">
                     <Clock className="w-3 h-3" />
                     <span className="text-[10px]">{adv.duration}</span>
                   </div>
                 </div>
 
-                <h3 className="text-gray-900 font-bold text-sm tracking-tight mb-1.5 line-clamp-1 group-hover:text-teal-600 transition-colors">
+                <h3 className="text-[var(--color-ink)] font-semibold text-sm tracking-tight mb-1.5 line-clamp-1 group-hover:text-[var(--color-primary)] transition-colors">
                   {adv.name}
                 </h3>
 
-                <p className="text-gray-500 text-xs leading-relaxed line-clamp-2 mb-4">
+                <p className="text-[var(--color-ink-muted)] text-xs leading-relaxed line-clamp-2 mb-4">
                   {adv.shortDesc}
                 </p>
 
@@ -123,7 +119,7 @@ export default function AdventureSection() {
                   href={adv.whatsapp}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 w-full bg-[#25D366] hover:bg-[#20BA5C] text-white text-xs font-semibold py-2.5 rounded-lg transition-colors duration-150"
+                  className="btn btn-whatsapp btn-sm w-full"
                 >
                   <MessageCircle className="w-3.5 h-3.5" />
                   Book on WhatsApp

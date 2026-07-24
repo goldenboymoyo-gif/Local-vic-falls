@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
-import { Search, Menu, X, Compass } from 'lucide-react'
+import { Search, Menu, X, Compass, ChevronDown } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { pillarCategories, adventures, eatDrink } from '../../data/listings'
 
@@ -19,6 +19,7 @@ export default function PremiumNav() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [searchQuery, setSearchQuery] = useState('')
   const [searchResults, setSearchResults] = useState([])
+  const [searchFocused, setSearchFocused] = useState(false)
   const searchWrapRef = useRef(null)
   const searchInputRef = useRef(null)
 
@@ -28,7 +29,7 @@ export default function PremiumNav() {
   }
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20)
+    const onScroll = () => setScrolled(window.scrollY > 30)
     window.addEventListener('scroll', onScroll)
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
@@ -57,14 +58,11 @@ export default function PremiumNav() {
     function handleClick(e) {
       if (searchWrapRef.current && !searchWrapRef.current.contains(e.target)) {
         setSearchResults([])
+        setSearchFocused(false)
       }
     }
     document.addEventListener('mousedown', handleClick)
     return () => document.removeEventListener('mousedown', handleClick)
-  }, [])
-
-  useEffect(() => {
-    if (searchInputRef.current) searchInputRef.current.focus()
   }, [])
 
   function handleSearch(e) {
@@ -72,24 +70,29 @@ export default function PremiumNav() {
     if (searchQuery.trim()) {
       navigate(`/search?q=${encodeURIComponent(searchQuery.trim())}`)
       setSearchQuery('')
+      setSearchFocused(false)
     }
   }
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
       scrolled
-        ? 'bg-[#050816]/95 backdrop-blur-2xl border-b border-white/[0.06]'
-        : 'bg-[#050816]'
+        ? 'bg-white/95 backdrop-blur-xl shadow-[0_1px_3px_rgba(0,0,0,0.05)] border-b border-[var(--color-border-light)]'
+        : 'bg-transparent'
     }`}>
-      <div className="max-w-[95%] mx-auto px-6 sm:px-10 lg:px-14">
-        <div className="flex items-center justify-between h-16 lg:h-18 gap-4">
+      <div className="container-premium">
+        <div className="flex items-center justify-between h-16 lg:h-[4.5rem] gap-6">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2.5 shrink-0 group">
-            <div className="w-9 h-9 bg-teal-600 rounded-xl flex items-center justify-center transition-colors duration-150">
+            <div className={`w-9 h-9 rounded-xl flex items-center justify-center transition-all duration-300 ${
+              scrolled ? 'bg-[var(--color-primary)]' : 'bg-white/10 backdrop-blur-sm'
+            }`}>
               <Compass className="w-5 h-5 text-white" />
             </div>
-            <span className="text-lg font-bold text-white tracking-tight">
-              Local <span className="text-teal-400">Vic Falls</span>
+            <span className={`text-lg font-bold tracking-tight transition-colors duration-300 ${
+              scrolled ? 'text-[var(--color-ink)]' : 'text-white'
+            }`}>
+              Local <span className={scrolled ? 'text-[var(--color-primary)]' : 'text-white/80'}>Vic Falls</span>
             </span>
           </Link>
 
@@ -99,33 +102,65 @@ export default function PremiumNav() {
               <Link
                 key={link.label}
                 to={link.path}
-                className={`px-3 py-2 text-sm rounded-lg transition-all duration-200 whitespace-nowrap ${
+                className={`relative px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 whitespace-nowrap ${
                   isActive(link.path)
-                    ? 'text-white bg-white/[0.08]'
-                    : 'text-white/50 hover:text-white hover:bg-white/[0.04]'
+                    ? scrolled
+                      ? 'text-[var(--color-primary)] bg-[var(--color-primary)]/5'
+                      : 'text-white bg-white/10'
+                    : scrolled
+                      ? 'text-[var(--color-ink-light)] hover:text-[var(--color-ink)] hover:bg-black/[0.03]'
+                      : 'text-white/70 hover:text-white hover:bg-white/5'
                 }`}
               >
                 {link.label}
+                {isActive(link.path) && (
+                  <motion.div
+                    layoutId="nav-indicator"
+                    className={`absolute bottom-0 left-1/2 -translate-x-1/2 w-5 h-0.5 rounded-full ${
+                      scrolled ? 'bg-[var(--color-primary)]' : 'bg-white'
+                    }`}
+                    transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                  />
+                )}
               </Link>
             ))}
           </div>
 
           {/* Right side */}
           <div className="flex items-center gap-3 shrink-0">
-            {/* Search input — always open */}
+            {/* Search */}
             <div ref={searchWrapRef} className="relative hidden lg:block">
-              <form onSubmit={handleSearch} className="flex items-center h-10 w-56 bg-white/[0.06] border border-white/[0.10] rounded-xl px-3 gap-2 focus-within:border-teal-500/40 transition-colors">
-                <Search className="w-4 h-4 text-white/40 shrink-0" />
+              <form onSubmit={handleSearch} className={`flex items-center h-10 rounded-xl px-3.5 gap-2 transition-all duration-300 ${
+                searchFocused
+                  ? 'w-72 bg-white shadow-lg ring-1 ring-[var(--color-primary)]/20'
+                  : scrolled
+                    ? 'w-56 bg-[var(--color-surface)] border border-[var(--color-border)]'
+                    : 'w-56 bg-white/10 backdrop-blur-sm border border-white/15'
+              }`}>
+                <Search className={`w-4 h-4 shrink-0 transition-colors ${
+                  searchFocused
+                    ? 'text-[var(--color-primary)]'
+                    : scrolled ? 'text-[var(--color-ink-muted)]' : 'text-white/50'
+                }`} />
                 <input
                   ref={searchInputRef}
                   type="text"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
+                  onFocus={() => setSearchFocused(true)}
                   placeholder="Search experiences..."
-                  className="flex-1 bg-transparent border-none outline-none text-sm text-white placeholder-white/40 min-w-0"
+                  className={`flex-1 bg-transparent border-none outline-none text-sm min-w-0 transition-colors ${
+                    searchFocused
+                      ? 'text-[var(--color-ink)] placeholder-[var(--color-ink-muted)]'
+                      : scrolled
+                        ? 'text-[var(--color-ink)] placeholder-[var(--color-ink-muted)]'
+                        : 'text-white placeholder-white/50'
+                  }`}
                 />
                 {searchQuery && (
-                  <button type="button" onClick={() => setSearchQuery('')} className="text-white/40 hover:text-white shrink-0">
+                  <button type="button" onClick={() => setSearchQuery('')} className={`shrink-0 transition-colors ${
+                    scrolled ? 'text-[var(--color-ink-muted)] hover:text-[var(--color-ink)]' : 'text-white/40 hover:text-white'
+                  }`}>
                     <X className="w-3.5 h-3.5" />
                   </button>
                 )}
@@ -135,11 +170,11 @@ export default function PremiumNav() {
               <AnimatePresence>
                 {searchQuery.trim().length > 0 && (
                   <motion.div
-                    initial={{ opacity: 0, y: 4 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 4 }}
-                    transition={{ duration: 0.15 }}
-                    className="absolute top-full right-0 mt-2 w-80 bg-[#0a0f1e] border border-white/[0.08] rounded-xl shadow-2xl overflow-hidden z-50"
+                    initial={{ opacity: 0, y: 8, scale: 0.98 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: 8, scale: 0.98 }}
+                    transition={{ duration: 0.2 }}
+                    className="absolute top-full right-0 mt-2 w-80 bg-white rounded-xl shadow-xl border border-[var(--color-border-light)] overflow-hidden z-50"
                   >
                     {searchResults.length > 0 ? (
                       <div className="py-2">
@@ -147,27 +182,29 @@ export default function PremiumNav() {
                           <Link
                             key={i}
                             to={r.type === 'category' ? `/${r.slug}` : `/search?q=${encodeURIComponent(r.name)}`}
-                            onClick={() => setSearchQuery('')}
-                            className="flex items-center gap-3 px-4 py-2.5 hover:bg-white/[0.04] transition-colors"
+                            onClick={() => { setSearchQuery(''); setSearchFocused(false) }}
+                            className="flex items-center gap-3 px-4 py-3 hover:bg-[var(--color-surface)] transition-colors"
                           >
-                            <div className={`w-8 h-8 rounded-lg flex items-center justify-center text-xs font-bold shrink-0 ${r.type === 'category' ? 'bg-teal-500/20 text-teal-400' : 'bg-white/[0.06] text-white/60'}`}>
+                            <div className={`w-9 h-9 rounded-lg flex items-center justify-center text-xs font-bold shrink-0 ${
+                              r.type === 'category' ? 'bg-[var(--color-primary)]/10 text-[var(--color-primary)]' : 'bg-[var(--color-surface-warm)] text-[var(--color-ink-light)]'
+                            }`}>
                               {r.name.charAt(0)}
                             </div>
                             <div className="min-w-0 flex-1">
-                              <div className="text-sm font-medium text-white truncate">{r.name}</div>
-                              <div className="text-xs text-white/30 capitalize mt-0.5">{r.type}</div>
+                              <div className="text-sm font-medium text-[var(--color-ink)] truncate">{r.name}</div>
+                              <div className="text-xs text-[var(--color-ink-muted)] capitalize mt-0.5">{r.type}</div>
                             </div>
                           </Link>
                         ))}
                       </div>
                     ) : (
-                      <div className="py-5 text-center">
-                        <p className="text-sm text-white/30">No results for &quot;{searchQuery}&quot;</p>
+                      <div className="py-6 text-center">
+                        <p className="text-sm text-[var(--color-ink-muted)]">No results for &quot;{searchQuery}&quot;</p>
                       </div>
                     )}
 
-                    <div className="border-t border-white/[0.06] px-4 py-2.5">
-                      <button type="submit" className="text-xs font-medium text-teal-400 hover:text-teal-300">
+                    <div className="border-t border-[var(--color-border-light)] px-4 py-2.5">
+                      <button type="submit" className="text-xs font-medium text-[var(--color-primary)] hover:text-[var(--color-primary-dark)]">
                         Search all results →
                       </button>
                     </div>
@@ -176,16 +213,24 @@ export default function PremiumNav() {
               </AnimatePresence>
             </div>
 
-            <Link to="/sign-in" className="hidden sm:inline-flex text-sm text-white/60 hover:text-white px-3 py-2 transition-colors">
+            <Link to="/sign-in" className={`hidden sm:inline-flex text-sm font-medium px-3 py-2 rounded-lg transition-colors ${
+              scrolled ? 'text-[var(--color-ink-light)] hover:text-[var(--color-ink)] hover:bg-black/[0.03]' : 'text-white/70 hover:text-white hover:bg-white/5'
+            }`}>
               Login
             </Link>
-            <Link to="/sign-up" className="hidden lg:inline-flex items-center gap-1.5 text-sm font-semibold bg-teal-600 text-white px-5 py-2 rounded-lg hover:bg-teal-700 transition-colors duration-150">
+            <Link to="/sign-up" className={`hidden lg:inline-flex items-center gap-1.5 text-sm font-semibold px-5 py-2.5 rounded-xl transition-all duration-200 ${
+              scrolled
+                ? 'bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-dark)] shadow-sm hover:shadow-md'
+                : 'bg-white/10 backdrop-blur-sm text-white border border-white/15 hover:bg-white/15'
+            }`}>
               Become a Host
             </Link>
 
             {/* Mobile toggle */}
             <button
-              className="lg:hidden p-2 -mr-2 text-white/70 hover:text-white"
+              className={`lg:hidden p-2 -mr-2 rounded-lg transition-colors ${
+                scrolled ? 'text-[var(--color-ink)] hover:bg-black/[0.03]' : 'text-white hover:bg-white/10'
+              }`}
               onClick={() => setMobileOpen(!mobileOpen)}
             >
               {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -201,19 +246,19 @@ export default function PremiumNav() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-            className="lg:hidden overflow-hidden bg-[#050816]/95 backdrop-blur-2xl border-t border-white/[0.06]"
+            transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+            className="lg:hidden overflow-hidden bg-white border-t border-[var(--color-border-light)]"
           >
-            <div className="px-6 py-4 flex flex-col gap-1">
+            <div className="container-premium py-4 flex flex-col gap-1">
               {/* Mobile search */}
-              <form onSubmit={handleSearch} className="flex items-center h-10 bg-white/[0.06] border border-white/[0.10] rounded-xl px-3 gap-2 mb-2 lg:hidden">
-                <Search className="w-4 h-4 text-white/40 shrink-0" />
+              <form onSubmit={handleSearch} className="flex items-center h-11 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-xl px-3.5 gap-2 mb-2">
+                <Search className="w-4 h-4 text-[var(--color-ink-muted)] shrink-0" />
                 <input
                   type="text"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder="Search experiences..."
-                  className="flex-1 bg-transparent border-none outline-none text-sm text-white placeholder-white/40 min-w-0"
+                  className="flex-1 bg-transparent border-none outline-none text-sm text-[var(--color-ink)] placeholder-[var(--color-ink-muted)] min-w-0"
                 />
               </form>
 
@@ -223,18 +268,18 @@ export default function PremiumNav() {
                   to={link.path}
                   className={`px-4 py-3 text-sm font-medium rounded-xl transition-colors ${
                     isActive(link.path)
-                      ? 'bg-white/[0.08] text-white'
-                      : 'text-white/50 hover:text-white hover:bg-white/[0.04]'
+                      ? 'bg-[var(--color-primary)]/5 text-[var(--color-primary)]'
+                      : 'text-[var(--color-ink-light)] hover:text-[var(--color-ink)] hover:bg-[var(--color-surface)]'
                   }`}
                 >
                   {link.label}
                 </Link>
               ))}
-              <div className="border-t border-white/[0.06] my-2" />
-              <Link to="/sign-in" className="px-4 py-3 text-sm text-white/60 hover:text-white rounded-xl hover:bg-white/[0.04]">
+              <div className="h-px bg-[var(--color-border-light)] my-2" />
+              <Link to="/sign-in" className="px-4 py-3 text-sm text-[var(--color-ink-light)] hover:text-[var(--color-ink)] rounded-xl hover:bg-[var(--color-surface)]">
                 Login
               </Link>
-              <Link to="/sign-up" className="px-4 py-3 text-sm font-semibold bg-teal-600 text-white rounded-lg text-center mt-1">
+              <Link to="/sign-up" className="btn btn-primary w-full justify-center mt-1">
                 Become a Host
               </Link>
             </div>
