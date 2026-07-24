@@ -107,13 +107,15 @@ export default function Hero() {
 
   return (
     <div ref={heroRef} className="relative overflow-hidden" style={{ minHeight: '100vh' }}>
-      {/* Full-bleed cinematic background image */}
+      {/* Video background */}
       <div className="absolute inset-0">
-        <img
-          src="https://images.unsplash.com/photo-1577401239170-897c650e4929?w=1920&q=90&auto=format&fit=crop"
-          alt="Victoria Falls aerial view"
-          className="absolute inset-0 w-full h-full object-cover"
-          loading="eager"
+        <iframe
+          src="https://www.youtube.com/embed/UZ3DV7rCCH4?autoplay=1&mute=1&loop=1&playlist=UZ3DV7rCCH4&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&iv_load_policy=3&disablekb=1&vq=hd2160&quality=hd2160"
+          title="Victoria Falls background"
+          className="absolute top-1/2 left-1/2 w-[178%] h-[178%] -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+          allow="autoplay; encrypted-media"
+          allowFullScreen={false}
+          style={{ border: 'none' }}
         />
         {/* Cinematic gradient overlays */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/70" />
