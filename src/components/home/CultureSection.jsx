@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { ArrowRight, Clock, Star, MessageCircle, BookOpen } from 'lucide-react'
+import { ArrowRight, Clock, Star, BookOpen } from 'lucide-react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { cultureListings } from '../../data/listings'
@@ -77,15 +77,13 @@ export default function CultureSection() {
               <span className="flex items-center gap-1"><Star className="w-3 h-3 text-yellow-400 fill-yellow-400" />{featured.rating} ({featured.reviews})</span>
               <span className="font-bold text-white">{featured.price} {featured.priceNote}</span>
             </div>
-            <a
-              href={featured.whatsapp}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-whatsapp w-fit"
+            <Link
+              to="/booking"
+              className="btn btn-primary w-fit"
             >
-              <MessageCircle className="w-4 h-4" />
-              Book on WhatsApp
-            </a>
+              Book Now
+              <ArrowRight className="w-4 h-4" />
+            </Link>
           </div>
         </div>
 
@@ -121,17 +119,12 @@ export default function CultureSection() {
                   <span className="flex items-center gap-1"><Clock className="w-3 h-3" />{item.duration}</span>
                   <span className="font-semibold text-[var(--color-ink)]">{item.price} {item.priceNote}</span>
                 </div>
-                {item.whatsapp && (
-                  <a
-                    href={item.whatsapp}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn btn-sm w-full border border-[#25D366]/20 bg-[#25D366]/5 text-[#25D366] hover:bg-[#25D366] hover:text-white hover:border-[#25D366]"
-                  >
-                    <MessageCircle className="w-3.5 h-3.5" />
-                    Book on WhatsApp
-                  </a>
-                )}
+                <Link
+                  to="/booking"
+                  className="btn btn-sm w-full btn-primary"
+                >
+                  Book Now
+                </Link>
               </div>
             </div>
           ))}

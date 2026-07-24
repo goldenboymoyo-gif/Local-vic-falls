@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { Star, Clock, ArrowRight, MessageCircle, Mountain } from 'lucide-react'
+import { Star, Clock, ArrowRight, Mountain } from 'lucide-react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { adventures } from '../../data/listings'
@@ -114,16 +114,12 @@ export default function AdventureSection() {
                   {adv.shortDesc}
                 </p>
 
-                {/* WhatsApp CTA */}
-                <a
-                  href={adv.whatsapp}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn btn-whatsapp btn-sm w-full"
+                <Link
+                  to={`/business/${adv.slug}`}
+                  className="btn btn-primary btn-sm w-full"
                 >
-                  <MessageCircle className="w-3.5 h-3.5" />
-                  Book on WhatsApp
-                </a>
+                  Book Now
+                </Link>
               </div>
             </div>
           ))}

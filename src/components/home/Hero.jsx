@@ -70,28 +70,26 @@ export default function Hero() {
   }
 
   return (
-    <div ref={heroRef} className="relative overflow-hidden" style={{ minHeight: '90vh' }}>
-      {/* Video background */}
+    <div ref={heroRef} className="relative overflow-hidden" style={{ minHeight: '100vh' }}>
+      {/* Full-bleed cinematic background image */}
       <div className="absolute inset-0">
-        <iframe
-          src="https://www.youtube.com/embed/UZ3DV7rCCH4?autoplay=1&mute=1&loop=1&playlist=UZ3DV7rCCH4&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&iv_load_policy=3&disablekb=1&vq=hd2160&quality=hd2160"
-          title="Victoria Falls background"
-          className="absolute top-1/2 left-1/2 w-[178%] h-[178%] -translate-x-1/2 -translate-y-1/2 pointer-events-none"
-          allow="autoplay; encrypted-media"
-          allowFullScreen={false}
-          style={{ border: 'none' }}
+        <img
+          src="https://images.unsplash.com/photo-1577401239170-897c650e4929?w=1920&q=90&auto=format&fit=crop"
+          alt="Victoria Falls aerial view"
+          className="absolute inset-0 w-full h-full object-cover"
+          loading="eager"
         />
         {/* Cinematic gradient overlays */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/20 to-black/60" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-black/30" />
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#fafaf8] to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/70" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-black/40" />
+        <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#faf8f5] to-transparent" />
       </div>
 
       {/* Content */}
       <div className="relative z-10">
         <div className="h-16 lg:h-[4.5rem]" />
 
-        <div className="flex items-center justify-center px-5 sm:px-8 lg:px-12 pt-16 sm:pt-24 lg:pt-32 pb-24 sm:pb-32 lg:pb-40">
+        <div className="flex items-center justify-center px-5 sm:px-8 lg:px-12 pt-20 sm:pt-28 lg:pt-36 pb-28 sm:pb-36 lg:pb-44">
           <div className="text-center max-w-4xl">
             {/* Headline */}
             <h1 ref={headlineRef} className="font-[family-name:var(--font-display)] text-4xl sm:text-5xl md:text-6xl lg:text-[5rem] font-black tracking-tight text-white leading-[1.05] mb-6">
@@ -100,12 +98,12 @@ export default function Hero() {
               ))}
               <br />
               {headlines[1].split(' ').map((word, i) => (
-                <span key={i} className={`hw inline-block mr-[0.28em] ${i === 0 ? '' : 'text-[var(--color-primary-light)]'}`}>{word}</span>
+                <span key={i} className={`hw inline-block mr-[0.28em] ${i === 0 ? '' : 'text-[var(--color-accent-light)]'}`}>{word}</span>
               ))}
             </h1>
 
             {/* Subhead */}
-            <p ref={subRef} className="text-base sm:text-lg text-white/60 max-w-xl mx-auto mb-12 leading-relaxed font-light">
+            <p ref={subRef} className="text-base sm:text-lg text-white/65 max-w-xl mx-auto mb-12 leading-relaxed font-light">
               Rapids, rooftop bars, village classrooms. The version locals live in.
             </p>
 
@@ -114,8 +112,8 @@ export default function Hero() {
               <form onSubmit={handleSearch} className="relative">
                 <div className={`flex items-center bg-white rounded-2xl p-2 transition-all duration-500 ${
                   searchFocused
-                    ? 'shadow-[0_8px_40px_rgba(0,0,0,0.15)]'
-                    : 'shadow-[0_4px_24px_rgba(0,0,0,0.1)]'
+                    ? 'shadow-[0_8px_40px_rgba(0,0,0,0.18)]'
+                    : 'shadow-[0_4px_24px_rgba(0,0,0,0.12)]'
                 }`}>
                   <div className="flex items-center gap-3 flex-1 px-4">
                     <Search className="w-5 h-5 text-[var(--color-ink-muted)]" />

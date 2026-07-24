@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { useParams, Link } from 'react-router-dom'
-import { Star, MapPin, Phone, Clock, Shield, Heart, Share2, ChevronLeft, Calendar, MessageCircle, CheckCircle } from 'lucide-react'
+import { Star, MapPin, Phone, Clock, Shield, Heart, Share2, ChevronLeft, Calendar, CheckCircle } from 'lucide-react'
 import { adventures, eatDrink, cultureListings, stayListings } from '../data/listings'
 
 const allListings = [...adventures, ...eatDrink, ...cultureListings, ...stayListings]
@@ -111,11 +111,7 @@ export default function BusinessProfile() {
         >
           <Calendar className="w-4 h-4" /> Book now
         </Link>
-        {listing.whatsapp && (
-          <a href={listing.whatsapp} target="_blank" rel="noopener noreferrer" className="p-3 border border-gray-200 rounded-xl">
-            <MessageCircle className="w-5 h-5 text-[#25D366]" />
-          </a>
-        )}
+      
       </div>
 
       {/* Main Content */}
@@ -233,16 +229,12 @@ export default function BusinessProfile() {
                 </div>
               </div>
 
-              {listing.whatsapp && (
-                <a
-                  href={listing.whatsapp}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 w-full bg-[#25D366] text-white px-6 py-3 rounded-lg text-sm font-medium hover:bg-[#20BA5C] transition-colors"
-                >
-                  <MessageCircle className="w-4 h-4" /> Chat on WhatsApp
-                </a>
-              )}
+              <Link
+                to="/booking"
+                className="flex items-center justify-center gap-2 w-full bg-teal-600 text-white px-6 py-3 rounded-lg text-sm font-medium hover:bg-teal-700 transition-colors"
+              >
+                <Calendar className="w-4 h-4" /> Book Now
+              </Link>
 
               {listing.phone && (
                 <a

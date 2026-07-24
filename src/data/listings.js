@@ -33,7 +33,6 @@ export const adventures = [
     operator: 'Wild Horizons / Shearwater Adventures',
     website: 'https://wildhorizons.co.za/activities/rafting/',
     verify: false,
-    whatsapp: 'https://wa.me/263781234567?text=Hi!%20I%27d%20like%20to%20book%20white-water%20rafting.',
   },
   {
     id: 'adv-2',
@@ -53,7 +52,6 @@ export const adventures = [
     operator: 'Shearwater Adventures',
     website: 'https://www.shearwateradventures.com/bungee-jump/',
     verify: false,
-    whatsapp: 'https://wa.me/263781234567?text=Hi!%20I%27d%20like%20to%20book%20a%20bungee%20jump.',
   },
   {
     id: 'adv-3',
@@ -73,7 +71,6 @@ export const adventures = [
     operator: 'Shearwater Adventures',
     website: 'https://www.shearwateradventures.com/gorge-swing/',
     verify: false,
-    whatsapp: 'https://wa.me/263781234567?text=Hi!%20I%27d%20like%20to%20book%20a%20gorge%20swing.',
   },
   {
     id: 'adv-4',
@@ -93,7 +90,6 @@ export const adventures = [
     operator: 'Shearwater Adventures',
     website: 'https://www.shearwateradventures.com/zipline/',
     verify: false,
-    whatsapp: 'https://wa.me/263781234567?text=Hi!%20I%27d%20like%20to%20book%20the%20zipline.',
   },
   {
     id: 'adv-5',
@@ -113,7 +109,6 @@ export const adventures = [
     operator: 'Zambezi Helicopter Company / Wild Horizons',
     website: 'https://www.victoriafallshelicopter.com/',
     verify: false,
-    whatsapp: 'https://wa.me/263781234567?text=Hi!%20I%27d%20like%20to%20book%20a%20helicopter%20tour.',
   },
   {
     id: 'adv-6',
@@ -133,7 +128,6 @@ export const adventures = [
     operator: 'Tongabezi / Royal Livingstone',
     website: 'https://www.tongabezi.com/livingstone-island',
     verify: false,
-    whatsapp: 'https://wa.me/263781234567?text=Hi!%20I%27d%20like%20to%20book%20Devil%27s%20Pool.',
   },
   {
     id: 'adv-7',
@@ -153,7 +147,6 @@ export const adventures = [
     operator: 'Wild Horizons / Shearwater',
     website: 'https://wildhorizons.co.za/activities/sunset-cruise/',
     verify: false,
-    whatsapp: 'https://wa.me/263781234567?text=Hi!%20I%27d%20like%20to%20book%20a%20sunset%20cruise.',
   },
   {
     id: 'adv-8',
@@ -173,7 +166,6 @@ export const adventures = [
     operator: 'Wild Horizons',
     website: 'https://wildhorizons.co.za/activities/canoe-safari/',
     verify: false,
-    whatsapp: 'https://wa.me/263781234567?text=Hi!%20I%27d%20like%20to%20book%20a%20canoe%20safari.',
   },
 ]
 
@@ -359,7 +351,6 @@ export const cultureListings = [
     rating: 4.9,
     reviews: 156,
     type: 'Village Tour',
-    whatsapp: 'https://wa.me/263781234567?text=Hi!%20I%27d%20like%20to%20book%20the%20Monde%20Village%20tour.',
   },
   {
     id: 'cul-2',
@@ -375,7 +366,6 @@ export const cultureListings = [
     rating: 4.8,
     reviews: 98,
     type: 'Township Tour',
-    whatsapp: 'https://wa.me/263781234567?text=Hi!%20I%27d%20like%20to%20book%20the%20Chinotimba%20Township%20tour.',
   },
   {
     id: 'cul-3',
@@ -391,7 +381,6 @@ export const cultureListings = [
     rating: 4.7,
     reviews: 87,
     type: 'Heritage Centre',
-    whatsapp: 'https://wa.me/263781234567?text=Hi!%20I%27d%20like%20to%20visit%20Jafuta%20Heritage%20Centre.',
   },
   {
     id: 'cul-4',
@@ -407,7 +396,6 @@ export const cultureListings = [
     rating: 4.8,
     reviews: 64,
     type: 'Walking Tour',
-    whatsapp: 'https://wa.me/263781234567?text=Hi!%20I%27d%20like%20to%20book%20a%20storytelling%20walking%20tour.',
   },
 ]
 

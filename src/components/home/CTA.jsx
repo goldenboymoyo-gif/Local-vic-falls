@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { ArrowRight, Shield, Users, Compass, Headphones, MessageCircle } from 'lucide-react'
+import { ArrowRight, Shield, Users, Compass, Headphones } from 'lucide-react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
@@ -10,7 +10,7 @@ const features = [
   { icon: Shield, label: 'Verified hosts' },
   { icon: Users, label: '15K+ visitors' },
   { icon: Compass, label: 'Instant booking' },
-  { icon: Headphones, label: 'WhatsApp support' },
+  { icon: Headphones, label: 'Support 24/7' },
 ]
 
 export default function CTA() {
@@ -53,15 +53,13 @@ export default function CTA() {
               Become a Host
               <ArrowRight className="w-4 h-4" />
             </Link>
-            <a
-              href="https://wa.me/263781234567?text=Hi!%20I'd%20like%20to%20know%20more%20about%20Local%20Vic%20Falls."
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-whatsapp btn-lg"
+            <Link
+              to="/booking"
+              className="btn btn-primary btn-lg"
             >
-              <MessageCircle className="w-4 h-4" />
-              Chat on WhatsApp
-            </a>
+              Book Now
+              <ArrowRight className="w-4 h-4" />
+            </Link>
           </div>
 
           {/* Feature pills */}

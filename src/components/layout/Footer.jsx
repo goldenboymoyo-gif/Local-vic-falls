@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { ArrowUpRight, Check, Compass, MessageCircle, MapPin, Globe, Heart, Share2 } from 'lucide-react'
+import { ArrowUpRight, Check, Compass, MapPin, Heart } from 'lucide-react'
 
 const footerLinks = {
   discover: [
@@ -36,38 +36,12 @@ export default function Footer() {
   }
 
   return (
-    <footer className="bg-[#0f172a] text-white relative overflow-hidden">
+    <footer className="bg-[#0d1117] text-white relative overflow-hidden">
       {/* Giant masked typography */}
       <div className="absolute bottom-0 left-0 right-0 pointer-events-none select-none overflow-hidden">
         <span className="block text-[8rem] sm:text-[12rem] lg:text-[18rem] font-black text-white/[0.02] leading-none text-center -mb-10 sm:-mb-16 lg:-mb-24" style={{ fontFamily: 'var(--font-display)' }}>
           LOCAL VIC FALLS
         </span>
-      </div>
-
-      {/* WhatsApp CTA bar */}
-      <div className="border-b border-white/[0.06]">
-        <div className="container-premium py-8 lg:py-10">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-xl bg-[#25D366]/15 flex items-center justify-center">
-                <MessageCircle className="w-6 h-6 text-[#25D366]" />
-              </div>
-              <div>
-                <h3 className="text-lg font-bold" style={{ fontFamily: 'var(--font-display)' }}>Book on WhatsApp</h3>
-                <p className="text-white/40 text-sm">Quick answers, instant booking — it's how Zimbabwe communicates.</p>
-              </div>
-            </div>
-            <a
-              href="https://wa.me/263781234567?text=Hi!%20I'd%20like%20to%20know%20more%20about%20Local%20Vic%20Falls."
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-whatsapp shrink-0"
-            >
-              <MessageCircle className="w-4 h-4" />
-              Chat with us
-            </a>
-          </div>
-        </div>
       </div>
 
       {/* Newsletter */}
@@ -85,11 +59,11 @@ export default function Footer() {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your email"
                 required
-                className="flex-1 lg:w-72 px-4 py-2.5 bg-white/[0.06] border border-white/[0.1] rounded-xl text-sm text-white placeholder-gray-500 focus:outline-none focus:border-[var(--color-primary)]/50 focus:ring-2 focus:ring-[var(--color-primary)]/10 transition-all"
+                className="flex-1 lg:w-72 px-4 py-2.5 bg-white/[0.06] border border-white/[0.1] rounded-xl text-sm text-white placeholder-gray-500 focus:outline-none focus:border-[var(--color-accent)]/50 focus:ring-2 focus:ring-[var(--color-accent)]/10 transition-all"
               />
               <button
                 type="submit"
-                className="btn btn-primary shrink-0"
+                className="btn btn-accent shrink-0"
               >
                 {subscribed ? <><Check className="w-4 h-4" /> Subscribed</> : 'Subscribe'}
               </button>
@@ -104,11 +78,11 @@ export default function Footer() {
           {/* Brand column */}
           <div className="col-span-2 md:col-span-3 lg:col-span-1">
             <Link to="/" className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 bg-[var(--color-primary)] rounded-xl flex items-center justify-center">
+              <div className="w-8 h-8 bg-[var(--color-accent)] rounded-xl flex items-center justify-center">
                 <Compass className="w-4 h-4 text-white" />
               </div>
               <span className="text-lg font-semibold" style={{ fontFamily: 'var(--font-display)' }}>
-                Local <span className="text-[var(--color-primary-light)]">Vic Falls</span>
+                Local <span className="text-[var(--color-accent-light)]">Vic Falls</span>
               </span>
             </Link>
             <p className="text-sm text-gray-400 mb-5 leading-relaxed">

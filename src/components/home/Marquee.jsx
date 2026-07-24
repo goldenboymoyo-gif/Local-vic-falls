@@ -6,7 +6,7 @@ export function QuoteMarquee() {
   const doubled = [...marqueeQuotes, ...marqueeQuotes]
 
   return (
-    <div className="bg-[#0f172a] border-y border-white/[0.06] overflow-hidden py-4">
+    <div className="bg-[#0d1117] border-y border-white/[0.06] overflow-hidden py-4">
       <div className="marquee-track">
         {doubled.map((q, i) => (
           <div key={i} className="shrink-0 px-8 flex items-center gap-3">
@@ -24,7 +24,7 @@ export function TagMarquee() {
   const doubled = [...marqueeTags, ...marqueeTags]
 
   return (
-    <div className="bg-[#0f172a] overflow-hidden py-3">
+    <div className="bg-[#0d1117] overflow-hidden py-3">
       <div className="marquee-track-reverse">
         {doubled.map((tag, i) => (
           <span

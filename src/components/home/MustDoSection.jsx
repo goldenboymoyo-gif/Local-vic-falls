@@ -1,7 +1,8 @@
 import React, { useRef, useEffect } from 'react'
-import { Star, Clock, MessageCircle, Flame, ArrowRight } from 'lucide-react'
+import { Star, Clock, Flame, ArrowRight } from 'lucide-react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { Link } from 'react-router-dom'
 import { adventures } from '../../data/listings'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -96,15 +97,12 @@ export default function MustDoSection() {
                   <Clock className="w-3 h-3" />
                   <span>{item.duration}</span>
                 </div>
-                <a
-                  href={item.whatsapp}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn btn-whatsapp btn-sm w-full mt-3"
+                <Link
+                  to={`/business/${item.slug}`}
+                  className="btn btn-primary btn-sm w-full mt-3"
                 >
-                  <MessageCircle className="w-3.5 h-3.5" />
-                  Book
-                </a>
+                  Book Now
+                </Link>
               </div>
             </div>
           ))}

@@ -95,7 +95,7 @@ export default function PremiumNav() {
             <span className={`text-lg font-bold tracking-tight transition-colors duration-300 ${
               showScrolled ? 'text-[var(--color-ink)]' : 'text-white'
             }`}>
-              Local <span className={showScrolled ? 'text-[var(--color-primary)]' : 'text-white/80'}>Vic Falls</span>
+              Local <span className={showScrolled ? 'text-[var(--color-primary)]' : 'text-[var(--color-accent-light)]'}>Vic Falls</span>
             </span>
           </Link>
 

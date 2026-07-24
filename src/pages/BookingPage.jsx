@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { useParams, Link } from 'react-router-dom'
-import { ChevronLeft, Calendar, Clock, Check, Users, MessageCircle, Star } from 'lucide-react'
+import { ChevronLeft, Calendar, Clock, Check, Users, Star } from 'lucide-react'
 import { adventures, eatDrink, cultureListings, stayListings } from '../data/listings'
 
 const allListings = [...adventures, ...eatDrink, ...cultureListings, ...stayListings]
@@ -38,23 +38,14 @@ export default function BookingPage() {
             <Check className="w-8 h-8 text-green-600" />
           </div>
           <h2 className="text-2xl font-bold mb-2">Booking confirmed!</h2>
-          <p className="text-gray-500 text-sm mb-6">Your booking request has been sent. You'll receive a confirmation via WhatsApp shortly.</p>
+          <p className="text-gray-500 text-sm mb-6">Your booking request has been sent. You'll receive a confirmation shortly.</p>
           <div className="bg-gray-50 rounded-xl p-4 mb-6 text-left text-sm">
             <div className="font-medium mb-2">Booking details</div>
             <p className="text-gray-700 font-medium">{listing?.name || 'Experience'}</p>
             <p className="text-gray-500">{selectedDate} at {selectedTime}</p>
             <p className="text-gray-500">{partySize} {partySize === 1 ? 'person' : 'people'}</p>
           </div>
-          {listing?.whatsapp && (
-            <a
-              href={listing.whatsapp}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block w-full bg-[#25D366] text-white py-3 rounded-lg text-sm font-medium hover:bg-[#20BA5C] transition-colors text-center mb-3"
-            >
-              Confirm on WhatsApp
-            </a>
-          )}
+          <Link to="/" className="block w-full bg-[var(--color-primary)] text-white py-3 rounded-lg text-sm font-medium hover:bg-[var(--color-primary-dark)] transition-colors text-center mb-3">Back to Home</Link>
           <Link to="/" className="block w-full bg-gray-900 text-white py-3 rounded-lg text-sm font-medium hover:bg-black transition-colors">Back to home</Link>
         </div>
       </motion.div>
@@ -245,7 +236,7 @@ export default function BookingPage() {
                   </div>
                 )}
                 <div className="border-t border-gray-200 pt-3 mt-3">
-                  <p className="text-xs text-gray-400">You'll receive a confirmation via WhatsApp after booking.</p>
+                  <p className="text-xs text-gray-400">You'll receive a confirmation after booking.</p>
                 </div>
               </div>
               <button onClick={nextStep} className="w-full bg-teal-600 text-white py-3 rounded-lg text-sm font-medium hover:bg-teal-700 transition-colors">Confirm booking</button>

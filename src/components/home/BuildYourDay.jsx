@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { Clock, Share2, Sparkles, RotateCcw } from 'lucide-react'
+import { Clock, Sparkles, RotateCcw } from 'lucide-react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { vibeOptions, timeBudgets, buildItinerary } from '../../data/listings'
@@ -41,11 +41,6 @@ export default function BuildYourDay() {
       }
     }
   }, [vibe, timeBudget])
-
-  function shareWhatsApp() {
-    const text = itinerary.map((item, i) => `${i + 1}. ${item.name} — ${item.price}`).join('\n')
-    window.open(`https://wa.me/?text=${encodeURIComponent(`My Vic Falls Day:\n\n${text}\n\nBuilt with Local Vic Falls`)}`, '_blank')
-  }
 
   return (
     <section id="build-your-day" ref={sectionRef} className="section bg-white relative overflow-hidden">
@@ -138,15 +133,14 @@ export default function BuildYourDay() {
                 ))}
               </div>
 
-              {/* Share */}
+              {/* Actions */}
               <div className="flex items-center gap-3 mt-6">
-                <button
-                  onClick={shareWhatsApp}
-                  className="btn btn-whatsapp"
+                <Link
+                  to="/booking"
+                  className="btn btn-primary"
                 >
-                  <Share2 className="w-4 h-4" />
-                  Share on WhatsApp
-                </button>
+                  Book Now
+                </Link>
                 <button
                   onClick={() => { setVibe(null); setTimeBudget(null); setItinerary([]) }}
                   className="btn btn-ghost text-[var(--color-ink-muted)]"
