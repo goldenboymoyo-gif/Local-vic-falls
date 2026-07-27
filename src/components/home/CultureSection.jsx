@@ -79,7 +79,7 @@ export default function CultureSection() {
               <span className="font-bold text-white">{featured.price} {featured.priceNote}</span>
             </div>
             <Link
-              to="/booking"
+              to={`/booking/${featured.slug}`}
               className="btn btn-primary w-fit"
             >
               Book Now
@@ -123,7 +123,7 @@ export default function CultureSection() {
                   <span className="font-semibold text-[var(--color-ink)]">{item.price} {item.priceNote}</span>
                 </div>
                 <Link
-                  to="/booking"
+                  to={`/booking/${item.slug}`}
                   className="btn btn-sm w-full btn-primary mt-3"
                 >
                   Book Now

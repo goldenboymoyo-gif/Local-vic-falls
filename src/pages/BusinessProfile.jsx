@@ -230,7 +230,7 @@ export default function BusinessProfile() {
               </div>
 
               <Link
-                to="/booking"
+                to={`/booking/${listing.slug}`}
                 className="flex items-center justify-center gap-2 w-full bg-teal-600 text-white px-6 py-3 rounded-lg text-sm font-medium hover:bg-teal-700 transition-colors"
               >
                 <Calendar className="w-4 h-4" /> Book Now
