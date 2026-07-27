@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Search, Minus, Plus, ChevronDown, Calendar, Users, Sparkles } from 'lucide-react'
+import { Search, Minus, Plus, ChevronDown, Calendar, Users } from 'lucide-react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import ExperienceCard from '../ui/ExperienceCard'
@@ -49,7 +49,6 @@ export default function Hero() {
   const heroRef = useRef(null)
   const headlineRef = useRef(null)
   const subRef = useRef(null)
-  const lineRef = useRef(null)
   const searchRef = useRef(null)
   const statsRef = useRef(null)
   const cardsRowRef = useRef(null)
@@ -84,12 +83,6 @@ export default function Hero() {
       if (subRef.current) {
         gsap.fromTo(subRef.current, { opacity: 0, y: 24 }, {
           opacity: 1, y: 0, duration: 0.8, delay: 1.0, ease: 'power3.out', clearProps: 'all',
-        })
-      }
-
-      if (lineRef.current) {
-        gsap.fromTo(lineRef.current, { opacity: 0, pathLength: 0 }, {
-          opacity: 1, duration: 0.8, delay: 1.3, ease: 'power2.out', clearProps: 'all',
         })
       }
 
@@ -134,7 +127,7 @@ export default function Hero() {
   }
 
   return (
-    <div ref={heroRef} className="relative" style={{ minHeight: '95vh' }}>
+    <div ref={heroRef} className="relative" style={{ minHeight: '75vh' }}>
       {/* ── Background ─────────────────────────────────────────────────────── */}
       <div className="absolute inset-0 overflow-hidden">
         <iframe
@@ -151,10 +144,10 @@ export default function Hero() {
       </div>
 
       {/* Bottom fade into page background — tall enough to sit behind the cards */}
-      <div className="absolute bottom-0 left-0 right-0 h-[40vh] sm:h-[50vh] bg-gradient-to-t from-[#faf8f5] via-[#faf8f5]/50 to-transparent z-[1]" />
+      <div className="absolute bottom-0 left-0 right-0 h-[30vh] sm:h-[35vh] bg-gradient-to-t from-[#faf8f5] via-[#faf8f5]/50 to-transparent z-[1]" />
 
       {/* ── Content ────────────────────────────────────────────────────────── */}
-      <div className="relative z-10 min-h-[95vh] flex flex-col">
+      <div className="relative z-10 min-h-[75vh] flex flex-col">
         {/* Nav spacer */}
         <div className="h-16 lg:h-[4.5rem]" />
 
@@ -184,29 +177,16 @@ export default function Hero() {
               Rapids, rooftop bars, village classrooms. The version locals live in.
             </p>
 
-            {/* Connecting line pointer toward search card */}
-            <div ref={lineRef} className="hidden lg:block ml-2 mb-2">
-              <svg width="110" height="56" viewBox="0 0 110 56" fill="none" className="text-white/20">
-                <path
-                  d="M0 8 C25 8, 35 18, 50 30 C65 42, 85 48, 105 46"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  fill="none"
-                />
-                <circle cx="107" cy="46" r="3.5" fill="currentColor" />
-              </svg>
-            </div>
           </div>
 
           {/* Spacer pushes bottom section down */}
-          <div className="flex-1 min-h-[1.5rem] lg:min-h-[3rem]" />
+          <div className="flex-1 min-h-[1rem] lg:min-h-[2rem]" />
 
           {/* ── Bottom section ──────────────────────────────────────────────── */}
           <div className="space-y-5 sm:space-y-6">
 
             {/* ── Search card — lower center-right ─────────────────────────── */}
-            <div ref={searchRef} className="flex justify-start lg:justify-end">
+            <div ref={searchRef} className="flex justify-start">
               <form
                 onSubmit={handleSearch}
                 className="search-pill bg-black/35 backdrop-blur-xl rounded-full p-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-2 w-full sm:w-auto sm:max-w-[560px]"
@@ -218,7 +198,6 @@ export default function Hero() {
                     onClick={() => setShowExpDropdown(!showExpDropdown)}
                     className="flex items-center gap-2 px-4 py-3 sm:py-2.5 rounded-xl text-sm text-white/80 hover:bg-white/5 transition-colors w-full sm:w-[160px]"
                   >
-                    <Sparkles className="w-4 h-4 text-[var(--color-accent-light)] shrink-0" />
                     <span className="truncate">{selectedExperience || 'Experience'}</span>
                     <ChevronDown className={`w-3.5 h-3.5 ml-auto shrink-0 transition-transform ${showExpDropdown ? 'rotate-180' : ''}`} />
                   </button>
@@ -286,16 +265,16 @@ export default function Hero() {
                 {/* Circular search button */}
                 <button
                   type="submit"
-                  className="btn btn-primary w-full sm:w-12 h-12 sm:px-0 rounded-full shrink-0 hover:scale-105"
+                  className="btn btn-primary w-full sm:w-12 h-12 sm:px-0 rounded-full shrink-0 hover:scale-105 relative z-[2]"
                 >
-                  <Search className="w-5 h-5 relative z-[2]" />
+                  <Search className="w-5 h-5" strokeWidth={2.5} />
                   <span className="sm:hidden text-sm font-semibold ml-2 relative z-[2]">Search</span>
                 </button>
               </form>
             </div>
 
             {/* ── Stats row — bottom right ──────────────────────────────────── */}
-            <div ref={statsRef} className="flex justify-start lg:justify-end gap-8 lg:gap-12">
+            <div ref={statsRef} className="flex justify-start gap-8 lg:gap-12">
               {stats.map((stat) => (
                 <div key={stat.label} className="text-left lg:text-right">
                   <div className="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight">
