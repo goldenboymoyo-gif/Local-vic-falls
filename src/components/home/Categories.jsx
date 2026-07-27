@@ -22,21 +22,23 @@ export default function Categories() {
   useEffect(() => {
     if (!gridRef.current) return
 
-    gsap.set(cellsRef.current, { opacity: 0, y: 24 })
-
     const ctx = gsap.context(() => {
-      gsap.to(cellsRef.current, {
-        opacity: 1,
-        y: 0,
-        duration: 0.5,
-        stagger: 0.07,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: gridRef.current,
-          start: 'top 85%',
-          toggleActions: 'play none none none',
-        },
-      })
+      gsap.fromTo(cellsRef.current,
+        { opacity: 0, y: 24 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.5,
+          stagger: 0.07,
+          ease: 'power3.out',
+          clearProps: 'all',
+          scrollTrigger: {
+            trigger: gridRef.current,
+            start: 'top 85%',
+            toggleActions: 'play none none none',
+          },
+        }
+      )
     }, gridRef)
 
     return () => ctx.revert()

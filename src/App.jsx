@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from 'react'
+import React, { Suspense, lazy, useEffect } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion'
 import PremiumNav from './components/layout/PremiumNav'
@@ -31,6 +31,20 @@ function AppContent() {
   const location = useLocation()
   const isAuthPage = location.pathname.startsWith('/sign-in') || location.pathname.startsWith('/sign-up')
   const isDashboard = location.pathname.startsWith('/dashboard')
+
+  // Global safety net: if any element is stuck at opacity: 0 after GSAP
+  // ScrollTrigger fails to fire, force it visible after 5 seconds
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      document.querySelectorAll('[style*="opacity"]').forEach(el => {
+        if (el.style.opacity === '0') {
+          el.style.opacity = '1'
+          el.style.transform = 'none'
+        }
+      })
+    }, 5000)
+    return () => clearTimeout(timer)
+  }, [location.pathname])
 
   return (
     <div className="min-h-screen overflow-x-hidden">
