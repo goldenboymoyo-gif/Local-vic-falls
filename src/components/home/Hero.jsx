@@ -262,13 +262,16 @@ export default function Hero() {
                   </div>
                 </div>
 
-                {/* Explore button — inside pill */}
+                {/* Divider */}
+                <div className="hidden sm:block w-px h-6 bg-white/10" />
+
+                {/* Explore button */}
                 <button
                   type="submit"
-                  className="bg-[var(--color-primary)] hover:bg-[var(--color-primary-light)] text-white rounded-full px-5 h-10 sm:h-10 shrink-0 flex items-center justify-center gap-2 transition-colors"
+                  className="flex items-center justify-center gap-2 px-4 py-2.5 rounded-full bg-[var(--color-primary)] hover:bg-[var(--color-primary-light)] active:scale-[0.97] text-white text-sm font-semibold transition-all duration-200 shrink-0 cursor-pointer"
                 >
                   <Compass className="w-4 h-4" strokeWidth={2} />
-                  <span className="text-sm font-semibold">Explore</span>
+                  <span>Explore</span>
                 </button>
               </form>
             </div>
