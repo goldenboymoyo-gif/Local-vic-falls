@@ -83,9 +83,10 @@ export default function EatDrinkSection() {
         {/* Restaurant cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {filtered.map((item, i) => (
-            <div
+            <Link
               key={item.id}
               ref={(el) => { cardsRef.current[i] = el }}
+              to={`/business/${item.slug}`}
               className="card group"
             >
               {/* Image */}
@@ -144,7 +145,7 @@ export default function EatDrinkSection() {
                   {item.priceNote && <span className="text-[10px] text-[var(--color-ink-muted)]">{item.priceNote}</span>}
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

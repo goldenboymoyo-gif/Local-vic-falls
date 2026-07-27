@@ -4,6 +4,7 @@ import { AnimatePresence } from 'framer-motion'
 import PremiumNav from './components/layout/PremiumNav'
 import Footer from './components/layout/Footer'
 import LoadingScreen from './components/ui/LoadingScreen'
+import TripChatbot from './components/home/TripChatbot'
 
 const Home = lazy(() => import('./pages/Home'))
 const Search = lazy(() => import('./pages/Search'))
@@ -78,6 +79,7 @@ function AppContent() {
         </Suspense>
       </AnimatePresence>
       {!isAuthPage && !isDashboard && <Footer />}
+      {!isAuthPage && !isDashboard && <TripChatbot />}
     </div>
   )
 }

@@ -63,7 +63,7 @@ export default function Footer() {
               />
               <button
                 type="submit"
-                className="btn btn-accent shrink-0"
+                className="btn btn-primary shrink-0"
               >
                 {subscribed ? <><Check className="w-4 h-4" /> Subscribed</> : 'Subscribe'}
               </button>

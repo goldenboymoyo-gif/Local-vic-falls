@@ -7,7 +7,6 @@ import CategoryGrid from '../components/home/CategoryGrid'
 import AdventureSection from '../components/home/AdventureSection'
 import EatDrinkSection from '../components/home/EatDrinkSection'
 import CultureSection from '../components/home/CultureSection'
-import BuildYourDay from '../components/home/BuildYourDay'
 import LocalVoices from '../components/home/LocalVoices'
 import StaySection from '../components/home/StaySection'
 import CTA from '../components/home/CTA'
@@ -31,7 +30,6 @@ export default function Home() {
       <AdventureSection />
       <EatDrinkSection />
       <CultureSection />
-      <BuildYourDay />
       <LocalVoices />
       <StaySection />
       <CTA />

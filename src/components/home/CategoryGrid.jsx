@@ -32,12 +32,12 @@ export default function CategoryGrid() {
   }, [])
 
   return (
-    <section id="categories" ref={sectionRef} className="section bg-white">
+    <section id="categories" ref={sectionRef} className="py-12 lg:py-16 bg-white">
       <div className="container-premium">
-        <div className="cat-header text-center max-w-2xl mx-auto mb-12">
+        <div className="cat-header text-center max-w-2xl mx-auto mb-8">
           <span className="section-label justify-center">Explore Victoria Falls</span>
-          <h2 className="section-title">The falls are just the start</h2>
-          <p className="section-subtitle mx-auto">
+          <h2 className="section-title text-2xl lg:text-3xl">The falls are just the start</h2>
+          <p className="text-sm text-[var(--color-ink-muted)] mt-2">
             From the gorge to the township.
           </p>
         </div>
@@ -50,7 +50,7 @@ export default function CategoryGrid() {
               ref={(el) => { cardsRef.current[i] = el }}
               to={cat.slug === 'nightlife' || cat.slug === 'stay' ? `/search?pillar=${cat.slug}` : `/${cat.slug}`}
               className="group relative rounded-2xl overflow-hidden shine cursor-pointer"
-              style={{ minHeight: i === 0 ? '380px' : '185px' }}
+              style={{ minHeight: i === 0 ? '280px' : '160px' }}
             >
               <img
                 src={cat.image}
@@ -58,17 +58,17 @@ export default function CategoryGrid() {
                 className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />
-              <div className="absolute inset-0 p-6 flex flex-col justify-end">
-                <span className="text-[10px] font-bold uppercase tracking-widest text-[var(--color-primary-light)] mb-2">
+              <div className="absolute inset-0 p-5 flex flex-col justify-end">
+                <span className="text-[10px] font-bold uppercase tracking-widest text-[var(--color-primary-light)] mb-1.5">
                   {cat.count} listings
                 </span>
-                <h3 className="text-white font-bold text-lg lg:text-xl tracking-tight mb-1">
+                <h3 className="text-white font-bold text-base lg:text-lg tracking-tight mb-0.5">
                   {cat.name}
                 </h3>
-                <p className="text-white/50 text-sm leading-relaxed line-clamp-2 hidden sm:block">
+                <p className="text-white/50 text-xs leading-relaxed line-clamp-2 hidden sm:block">
                   {cat.description}
                 </p>
-                <span className="text-[var(--color-primary-light)] text-xs font-medium mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <span className="text-[var(--color-primary-light)] text-xs font-medium mt-1.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   Explore →
                 </span>
               </div>
