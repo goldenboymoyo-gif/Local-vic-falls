@@ -6,6 +6,7 @@ import {
   ChevronLeft, Mountain, UtensilsCrossed, Users, Hotel, Music, Clock, MessageCircle,
 } from 'lucide-react'
 import { adventures, eatDrink, cultureListings, stayListings, pillarCategories } from '../data/listings'
+import SafeImage from '../components/ui/SafeImage'
 
 const allListings = [
   ...adventures.map(a => ({ ...a, type: 'adventure' })),
@@ -180,7 +181,7 @@ export default function Search({ defaultPillar = '' }) {
                     className="flex items-center gap-4 p-4 bg-white rounded-2xl border border-gray-100 hover:shadow-md hover:border-gray-200 transition-all group"
                   >
                     <div className="w-16 h-16 rounded-xl overflow-hidden bg-gray-100 shrink-0">
-                      <img src={item.image} alt="" className="w-full h-full object-cover" />
+                      <SafeImage src={item.image} alt="" className="w-full h-full object-cover" />
                     </div>
                     <div className="min-w-0 flex-1">
                       <h3 className="font-medium text-sm text-gray-900 group-hover:text-teal-600 transition-colors truncate">{item.name}</h3>

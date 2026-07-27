@@ -4,6 +4,7 @@ import { Star, Clock, ArrowRight, Mountain } from 'lucide-react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { adventures } from '../../data/listings'
+import SafeImage from '../ui/SafeImage'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -66,10 +67,12 @@ export default function AdventureSection() {
             >
               {/* Image */}
               <div className="card-image h-52 relative">
-                <img
+                <SafeImage
                   src={adv.image}
                   alt={adv.name}
-                  className="w-full h-full object-cover"
+                  pillar="adventure"
+                  loading="lazy"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
 

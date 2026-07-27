@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Heart, Tag, Clock, ArrowRight } from 'lucide-react'
+import SafeImage from './SafeImage'
 
 export default function ExperienceCard({ image, title, category, price, duration, slug }) {
   const [saved, setSaved] = useState(false)
@@ -12,7 +13,7 @@ export default function ExperienceCard({ image, title, category, price, duration
     >
       {/* ── Photo area ──────────────────────────────────────────────────── */}
       <div className="relative h-[320px] sm:h-[340px]">
-        <img
+        <SafeImage
           src={image}
           alt={title}
           className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"

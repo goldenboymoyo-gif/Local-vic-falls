@@ -4,6 +4,7 @@ import { ArrowRight, Clock, Star, BookOpen } from 'lucide-react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { cultureListings } from '../../data/listings'
+import SafeImage from '../ui/SafeImage'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -96,9 +97,11 @@ export default function CultureSection() {
               className="card group"
             >
               <div className="card-image h-48 relative">
-                <img
+                <SafeImage
                   src={item.image}
                   alt={item.name}
+                  pillar="culture"
+                  loading="lazy"
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent" />

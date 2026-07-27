@@ -4,6 +4,7 @@ import { Star, ArrowRight, MapPin, Hotel } from 'lucide-react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { stayListings } from '../../data/listings'
+import SafeImage from '../ui/SafeImage'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -65,9 +66,11 @@ export default function StaySection() {
               className="card group"
             >
               <div className="card-image h-52 relative">
-                <img
+                <SafeImage
                   src={item.image}
                   alt={item.name}
+                  pillar="stay"
+                  loading="lazy"
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent" />

@@ -4,6 +4,7 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Link } from 'react-router-dom'
 import { adventures } from '../../data/listings'
+import SafeImage from '../ui/SafeImage'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -65,9 +66,11 @@ export default function MustDoSection() {
               </div>
 
               <div className="card-image h-52 relative">
-                <img
+                <SafeImage
                   src={item.image}
                   alt={item.name}
+                  pillar="adventure"
+                  loading="lazy"
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />

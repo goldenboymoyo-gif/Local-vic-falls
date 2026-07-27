@@ -1,7 +1,21 @@
 import React from 'react'
-import { marqueeQuotes, marqueeTags } from '../../data/listings'
 
-// Two marquee strips: review quotes + category tags
+const marqueeQuotes = [
+  { text: 'Best rafting I have ever done', author: 'Sarah, UK' },
+  { text: 'The helicopter flight was unreal', author: 'Marco, Italy' },
+  { text: 'GOAT restaurant is a must', author: 'Aisha, Dubai' },
+  { text: 'Devil\'s Pool changed my life', author: 'James, Australia' },
+  { text: 'The town eats so well', author: 'Nomsa, Harare' },
+  { text: 'Bungee was the biggest rush', author: 'Chipo, Bulawayo' },
+]
+
+const marqueeTags = [
+  'White-Water Rafting', 'Bungee Jump', 'Helicopter Tour', 'Sunset Cruise',
+  'Devil\'s Pool', 'Gorge Swing', 'Walking Safari', 'Village Tour',
+  'GOAT Restaurant', 'Lola\'s Tapas', 'Lookout Cafe', 'The Boma',
+  'Ilala Lodge', 'Safari Lodge', 'Explorers Village',
+]
+
 export function QuoteMarquee() {
   const doubled = [...marqueeQuotes, ...marqueeQuotes]
 

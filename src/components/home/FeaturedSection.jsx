@@ -4,6 +4,7 @@ import { Star, ArrowRight, TrendingUp } from 'lucide-react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { adventures, eatDrink, stayListings, cultureListings } from '../../data/listings'
+import SafeImage from '../ui/SafeImage'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -80,9 +81,10 @@ export default function FeaturedSection() {
               className="card group"
             >
               <div className="card-image h-52 relative">
-                <img
+                <SafeImage
                   src={item.image}
                   alt={item.name}
+                  loading="lazy"
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />

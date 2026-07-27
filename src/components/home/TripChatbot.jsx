@@ -11,17 +11,26 @@ const allListings = [
 ]
 
 const categories = [
-  { id: 'adventure', label: 'Adventure', emoji: '⚡', filter: l => l.pillar === 'Adventure' },
-  { id: 'food', label: 'Food & Drink', emoji: '🍽️', filter: l => l.pillar === 'Eat & Drink' },
-  { id: 'culture', label: 'Culture', emoji: '🎭', filter: l => l.pillar === 'Culture' },
-  { id: 'stay', label: 'Where to Stay', emoji: '🏨', filter: l => l.pillar === 'Stay' },
-  { id: 'popular', label: 'Most Popular', emoji: '⭐', filter: l => l.rating >= 4.7 },
+  { id: 'adventure', label: 'Adventure', emoji: '⚡', keywords: ['adventure', 'adrenaline', 'rafting', 'bungee', 'jump', 'swing', 'helicopter', 'zip', 'extreme', 'thrill', 'action'], filter: l => l.pillar === 'Adventure' },
+  { id: 'food', label: 'Food & Drink', emoji: '🍽️', keywords: ['food', 'eat', 'drink', 'restaurant', 'dinner', 'lunch', 'breakfast', 'cafe', 'bar', 'tapas', 'oxtail', 'sundowner', 'meal', 'hungry', 'tasty'], filter: l => l.pillar === 'Eat & Drink' },
+  { id: 'culture', label: 'Culture', emoji: '🎭', keywords: ['culture', 'village', 'heritage', 'history', 'tour', 'local', 'community', 'traditional', 'museum', 'art', 'craft', 'story'], filter: l => l.pillar === 'Culture' },
+  { id: 'stay', label: 'Where to Stay', emoji: '🏨', keywords: ['stay', 'hotel', 'lodge', 'accommodation', 'sleep', 'room', 'bed', 'camp', 'hostel', 'guest house'], filter: l => l.pillar === 'Stay' },
+  { id: 'popular', label: 'Most Popular', emoji: '⭐', keywords: ['popular', 'best', 'top', 'rated', 'favourite', 'favorite', 'must', 'do', 'recommend'], filter: l => l.rating >= 4.7 },
 ]
 
-const greetings = [
-  "Hey! I'm your Vic Falls trip planner. What are you into?",
-  "What sounds good to you?",
+const quickReplies = [
+  { text: 'Show me adventures', catId: 'adventure' },
+  { text: 'Where can I eat?', catId: 'food' },
+  { text: 'Best rated places', catId: 'popular' },
 ]
+
+function matchCategory(input) {
+  const lower = input.toLowerCase()
+  for (const cat of categories) {
+    if (cat.keywords.some(kw => lower.includes(kw))) return cat
+  }
+  return null
+}
 
 function getSuggestions(categoryId) {
   const cat = categories.find(c => c.id === categoryId)
@@ -29,10 +38,21 @@ function getSuggestions(categoryId) {
   return allListings.filter(cat.filter).sort((a, b) => (b.rating || 0) - (a.rating || 0)).slice(0, 4)
 }
 
+function searchListings(query) {
+  const lower = query.toLowerCase()
+  return allListings
+    .filter(l => {
+      const searchable = `${l.name} ${l.category || ''} ${l.description || ''} ${l.shortDesc || ''}`.toLowerCase()
+      return searchable.includes(lower)
+    })
+    .sort((a, b) => (b.rating || 0) - (a.rating || 0))
+    .slice(0, 4)
+}
+
 export default function TripChatbot() {
   const [isOpen, setIsOpen] = useState(false)
   const [messages, setMessages] = useState([])
-  const [step, setStep] = useState('greeting')
+  const [input, setInput] = useState('')
   const [isTyping, setIsTyping] = useState(false)
   const chatEndRef = useRef(null)
   const inputRef = useRef(null)
@@ -45,45 +65,72 @@ export default function TripChatbot() {
     if (isOpen && messages.length === 0) {
       setIsTyping(true)
       setTimeout(() => {
-        setMessages([{ role: 'bot', text: greetings[0] }])
+        setMessages([{ role: 'bot', text: "Hey! I'm your Vic Falls trip planner. What are you into?" }])
         setIsTyping(false)
-        setStep('choose-category')
       }, 600)
+    }
+    if (isOpen) {
+      setTimeout(() => inputRef.current?.focus(), 300)
     }
   }, [isOpen])
 
-  const handleCategoryClick = (catId) => {
-    const cat = categories.find(c => c.id === catId)
-    setMessages(prev => [...prev, { role: 'user', text: `${cat.emoji} ${cat.label}` }])
+  const addBotMessage = (text, suggestions) => {
     setIsTyping(true)
-    setStep('showing')
-
     setTimeout(() => {
-      const suggestions = getSuggestions(catId)
-      setMessages(prev => [...prev, {
-        role: 'bot',
-        text: `Here are my top ${cat.label} picks:`,
-        suggestions,
-      }])
+      setMessages(prev => [...prev, { role: 'bot', text, suggestions }])
       setIsTyping(false)
     }, 500)
   }
 
-  const handleReset = () => {
-    setMessages(prev => [...prev, { role: 'user', text: 'Show me something else' }])
-    setIsTyping(true)
-    setTimeout(() => {
-      setMessages(prev => [...prev, { role: 'bot', text: "What else are you into?" }])
-      setIsTyping(false)
-      setStep('choose-category')
-    }, 400)
+  const handleCategoryClick = (catId) => {
+    const cat = categories.find(c => c.id === catId)
+    setMessages(prev => [...prev, { role: 'user', text: `${cat.emoji} ${cat.label}` }])
+    const suggestions = getSuggestions(catId)
+    addBotMessage(`Here are my top ${cat.label} picks:`, suggestions)
+  }
+
+  const handleSend = () => {
+    const text = input.trim()
+    if (!text) return
+    setInput('')
+    setMessages(prev => [...prev, { role: 'user', text }])
+
+    const matched = matchCategory(text)
+    if (matched) {
+      const suggestions = getSuggestions(matched.id)
+      addBotMessage(`Great choice! Here are some ${matched.label.toLowerCase()} options:`, suggestions)
+      return
+    }
+
+    const results = searchListings(text)
+    if (results.length > 0) {
+      addBotMessage(`I found ${results.length} ${results.length === 1 ? 'option' : 'options'} for "${text}":`, results)
+    } else {
+      addBotMessage(
+        `I couldn't find anything specific for "${text}", but here are some popular picks you might love:`,
+        getSuggestions('popular')
+      )
+    }
+  }
+
+  const handleQuickReply = (text, catId) => {
+    setMessages(prev => [...prev, { role: 'user', text }])
+    const suggestions = getSuggestions(catId)
+    addBotMessage(`Here you go:`, suggestions)
+  }
+
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault()
+      handleSend()
+    }
   }
 
   const handleClose = () => {
     setIsOpen(false)
     setTimeout(() => {
       setMessages([])
-      setStep('greeting')
+      setInput('')
     }, 300)
   }
 
@@ -103,7 +150,7 @@ export default function TripChatbot() {
         className={`fixed bottom-6 right-6 z-50 w-[380px] max-w-[calc(100vw-2rem)] bg-white rounded-2xl shadow-2xl border border-[var(--color-border-light)] flex flex-col overflow-hidden transition-all duration-300 origin-bottom-right ${
           isOpen ? 'scale-100 opacity-100 translate-y-0' : 'scale-95 opacity-0 translate-y-4 pointer-events-none'
         }`}
-        style={{ height: '520px', maxHeight: 'calc(100vh - 4rem)' }}
+        style={{ height: '540px', maxHeight: 'calc(100vh - 4rem)' }}
       >
         {/* Header */}
         <div className="bg-[var(--color-primary)] px-5 py-4 flex items-center justify-between shrink-0">
@@ -133,8 +180,8 @@ export default function TripChatbot() {
                   <div className="flex-1">
                     <p className="text-sm text-[var(--color-ink)] leading-relaxed">{msg.text}</p>
 
-                    {/* Category buttons */}
-                    {msg.text.includes('What are you into') || msg.text.includes('What else') ? (
+                    {/* Category buttons — only on first bot message */}
+                    {i === 0 && (
                       <div className="flex flex-wrap gap-2 mt-3">
                         {categories.map(cat => (
                           <button
@@ -147,7 +194,22 @@ export default function TripChatbot() {
                           </button>
                         ))}
                       </div>
-                    ) : null}
+                    )}
+
+                    {/* Quick reply chips — after first message */}
+                    {i === 1 && !msg.suggestions && (
+                      <div className="flex flex-wrap gap-1.5 mt-2">
+                        {quickReplies.map(qr => (
+                          <button
+                            key={qr.text}
+                            onClick={() => handleQuickReply(qr.text, qr.catId)}
+                            className="px-2.5 py-1.5 rounded-lg text-[10px] font-medium bg-[var(--color-primary)]/5 text-[var(--color-primary)] hover:bg-[var(--color-primary)]/10 transition-colors"
+                          >
+                            {qr.text}
+                          </button>
+                        ))}
+                      </div>
+                    )}
 
                     {/* Suggestion cards */}
                     {msg.suggestions && (
@@ -175,16 +237,6 @@ export default function TripChatbot() {
                           </Link>
                         ))}
                       </div>
-                    )}
-
-                    {/* Reset button */}
-                    {msg.suggestions && (
-                      <button
-                        onClick={handleReset}
-                        className="mt-3 text-xs text-[var(--color-primary)] font-medium hover:underline"
-                      >
-                        ← Show me something else
-                      </button>
                     )}
                   </div>
                 </div>
@@ -216,15 +268,35 @@ export default function TripChatbot() {
           <div ref={chatEndRef} />
         </div>
 
-        {/* Quick link to search */}
-        <div className="border-t border-[var(--color-border-light)] px-4 py-3 shrink-0">
-          <Link
-            to="/search"
-            className="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl bg-[var(--color-surface)] hover:bg-[var(--color-surface-warm)] text-sm font-medium text-[var(--color-ink-light)] hover:text-[var(--color-ink)] transition-colors"
-          >
-            Browse all experiences
-            <ArrowRight className="w-3.5 h-3.5" />
-          </Link>
+        {/* Input area */}
+        <div className="border-t border-[var(--color-border-light)] p-3 shrink-0">
+          <div className="flex items-center gap-2">
+            <input
+              ref={inputRef}
+              type="text"
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              onKeyDown={handleKeyDown}
+              placeholder="Type a message..."
+              className="flex-1 px-4 py-2.5 rounded-xl bg-[var(--color-surface)] border border-[var(--color-border-light)] text-sm text-[var(--color-ink)] placeholder-[var(--color-ink-muted)] focus:outline-none focus:border-[var(--color-primary)]/40 focus:ring-2 focus:ring-[var(--color-primary)]/10 transition-all"
+            />
+            <button
+              onClick={handleSend}
+              disabled={!input.trim()}
+              className="w-10 h-10 rounded-xl bg-[var(--color-primary)] text-white flex items-center justify-center shrink-0 hover:bg-[var(--color-primary-dark)] disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+              aria-label="Send message"
+            >
+              <Send className="w-4 h-4" />
+            </button>
+          </div>
+          <div className="flex items-center justify-center mt-2">
+            <Link
+              to="/search"
+              className="text-[10px] text-[var(--color-ink-muted)] hover:text-[var(--color-primary)] transition-colors"
+            >
+              Browse all experiences →
+            </Link>
+          </div>
         </div>
       </div>
     </>
