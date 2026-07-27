@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Search, Minus, Plus, ChevronDown, Calendar, Users } from 'lucide-react'
+import { Minus, Plus, ChevronDown, Calendar, Users, Compass } from 'lucide-react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import ExperienceCard from '../ui/ExperienceCard'
@@ -153,8 +153,8 @@ export default function Hero() {
 
         <div className="flex-1 flex flex-col px-6 sm:px-8 lg:px-12 xl:px-16 pt-10 sm:pt-14 lg:pt-20 pb-8 sm:pb-12 lg:pb-16">
 
-          {/* ── Headline — upper left ──────────────────────────────────────── */}
-          <div className="max-w-3xl">
+          {/* ── Headline — centered ──────────────────────────────────────── */}
+          <div className="max-w-3xl mx-auto text-center">
             <h1
               ref={headlineRef}
               className="text-[2.75rem] sm:text-5xl md:text-6xl lg:text-[4.5rem] xl:text-[5.5rem] font-black tracking-tight text-white leading-[1.02] mb-5"
@@ -172,7 +172,7 @@ export default function Hero() {
             {/* Description */}
             <p
               ref={subRef}
-              className="text-base sm:text-lg text-white/60 max-w-lg leading-relaxed mb-4"
+              className="text-base sm:text-lg text-white/60 max-w-lg mx-auto leading-relaxed mb-4"
             >
               Rapids, rooftop bars, village classrooms. The version locals live in.
             </p>
@@ -185,8 +185,8 @@ export default function Hero() {
           {/* ── Bottom section ──────────────────────────────────────────────── */}
           <div className="space-y-5 sm:space-y-6">
 
-            {/* ── Search card — lower center-right ─────────────────────────── */}
-            <div ref={searchRef} className="flex justify-start">
+            {/* ── Search card — centered ─────────────────────────────────── */}
+            <div ref={searchRef} className="flex justify-center">
               <form
                 onSubmit={handleSearch}
                 className="search-pill bg-black/35 backdrop-blur-xl rounded-full p-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-2 w-full sm:w-auto sm:max-w-[560px]"
@@ -262,19 +262,19 @@ export default function Hero() {
                   </div>
                 </div>
 
-                {/* Circular search button */}
+                {/* Explore button */}
                 <button
                   type="submit"
-                  className="btn btn-primary w-full sm:w-12 h-12 sm:px-0 rounded-full shrink-0 hover:scale-105 relative z-[2]"
+                  className="btn btn-primary !rounded-full w-full sm:w-auto sm:h-12 sm:px-6 shrink-0 hover:scale-105"
                 >
-                  <Search className="w-5 h-5" strokeWidth={2.5} />
-                  <span className="sm:hidden text-sm font-semibold ml-2 relative z-[2]">Search</span>
+                  <Compass className="w-4 h-4 relative z-[2]" strokeWidth={2} />
+                  <span className="text-sm font-semibold relative z-[2]">Explore</span>
                 </button>
               </form>
             </div>
 
             {/* ── Stats row — bottom right ──────────────────────────────────── */}
-            <div ref={statsRef} className="flex justify-start gap-8 lg:gap-12">
+            <div ref={statsRef} className="flex justify-center gap-8 lg:gap-12">
               {stats.map((stat) => (
                 <div key={stat.label} className="text-left lg:text-right">
                   <div className="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight">
