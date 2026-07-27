@@ -262,13 +262,13 @@ export default function Hero() {
                   </div>
                 </div>
 
-                {/* Explore button */}
+                {/* Explore button — inside pill */}
                 <button
                   type="submit"
-                  className="btn btn-primary !rounded-full w-full sm:w-auto sm:h-12 sm:px-6 shrink-0 hover:scale-105"
+                  className="bg-[var(--color-primary)] hover:bg-[var(--color-primary-light)] text-white rounded-full px-5 h-10 sm:h-10 shrink-0 flex items-center justify-center gap-2 transition-colors"
                 >
-                  <Compass className="w-4 h-4 relative z-[2]" strokeWidth={2} />
-                  <span className="text-sm font-semibold relative z-[2]">Explore</span>
+                  <Compass className="w-4 h-4" strokeWidth={2} />
+                  <span className="text-sm font-semibold">Explore</span>
                 </button>
               </form>
             </div>
@@ -294,7 +294,7 @@ export default function Hero() {
       <div className="relative z-10 -mt-4 sm:-mt-6 lg:-mt-8 mb-8 sm:mb-12 lg:mb-16 px-6 sm:px-8 lg:px-12 xl:px-16">
         <div
           ref={cardsRowRef}
-          className="flex gap-4 overflow-x-auto snap-x snap-mandatory no-scrollbar pb-4 -mx-1 px-1"
+          className="flex gap-4 overflow-x-auto snap-x snap-mandatory no-scrollbar pb-4 justify-center"
         >
           {featuredExperiences.map((exp) => (
             <div key={exp.id} className="exp-card snap-start">
