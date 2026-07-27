@@ -268,10 +268,10 @@ export default function Hero() {
                 {/* Explore button */}
                 <button
                   type="submit"
-                  className="flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold text-[var(--color-primary-light)] bg-[var(--color-primary)]/10 hover:bg-[var(--color-primary)]/20 active:bg-[var(--color-primary)]/30 transition-all duration-150 shrink-0 cursor-pointer"
+                  className="btn btn-primary btn-sm !px-4 !py-2.5 !rounded-xl shrink-0 cursor-pointer"
                 >
-                  <Compass className="w-4 h-4" strokeWidth={2} />
-                  <span>Explore</span>
+                  <Compass className="w-4 h-4 relative z-[2]" strokeWidth={2} />
+                  <span className="relative z-[2]">Explore</span>
                 </button>
               </form>
             </div>
