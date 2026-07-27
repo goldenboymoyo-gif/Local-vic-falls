@@ -1,36 +1,75 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
-import { Search, ArrowRight, Mountain, UtensilsCrossed, Users, Hotel, Music, Sun } from 'lucide-react'
+import { useNavigate } from 'react-router-dom'
+import { Search, Minus, Plus, ChevronDown, Calendar, Users, Sparkles } from 'lucide-react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { heroCategoryPills } from '../../data/listings'
+import ExperienceCard from '../ui/ExperienceCard'
 
 gsap.registerPlugin(ScrollTrigger)
 
-const iconMap = { Mountain, UtensilsCrossed, Users, Hotel, Music }
+const experienceOptions = ['Adventure', 'Culture', 'Eat & Drink', 'Nightlife', 'Stay']
 
-const headlines = [
-  "Victoria Falls isn't just a view.",
-  "It's a whole town.",
+const stats = [
+  { number: '40+', label: 'Local Guides' },
+  { number: '127+', label: 'Experiences' },
+  { number: '15k+', label: 'Travelers Hosted' },
 ]
 
-const hostAvatars = [
-  { name: 'Tendai', src: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120&h=120&fit=crop&q=80' },
-  { name: 'Nomsa', src: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=120&h=120&fit=crop&q=80' },
-  { name: 'Grace', src: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=120&h=120&fit=crop&q=80' },
+const featuredExperiences = [
+  {
+    id: 'feat-1',
+    title: 'Sunset Cruise',
+    category: 'Adventure · Zambezi River',
+    price: 'from $59',
+    duration: '2–3 hrs',
+    image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&h=400&fit=crop&q=80',
+    slug: 'sunset-cruise',
+  },
+  {
+    id: 'feat-2',
+    title: 'Village Cultural Tour',
+    category: 'Culture · Monde Village',
+    price: 'from $40',
+    duration: 'Half day',
+    image: 'https://images.unsplash.com/photo-1504457047772-27faf1c00561?w=600&h=400&fit=crop&q=80',
+    slug: 'monde-village',
+  },
+  {
+    id: 'feat-3',
+    title: 'The Lookout Cafe',
+    category: 'Rooftop · Batoka Gorge',
+    price: '$10–$35',
+    duration: 'All day',
+    image: 'https://images.unsplash.com/photo-1559329007-40df8a9345d8?w=600&h=400&fit=crop&q=80',
+    slug: 'lookout-cafe',
+  },
 ]
 
 export default function Hero() {
   const heroRef = useRef(null)
   const headlineRef = useRef(null)
   const subRef = useRef(null)
-  const proofRef = useRef(null)
-  const pillsRef = useRef(null)
+  const lineRef = useRef(null)
   const searchRef = useRef(null)
-  const localRef = useRef(null)
+  const statsRef = useRef(null)
+  const cardsRowRef = useRef(null)
+  const dropdownRef = useRef(null)
   const navigate = useNavigate()
-  const [searchQuery, setSearchQuery] = useState('')
-  const [searchFocused, setSearchFocused] = useState(false)
+
+  const [selectedExperience, setSelectedExperience] = useState('')
+  const [showExpDropdown, setShowExpDropdown] = useState(false)
+  const [guestCount, setGuestCount] = useState(2)
+  const [searchDate, setSearchDate] = useState('')
+
+  useEffect(() => {
+    function handleClick(e) {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+        setShowExpDropdown(false)
+      }
+    }
+    document.addEventListener('mousedown', handleClick)
+    return () => document.removeEventListener('mousedown', handleClick)
+  }, [])
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -38,58 +77,45 @@ export default function Hero() {
         const words = headlineRef.current.querySelectorAll('.hw')
         gsap.fromTo(words,
           { opacity: 0, y: 50, rotationX: -30 },
-          { opacity: 1, y: 0, rotationX: 0, duration: 1, stagger: 0.12, delay: 0.4, ease: 'power3.out', clearProps: 'all' }
+          { opacity: 1, y: 0, rotationX: 0, duration: 1, stagger: 0.1, delay: 0.3, ease: 'power3.out', clearProps: 'all' }
         )
       }
 
       if (subRef.current) {
-        gsap.fromTo(subRef.current, { opacity: 0, y: 30 }, {
-          opacity: 1, y: 0, duration: 0.9, delay: 1.2, ease: 'power3.out', clearProps: 'all',
+        gsap.fromTo(subRef.current, { opacity: 0, y: 24 }, {
+          opacity: 1, y: 0, duration: 0.8, delay: 1.0, ease: 'power3.out', clearProps: 'all',
         })
       }
 
-      if (proofRef.current) {
-        gsap.fromTo(proofRef.current, { opacity: 0, y: 20 }, {
-          opacity: 1, y: 0, duration: 0.8, delay: 1.5, ease: 'power3.out', clearProps: 'all',
+      if (lineRef.current) {
+        gsap.fromTo(lineRef.current, { opacity: 0, pathLength: 0 }, {
+          opacity: 1, duration: 0.8, delay: 1.3, ease: 'power2.out', clearProps: 'all',
         })
       }
 
       if (searchRef.current) {
-        gsap.fromTo(searchRef.current, { opacity: 0, y: 24, scale: 0.97 }, {
-          opacity: 1, y: 0, scale: 1, duration: 0.9, delay: 1.8, ease: 'power3.out', clearProps: 'all',
+        gsap.fromTo(searchRef.current, { opacity: 0, y: 30, scale: 0.97 }, {
+          opacity: 1, y: 0, scale: 1, duration: 0.9, delay: 1.5, ease: 'power3.out', clearProps: 'all',
         })
       }
 
-      if (localRef.current) {
-        gsap.fromTo(localRef.current, { opacity: 0, y: 16 }, {
-          opacity: 1, y: 0, duration: 0.7, delay: 2.2, ease: 'power3.out', clearProps: 'all',
+      if (statsRef.current) {
+        gsap.fromTo(statsRef.current.children, { opacity: 0, y: 16 }, {
+          opacity: 1, y: 0, duration: 0.6, stagger: 0.1, delay: 1.7, ease: 'power3.out', clearProps: 'all',
         })
       }
 
-      if (pillsRef.current) {
-        const pills = pillsRef.current.querySelectorAll('.cat-pill')
-        gsap.set(pills, { opacity: 0, y: 20 })
-
-        ScrollTrigger.create({
-          trigger: pillsRef.current,
-          start: 'top 90%',
-          once: true,
-          onEnter: () => {
-            gsap.to(pills, {
-              opacity: 1,
-              y: 0,
-              duration: 0.5,
-              stagger: 0.1,
-              ease: 'power3.out',
-              clearProps: 'all',
-            })
-          },
-        })
+      if (cardsRowRef.current) {
+        const cards = cardsRowRef.current.querySelectorAll('.exp-card')
+        gsap.fromTo(cards,
+          { opacity: 0, y: 30, scale: 0.95 },
+          { opacity: 1, y: 0, scale: 1, duration: 0.7, stagger: 0.12, delay: 2.1, ease: 'power3.out', clearProps: 'all' }
+        )
       }
     }, heroRef)
 
     const fallback = setTimeout(() => {
-      document.querySelectorAll('.hw, .cat-pill').forEach(el => {
+      document.querySelectorAll('.hw').forEach(el => {
         el.style.opacity = '1'
         el.style.transform = 'none'
       })
@@ -100,15 +126,17 @@ export default function Hero() {
 
   function handleSearch(e) {
     e.preventDefault()
-    if (searchQuery.trim()) {
-      navigate(`/search?q=${encodeURIComponent(searchQuery.trim())}`)
-    }
+    const params = new URLSearchParams()
+    if (selectedExperience) params.set('q', selectedExperience)
+    if (searchDate) params.set('date', searchDate)
+    if (guestCount > 1) params.set('guests', guestCount.toString())
+    navigate(`/search?${params.toString()}`)
   }
 
   return (
-    <div ref={heroRef} className="relative overflow-hidden" style={{ minHeight: '90vh' }}>
-      {/* Video background */}
-      <div className="absolute inset-0">
+    <div ref={heroRef} className="relative" style={{ minHeight: '95vh' }}>
+      {/* ── Background ─────────────────────────────────────────────────────── */}
+      <div className="absolute inset-0 overflow-hidden">
         <iframe
           src="https://www.youtube.com/embed/UZ3DV7rCCH4?autoplay=1&mute=1&loop=1&playlist=UZ3DV7rCCH4&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&iv_load_policy=3&disablekb=1&vq=hd2160&quality=hd2160"
           title="Victoria Falls background"
@@ -117,133 +145,183 @@ export default function Hero() {
           allowFullScreen={false}
           style={{ border: 'none' }}
         />
-        {/* Cinematic gradient overlays */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/70" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-black/40" />
-        <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#faf8f5] to-transparent" />
+        {/* Cinematic overlays */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/20 to-black/60" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-black/15" />
       </div>
 
-      {/* Content */}
-      <div className="relative z-10">
+      {/* Bottom fade into page background — tall enough to sit behind the cards */}
+      <div className="absolute bottom-0 left-0 right-0 h-[40vh] sm:h-[50vh] bg-gradient-to-t from-[#faf8f5] via-[#faf8f5]/50 to-transparent z-[1]" />
+
+      {/* ── Content ────────────────────────────────────────────────────────── */}
+      <div className="relative z-10 min-h-[95vh] flex flex-col">
+        {/* Nav spacer */}
         <div className="h-16 lg:h-[4.5rem]" />
 
-        <div className="flex items-center justify-center px-5 sm:px-8 lg:px-12 pt-12 sm:pt-16 lg:pt-20 pb-12 sm:pb-16 lg:pb-20">
-          <div className="text-center max-w-4xl">
-            {/* Headline */}
-            <h1 ref={headlineRef} className="font-[family-name:var(--font-display)] text-4xl sm:text-5xl md:text-6xl lg:text-[5rem] font-black tracking-tight text-white leading-[1.05] mb-6">
-              {headlines[0].split(' ').map((word, i) => (
+        <div className="flex-1 flex flex-col px-6 sm:px-8 lg:px-12 xl:px-16 pt-10 sm:pt-14 lg:pt-20 pb-8 sm:pb-12 lg:pb-16">
+
+          {/* ── Headline — upper left ──────────────────────────────────────── */}
+          <div className="max-w-3xl">
+            <h1
+              ref={headlineRef}
+              className="text-[2.75rem] sm:text-5xl md:text-6xl lg:text-[4.5rem] xl:text-[5.5rem] font-black tracking-tight text-white leading-[1.02] mb-5"
+              style={{ fontFamily: 'var(--font-display)' }}
+            >
+              {"Victoria Falls".split(' ').map((word, i) => (
                 <span key={i} className="hw inline-block mr-[0.28em]">{word}</span>
               ))}
-              <br />
-              {headlines[1].split(' ').map((word, i) => (
-                <span key={i} className={`hw inline-block mr-[0.28em] ${i === 0 ? '' : 'text-[var(--color-accent-light)]'}`}>{word}</span>
+              <br className="hidden sm:block" />
+              {"Isn't Just a View.".split(' ').map((word, i) => (
+                <span key={`b-${i}`} className="hw inline-block mr-[0.28em]">{word}</span>
               ))}
             </h1>
 
-            {/* Subhead */}
-            <p ref={subRef} className="text-base sm:text-lg text-white/65 max-w-xl mx-auto mb-3 leading-relaxed font-light">
+            {/* Description */}
+            <p
+              ref={subRef}
+              className="text-base sm:text-lg text-white/60 max-w-lg leading-relaxed mb-4"
+            >
               Rapids, rooftop bars, village classrooms. The version locals live in.
             </p>
 
-            {/* Proof point */}
-            <div ref={proofRef} className="flex items-center justify-center gap-2 text-sm text-white/45 mb-10 font-light">
-              <span>34 experiences</span>
-              <span className="w-1 h-1 rounded-full bg-white/30" />
-              <span>6 local guides</span>
-              <span className="w-1 h-1 rounded-full bg-white/30" />
-              <span>1 town</span>
+            {/* Connecting line pointer toward search card */}
+            <div ref={lineRef} className="hidden lg:block ml-2 mb-2">
+              <svg width="110" height="56" viewBox="0 0 110 56" fill="none" className="text-white/20">
+                <path
+                  d="M0 8 C25 8, 35 18, 50 30 C65 42, 85 48, 105 46"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  fill="none"
+                />
+                <circle cx="107" cy="46" r="3.5" fill="currentColor" />
+              </svg>
             </div>
+          </div>
 
-            {/* Search bar — premium, journey-starting */}
-            <div ref={searchRef} className="max-w-2xl mx-auto mb-5">
-              <form onSubmit={handleSearch} className="relative">
-                <div className={`flex items-center bg-white rounded-2xl p-2 transition-all duration-500 ${
-                  searchFocused
-                    ? 'shadow-[0_8px_40px_rgba(0,0,0,0.18)]'
-                    : 'shadow-[0_4px_24px_rgba(0,0,0,0.12)]'
-                }`}>
-                  <div className="flex items-center gap-3 flex-1 px-4">
-                    <Search className="w-5 h-5 text-[var(--color-ink-muted)]" />
-                    <input
-                      type="text"
-                      value={searchQuery}
-                      onChange={(e) => setSearchQuery(e.target.value)}
-                      onFocus={() => setSearchFocused(true)}
-                      onBlur={() => setSearchFocused(false)}
-                      placeholder="Bungee at dawn? Sunset cruise? We've got both."
-                      className="flex-1 bg-transparent border-none outline-none text-[var(--color-ink)] placeholder-[var(--color-ink-muted)] text-sm sm:text-base py-3"
-                    />
-                  </div>
+          {/* Spacer pushes bottom section down */}
+          <div className="flex-1 min-h-[1.5rem] lg:min-h-[3rem]" />
+
+          {/* ── Bottom section ──────────────────────────────────────────────── */}
+          <div className="space-y-5 sm:space-y-6">
+
+            {/* ── Search card — lower center-right ─────────────────────────── */}
+            <div ref={searchRef} className="flex justify-start lg:justify-end">
+              <form
+                onSubmit={handleSearch}
+                className="search-pill bg-black/35 backdrop-blur-xl rounded-full p-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-2 w-full sm:w-auto sm:max-w-[560px]"
+              >
+                {/* Experience dropdown */}
+                <div ref={dropdownRef} className="relative flex-1 sm:flex-none">
                   <button
-                    type="submit"
-                    className="bg-[var(--color-primary)] text-white px-7 sm:px-8 py-3 rounded-xl font-semibold text-sm hover:bg-[var(--color-primary-dark)] transition-all duration-200 shrink-0 flex items-center gap-2"
+                    type="button"
+                    onClick={() => setShowExpDropdown(!showExpDropdown)}
+                    className="flex items-center gap-2 px-4 py-3 sm:py-2.5 rounded-xl text-sm text-white/80 hover:bg-white/5 transition-colors w-full sm:w-[160px]"
                   >
-                    Explore
-                    <ArrowRight className="w-4 h-4" />
+                    <Sparkles className="w-4 h-4 text-[var(--color-accent-light)] shrink-0" />
+                    <span className="truncate">{selectedExperience || 'Experience'}</span>
+                    <ChevronDown className={`w-3.5 h-3.5 ml-auto shrink-0 transition-transform ${showExpDropdown ? 'rotate-180' : ''}`} />
                   </button>
+
+                  {showExpDropdown && (
+                    <div className="absolute top-full left-0 mt-2 w-full bg-[#1c1917] border border-white/10 rounded-xl shadow-2xl overflow-hidden z-50">
+                      {experienceOptions.map((opt) => (
+                        <button
+                          key={opt}
+                          type="button"
+                          onClick={() => { setSelectedExperience(opt); setShowExpDropdown(false) }}
+                          className={`w-full text-left px-4 py-2.5 text-sm transition-colors ${
+                            selectedExperience === opt
+                              ? 'bg-[var(--color-primary)]/20 text-[var(--color-accent-light)]'
+                              : 'text-white/70 hover:bg-white/5 hover:text-white'
+                          }`}
+                        >
+                          {opt}
+                        </button>
+                      ))}
+                    </div>
+                  )}
                 </div>
+
+                {/* Divider */}
+                <div className="hidden sm:block w-px h-6 bg-white/10" />
+
+                {/* Date */}
+                <div className="flex items-center gap-2 px-4 py-3 sm:py-2.5 rounded-xl text-sm flex-1 sm:flex-none sm:w-[140px]">
+                  <Calendar className="w-4 h-4 text-white/40 shrink-0" />
+                  <input
+                    type="text"
+                    value={searchDate}
+                    onChange={(e) => setSearchDate(e.target.value)}
+                    placeholder="Any day"
+                    className="bg-transparent border-none outline-none text-white/80 placeholder-white/35 w-full text-sm"
+                  />
+                </div>
+
+                {/* Divider */}
+                <div className="hidden sm:block w-px h-6 bg-white/10" />
+
+                {/* Guests */}
+                <div className="flex items-center gap-2 px-4 py-3 sm:py-2.5 rounded-xl text-sm flex-1 sm:flex-none sm:w-[150px]">
+                  <Users className="w-4 h-4 text-white/40 shrink-0" />
+                  <span className="text-white/80 whitespace-nowrap">{guestCount} People</span>
+                  <div className="flex items-center gap-1 ml-auto">
+                    <button
+                      type="button"
+                      onClick={() => setGuestCount(Math.max(1, guestCount - 1))}
+                      className="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center text-white/60 hover:bg-white/15 transition-colors"
+                    >
+                      <Minus className="w-3 h-3" />
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setGuestCount(guestCount + 1)}
+                      className="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center text-white/60 hover:bg-white/15 transition-colors"
+                    >
+                      <Plus className="w-3 h-3" />
+                    </button>
+                  </div>
+                </div>
+
+                {/* Circular search button */}
+                <button
+                  type="submit"
+                  className="btn btn-primary w-full sm:w-12 h-12 sm:px-0 rounded-full shrink-0 hover:scale-105"
+                >
+                  <Search className="w-5 h-5 relative z-[2]" />
+                  <span className="sm:hidden text-sm font-semibold ml-2 relative z-[2]">Search</span>
+                </button>
               </form>
             </div>
 
-            {/* Curated by locals — human element */}
-            <div ref={localRef} className="flex items-center justify-center gap-3 mb-10">
-              <div className="flex -space-x-2">
-                {hostAvatars.map((host) => (
-                  <img
-                    key={host.name}
-                    src={host.src}
-                    alt={host.name}
-                    className="w-7 h-7 rounded-full border-2 border-white/80 object-cover"
-                    loading="lazy"
-                  />
-                ))}
-              </div>
-              <span className="text-xs text-white/50 font-light">
-                Curated by locals who actually live here
-              </span>
-            </div>
-
-            {/* CTAs */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
-              <Link
-                to="#categories"
-                className="inline-flex items-center gap-2 bg-white text-[var(--color-ink)] px-8 py-3.5 rounded-xl text-sm font-semibold hover:bg-[var(--color-surface)] transition-all duration-200 shadow-lg hover:shadow-xl hover:-translate-y-0.5"
-              >
-                Explore what's on
-              </Link>
-              <Link
-                to="/plan-your-day"
-                className="inline-flex items-center gap-2 text-sm font-medium text-white/70 px-8 py-3.5 border border-white/20 rounded-xl hover:border-white/40 hover:text-white hover:bg-white/5 transition-all duration-200"
-              >
-                Plan your day
-              </Link>
-            </div>
-
-            {/* Local detail callout — hyper-specific */}
-            <div className="flex items-center justify-center gap-2 mb-8 text-xs text-white/40 font-light">
-              <Sun className="w-3.5 h-3.5 text-[var(--color-accent-light)]/60" />
-              <span>
-                Best sunset right now: the Lookout Café, 5:45 PM — grab a Zambezi lager and watch the gorge glow.
-              </span>
-            </div>
-
-            {/* Category pills — scroll-triggered staggered animation */}
-            <div ref={pillsRef} className="flex flex-wrap items-center justify-center gap-2.5">
-              {heroCategoryPills.map((pill) => {
-                const Icon = iconMap[pill.icon]
-                return (
-                  <Link
-                    key={pill.slug}
-                    to={pill.slug === 'adventure' ? '/adventures' : pill.slug === 'nightlife' || pill.slug === 'stay' ? `/search?pillar=${pill.slug}` : `/${pill.slug}`}
-                    className="cat-pill inline-flex items-center gap-2 bg-black/25 backdrop-blur-md border border-white/15 hover:bg-black/35 hover:border-white/25 text-white/80 hover:text-white px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all duration-200"
-                  >
-                    {Icon && <Icon className="w-4 h-4" />}
-                    {pill.label}
-                  </Link>
-                )
-              })}
+            {/* ── Stats row — bottom right ──────────────────────────────────── */}
+            <div ref={statsRef} className="flex justify-start lg:justify-end gap-8 lg:gap-12">
+              {stats.map((stat) => (
+                <div key={stat.label} className="text-left lg:text-right">
+                  <div className="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight">
+                    {stat.number}
+                  </div>
+                  <div className="text-[0.65rem] sm:text-xs text-white/45 font-medium uppercase tracking-wider mt-1">
+                    {stat.label}
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* ── Featured experience cards — horizontal scroll row ──────────────── */}
+      <div className="relative z-10 -mt-4 sm:-mt-6 lg:-mt-8 mb-8 sm:mb-12 lg:mb-16 px-6 sm:px-8 lg:px-12 xl:px-16">
+        <div
+          ref={cardsRowRef}
+          className="flex gap-4 overflow-x-auto snap-x snap-mandatory no-scrollbar pb-4 -mx-1 px-1"
+        >
+          {featuredExperiences.map((exp) => (
+            <div key={exp.id} className="exp-card snap-start">
+              <ExperienceCard {...exp} />
+            </div>
+          ))}
         </div>
       </div>
     </div>

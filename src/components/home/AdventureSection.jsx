@@ -110,13 +110,13 @@ export default function AdventureSection() {
                   {adv.name}
                 </h3>
 
-                <p className="text-[var(--color-ink-muted)] text-xs leading-relaxed line-clamp-2 mb-4">
+                <p className="text-[var(--color-ink-muted)] text-xs leading-relaxed line-clamp-2">
                   {adv.shortDesc}
                 </p>
 
                 <Link
                   to={`/business/${adv.slug}`}
-                  className="btn btn-primary btn-sm w-full"
+                  className="btn btn-primary btn-sm w-full mt-auto"
                 >
                   Book Now
                 </Link>

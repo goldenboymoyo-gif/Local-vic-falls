@@ -49,7 +49,7 @@ export default function DemoShowcase() {
                     <br />
                     <span className="text-[var(--color-ink-light)]">{acc.password}</span>
                   </div>
-                  <div className="mt-4 flex items-center justify-center gap-1 text-sm font-medium text-[var(--color-primary)] group-hover:gap-2 transition-all">
+                  <div className="mt-auto pt-4 flex items-center justify-center gap-1 text-sm font-medium text-[var(--color-primary)] group-hover:gap-2 transition-all">
                     <LogIn className="w-4 h-4" />
                     Open dashboard
                   </div>

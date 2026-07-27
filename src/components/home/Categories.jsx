@@ -1,68 +1,35 @@
 import React, { useRef, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import {
-  ArrowRight,
-  Zap,
-  Droplets,
-  Hammer,
-  Wrench,
-  Sparkles,
-  Camera,
-  Stethoscope,
-  Scissors,
-  Scale,
-  BookOpen,
-  UtensilsCrossed,
-  Dumbbell,
-  CalendarCheck,
-  Compass,
-  Hotel,
-  Flower2,
-  ShoppingBag,
-} from 'lucide-react'
+import { ArrowRight, Mountain, UtensilsCrossed, Users, Hotel, Music } from 'lucide-react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { categories } from '../../data/mockData'
 
 gsap.registerPlugin(ScrollTrigger)
 
-const iconComponents = {
-  Zap,
-  Droplets,
-  Hammer,
-  Wrench,
-  Sparkles,
-  Camera,
-  Stethoscope,
-  Scissors,
-  Scale,
-  BookOpen,
-  UtensilsCrossed,
-  Dumbbell,
-  CalendarCheck,
-  Compass,
-  Hotel,
-  Flower2,
-  ShoppingBag,
-}
+const pillars = [
+  { id: 'adventure', name: 'Adventure', slug: 'adventure', Icon: Mountain },
+  { id: 'eat-drink', name: 'Eat & Drink', slug: 'eat-drink', Icon: UtensilsCrossed },
+  { id: 'culture', name: 'Culture & Villages', slug: 'culture', Icon: Users },
+  { id: 'stay', name: 'Stay', slug: 'stay', Icon: Hotel },
+  { id: 'nightlife', name: 'Nightlife', slug: 'nightlife', Icon: Music },
+]
 
 export default function Categories() {
   const gridRef = useRef(null)
-  const cardsRef = useRef([])
+  const cellsRef = useRef([])
 
   useEffect(() => {
     if (!gridRef.current) return
 
-    gsap.set(cardsRef.current, { opacity: 0, y: 40, scale: 0.95 })
+    gsap.set(cellsRef.current, { opacity: 0, y: 24 })
 
     const ctx = gsap.context(() => {
-      gsap.to(cardsRef.current, {
+      gsap.to(cellsRef.current, {
         opacity: 1,
         y: 0,
-        scale: 1,
-        duration: 0.6,
-        stagger: 0.06,
+        duration: 0.5,
+        stagger: 0.07,
         ease: 'power3.out',
         scrollTrigger: {
           trigger: gridRef.current,
@@ -75,51 +42,14 @@ export default function Categories() {
     return () => ctx.revert()
   }, [])
 
-  const handleMagneticEnter = (e) => {
-    const card = e.currentTarget
-    const rect = card.getBoundingClientRect()
-    const x = e.clientX - rect.left - rect.width / 2
-    const y = e.clientY - rect.top - rect.height / 2
-    gsap.to(card, {
-      x: x * 0.15,
-      y: y * 0.15,
-      duration: 0.3,
-      ease: 'power2.out',
-    })
-  }
-
-  const handleMagneticMove = (e) => {
-    const card = e.currentTarget
-    const rect = card.getBoundingClientRect()
-    const x = e.clientX - rect.left - rect.width / 2
-    const y = e.clientY - rect.top - rect.height / 2
-    gsap.to(card, {
-      x: x * 0.15,
-      y: y * 0.15,
-      duration: 0.3,
-      ease: 'power2.out',
-    })
-  }
-
-  const handleMagneticLeave = (e) => {
-    gsap.to(e.currentTarget, {
-      x: 0,
-      y: 0,
-      duration: 0.5,
-      ease: 'elastic.out(1, 0.4)',
-    })
-  }
-
   return (
     <section className="py-24 lg:py-28 bg-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex items-end justify-between mb-12">
           <div>
-            <span className="text-xs font-medium text-teal-600 uppercase tracking-widest">Categories</span>
-            <h2 className="text-3xl lg:text-4xl font-bold mt-3 tracking-tight">
-              Browse by category
-            </h2>
-            <p className="text-gray-500 mt-2 max-w-md text-sm">
+            <span className="section-label">Categories</span>
+            <h2 className="section-title">Browse by category</h2>
+            <p className="section-subtitle">
               Find exactly what you need from our curated selection of service categories.
             </p>
           </div>
@@ -129,40 +59,30 @@ export default function Categories() {
           </Link>
         </div>
 
-        <div ref={gridRef} className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 lg:gap-4">
-          {categories.map((cat, idx) => {
-            const IconComponent = iconComponents[cat.icon]
+        <div
+          ref={gridRef}
+          className="bg-[#1a1a2e] rounded-2xl overflow-hidden grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]"
+        >
+          {pillars.map((cat, idx) => {
+            const { Icon } = cat
             return (
               <motion.div
                 key={cat.id}
-                ref={(el) => (cardsRef.current[idx] = el)}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.03, duration: 0.4 }}
+                ref={(el) => { cellsRef.current[idx] = el }}
               >
                 <Link
                   to={`/category/${cat.slug}`}
-                  className="group block relative overflow-hidden rounded-2xl bg-gray-50"
-                  onPointerEnter={handleMagneticEnter}
-                  onPointerMove={handleMagneticMove}
-                  onPointerLeave={handleMagneticLeave}
+                  className="relative flex flex-col items-center justify-center py-10 px-4 border-b border-r border-white/[0.06] last:border-r-0 sm:[&:nth-child(3)]:border-r-0 lg:[&:nth-child(5)]:border-r-0 sm:[&:nth-child(n+4)]:border-b-0 lg:[&:nth-child(n+6)]:border-b-0 hover:bg-white/[0.04] transition-colors group"
                 >
-                  <div className="aspect-[4/3] relative overflow-hidden">
-                    <img
-                      src={cat.image}
-                      alt={cat.name}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  <div className="category-icon-glow transition-all duration-300 group-hover:scale-110">
+                    <Icon
+                      className="w-11 h-11 text-[var(--color-primary-light)]"
+                      strokeWidth={1.5}
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                    <div className="absolute top-3 left-3 w-8 h-8 rounded-xl bg-white/90 backdrop-blur-sm flex items-center justify-center">
-                      {IconComponent && <IconComponent className="w-4 h-4 text-gray-700" />}
-                    </div>
-                    <div className="absolute bottom-3 left-3 right-3">
-                      <h3 className="text-white font-semibold text-sm leading-tight">{cat.name}</h3>
-                      <p className="text-white/60 text-xs mt-0.5">{cat.count} providers</p>
-                    </div>
                   </div>
+                  <span className="text-[0.8rem] text-white/50 font-medium mt-4 text-center leading-tight group-hover:text-white/75 transition-colors">
+                    {cat.name}
+                  </span>
                 </Link>
               </motion.div>
             )

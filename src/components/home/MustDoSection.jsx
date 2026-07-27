@@ -99,7 +99,7 @@ export default function MustDoSection() {
                 </div>
                 <Link
                   to={`/business/${item.slug}`}
-                  className="btn btn-primary btn-sm w-full mt-3"
+                  className="btn btn-primary btn-sm w-full mt-auto"
                 >
                   Book Now
                 </Link>

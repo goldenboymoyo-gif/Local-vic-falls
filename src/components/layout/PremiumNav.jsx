@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
-import { Search, Menu, X, Compass, ChevronDown } from 'lucide-react'
+import { Search, Menu, X, Compass, ChevronDown, ArrowRight } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { pillarCategories, adventures, eatDrink } from '../../data/listings'
 
@@ -133,18 +133,13 @@ export default function PremiumNav() {
           <div className="flex items-center gap-3 shrink-0">
             {/* Search */}
             <div ref={searchWrapRef} className="relative hidden lg:block">
-              <form onSubmit={handleSearch} className={`flex items-center h-10 rounded-xl px-3.5 gap-2 transition-all duration-300 ${
+              <form onSubmit={handleSearch} className={`search-pill relative flex items-center h-10 rounded-full px-4 gap-2 transition-all duration-300 ${
                 searchFocused
                   ? 'w-72 bg-white shadow-lg ring-1 ring-[var(--color-primary)]/20'
                   : showScrolled
-                    ? 'w-56 bg-[var(--color-surface)] border border-[var(--color-border)]'
-                    : 'w-56 bg-white/10 backdrop-blur-sm border border-white/15'
+                    ? 'w-56 bg-[var(--color-surface)]'
+                    : 'w-56 bg-white/10 backdrop-blur-sm'
               }`}>
-                <Search className={`w-4 h-4 shrink-0 transition-colors ${
-                  searchFocused
-                    ? 'text-[var(--color-primary)]'
-                    : showScrolled ? 'text-[var(--color-ink-muted)]' : 'text-white/50'
-                }`} />
                 <input
                   ref={searchInputRef}
                   type="text"
@@ -167,6 +162,11 @@ export default function PremiumNav() {
                     <X className="w-3.5 h-3.5" />
                   </button>
                 )}
+                <Search className={`w-4 h-4 shrink-0 transition-colors ${
+                  searchFocused
+                    ? 'text-[var(--color-ink-muted)]'
+                    : showScrolled ? 'text-[var(--color-ink-muted)]' : 'text-white/40'
+                }`} />
               </form>
 
               {/* Results dropdown */}
@@ -221,12 +221,13 @@ export default function PremiumNav() {
             }`}>
               Login
             </Link>
-            <Link to="/sign-up" className={`hidden lg:inline-flex items-center gap-1.5 text-sm font-semibold px-5 py-2.5 rounded-xl transition-all duration-200 ${
+            <Link to="/sign-up" className={`hidden lg:inline-flex items-center gap-1.5 text-sm font-semibold px-5 py-2.5 rounded-full transition-all duration-200 ${
               showScrolled
-                ? 'bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-dark)] shadow-sm hover:shadow-md'
+                ? 'btn btn-primary'
                 : 'bg-white/10 backdrop-blur-sm text-white border border-white/15 hover:bg-white/15'
             }`}>
               Become a Host
+              <ArrowRight className="w-4 h-4 relative z-[2]" />
             </Link>
 
             {/* Mobile toggle */}
@@ -254,8 +255,7 @@ export default function PremiumNav() {
           >
             <div className="container-premium py-4 flex flex-col gap-1">
               {/* Mobile search */}
-              <form onSubmit={handleSearch} className="flex items-center h-11 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-xl px-3.5 gap-2 mb-2">
-                <Search className="w-4 h-4 text-[var(--color-ink-muted)] shrink-0" />
+              <form onSubmit={handleSearch} className="search-pill relative flex items-center h-11 bg-[var(--color-surface)] rounded-full px-4 gap-2 mb-2">
                 <input
                   type="text"
                   value={searchQuery}
@@ -263,6 +263,7 @@ export default function PremiumNav() {
                   placeholder="Search experiences..."
                   className="flex-1 bg-transparent border-none outline-none text-sm text-[var(--color-ink)] placeholder-[var(--color-ink-muted)] min-w-0"
                 />
+                <Search className="w-4 h-4 text-[var(--color-ink-muted)] shrink-0" />
               </form>
 
               {navLinks.map((link) => (
@@ -284,6 +285,7 @@ export default function PremiumNav() {
               </Link>
               <Link to="/sign-up" className="btn btn-primary w-full justify-center mt-1">
                 Become a Host
+                <ArrowRight className="w-4 h-4 relative z-[2]" />
               </Link>
             </div>
           </motion.div>

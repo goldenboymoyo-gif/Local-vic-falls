@@ -88,12 +88,12 @@ export default function StaySection() {
                 <h3 className="text-[var(--color-ink)] font-semibold text-sm tracking-tight mb-1.5 line-clamp-1 group-hover:text-[var(--color-primary)] transition-colors">
                   {item.name}
                 </h3>
-                <p className="text-[var(--color-ink-muted)] text-xs leading-relaxed line-clamp-2 mb-3">
+                <p className="text-[var(--color-ink-muted)] text-xs leading-relaxed line-clamp-2">
                   {item.description}
                 </p>
                 <Link
                   to={`/search?pillar=stay`}
-                  className="text-xs font-semibold text-[var(--color-primary)] hover:text-[var(--color-primary-dark)] transition-colors"
+                  className="text-xs font-semibold text-[var(--color-primary)] hover:text-[var(--color-primary-dark)] transition-colors mt-auto"
                 >
                   View details →
                 </Link>

@@ -114,14 +114,14 @@ export default function CultureSection() {
                 <h3 className="text-[var(--color-ink)] font-semibold text-sm tracking-tight mb-1.5 group-hover:text-[var(--color-accent)] transition-colors">
                   {item.name}
                 </h3>
-                <p className="text-[var(--color-ink-muted)] text-xs leading-relaxed line-clamp-2 mb-3">{item.shortDesc}</p>
-                <div className="flex items-center gap-3 text-[10px] text-[var(--color-ink-muted)] mb-3">
+                <p className="text-[var(--color-ink-muted)] text-xs leading-relaxed line-clamp-2">{item.shortDesc}</p>
+                <div className="flex items-center gap-3 text-[10px] text-[var(--color-ink-muted)] mt-auto pt-3">
                   <span className="flex items-center gap-1"><Clock className="w-3 h-3" />{item.duration}</span>
                   <span className="font-semibold text-[var(--color-ink)]">{item.price} {item.priceNote}</span>
                 </div>
                 <Link
                   to="/booking"
-                  className="btn btn-sm w-full btn-primary"
+                  className="btn btn-sm w-full btn-primary mt-3"
                 >
                   Book Now
                 </Link>

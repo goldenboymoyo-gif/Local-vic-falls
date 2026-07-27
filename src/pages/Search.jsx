@@ -57,18 +57,18 @@ export default function Search({ defaultPillar = '' }) {
       <div className="bg-white border-b border-gray-100 sticky top-16 z-30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center gap-4">
-            <div className="flex-1 flex items-center gap-3 bg-gray-100/80 rounded-lg px-4 py-2.5 border border-gray-200 focus-within:border-gray-400 transition-colors">
-              <SearchIcon className="w-4 h-4 text-gray-400" />
+            <div className="search-pill flex-1 flex items-center gap-3 bg-white/80 rounded-full px-4 py-2.5 transition-all">
               <input
                 type="text" value={query} onChange={(e) => setQuery(e.target.value)}
                 placeholder="Search adventures, restaurants, tours, hotels..."
-                className="flex-1 bg-transparent border-none outline-none text-sm" aria-label="Search"
+                className="flex-1 bg-transparent border-none outline-none text-sm placeholder-gray-400" aria-label="Search"
               />
               {query && (
-                <button onClick={() => setQuery('')} className="text-gray-400 hover:text-gray-600" aria-label="Clear search">
+                <button onClick={() => setQuery('')} className="text-gray-400 hover:text-gray-600 shrink-0" aria-label="Clear search">
                   <X className="w-4 h-4" />
                 </button>
               )}
+              <SearchIcon className="w-4 h-4 text-gray-400 shrink-0" />
             </div>
             <button
               onClick={() => setShowFilters(!showFilters)}
