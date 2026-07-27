@@ -15,12 +15,12 @@ export default function NotFound() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="min-h-screen flex items-center justify-center bg-[#f8f9fa] relative overflow-hidden"
+      className="min-h-screen flex items-center justify-center bg-[var(--color-surface)] relative overflow-hidden"
     >
       <div
         className="absolute inset-0 pointer-events-none opacity-[0.35]"
         style={{
-          backgroundImage: 'radial-gradient(circle, #d1d5db 1px, transparent 1px)',
+          backgroundImage: 'radial-gradient(circle, #D8CFC4 1px, transparent 1px)',
           backgroundSize: '24px 24px',
         }}
       />
@@ -28,7 +28,7 @@ export default function NotFound() {
       <div
         className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[400px] pointer-events-none opacity-40"
         style={{
-          background: 'radial-gradient(ellipse at center, rgba(59,130,246,0.08), transparent 70%)',
+          background: 'radial-gradient(ellipse at center, rgba(196,102,58,0.08), transparent 70%)',
         }}
       />
 
@@ -42,7 +42,7 @@ export default function NotFound() {
 
         <Link
           to="/"
-          className="inline-flex items-center gap-2 bg-gray-900 text-white px-7 py-3.5 rounded-lg text-sm font-medium hover:bg-black transition-colors mb-12"
+          className="inline-flex items-center gap-2 bg-[var(--color-primary)] text-white px-7 py-3.5 rounded-lg text-sm font-medium hover:bg-[var(--color-primary-dark)] transition-colors mb-12"
         >
           <Home className="w-4 h-4" />
           Go Home

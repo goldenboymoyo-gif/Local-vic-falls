@@ -9,7 +9,7 @@ const roleIcons = { Customer: User, 'Service Provider': ShieldCheck, Admin: Eye 
 export default function DemoShowcase() {
   return (
     <section className="section bg-white relative overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(26,92,58,0.03)_0%,transparent_60%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(196,102,58,0.03)_0%,transparent_60%)]" />
 
       <div className="relative container-premium">
         <div className="text-center max-w-2xl mx-auto mb-12">

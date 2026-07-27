@@ -45,17 +45,18 @@ export default function Categories() {
   }, [])
 
   return (
-    <section className="py-24 lg:py-28 bg-white">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section className="py-24 lg:py-28 bg-[var(--color-accent)] relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-accent-dark)] via-[var(--color-accent)] to-[var(--color-accent)] opacity-50" />
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="flex items-end justify-between mb-12">
           <div>
-            <span className="section-label">Categories</span>
-            <h2 className="section-title">Browse by category</h2>
-            <p className="section-subtitle">
+            <span className="section-label text-white/60">Categories</span>
+            <h2 className="section-title text-white">Browse by category</h2>
+            <p className="section-subtitle text-white/50">
               Find exactly what you need from our curated selection of service categories.
             </p>
           </div>
-          <Link to="/search" className="hidden sm:flex items-center gap-1 text-sm font-medium text-gray-900 hover:text-teal-600 transition-colors group">
+          <Link to="/search" className="hidden sm:flex items-center gap-1 text-sm font-medium text-white/60 hover:text-white transition-colors group">
             View all
             <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
           </Link>
@@ -63,7 +64,7 @@ export default function Categories() {
 
         <div
           ref={gridRef}
-          className="bg-[#1a1a2e] rounded-2xl overflow-hidden grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]"
+          className="bg-[#2F3E31] rounded-2xl overflow-hidden grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]"
         >
           {pillars.map((cat, idx) => {
             const { Icon } = cat
@@ -92,7 +93,7 @@ export default function Categories() {
         </div>
 
         <div className="mt-6 text-center sm:hidden">
-          <Link to="/search" className="inline-flex items-center gap-1 text-sm font-medium text-teal-600">
+          <Link to="/search" className="inline-flex items-center gap-1 text-sm font-medium text-white/60 hover:text-white">
             View all categories <ArrowRight className="w-3.5 h-3.5" />
           </Link>
         </div>

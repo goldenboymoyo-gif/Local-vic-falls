@@ -70,11 +70,11 @@ export default function Search({ defaultPillar = '' }) {
               )}
               <SearchIcon className="w-4 h-4 text-gray-400 shrink-0" />
             </div>
-            <button
-              onClick={() => setShowFilters(!showFilters)}
-              className={`flex items-center gap-2 px-4 py-2.5 rounded-lg border text-sm font-medium transition-colors ${
-                showFilters || pillar ? 'bg-gray-900 text-white border-gray-900' : 'bg-white text-gray-700 border-gray-200 hover:bg-gray-50'
-              }`}
+              <button
+                onClick={() => setShowFilters(!showFilters)}
+                className={`flex items-center gap-2 px-4 py-2.5 rounded-lg border text-sm font-medium transition-colors ${
+                  showFilters || pillar ? 'bg-[var(--color-primary)] text-white border-[var(--color-primary)]' : 'bg-white text-[var(--color-ink-light)] border-[var(--color-border)] hover:bg-[var(--color-surface-warm)]'
+                }`}
             >
               <SlidersHorizontal className="w-4 h-4" /> Filters
               {pillar && <span className="w-1.5 h-1.5 bg-white rounded-full" />}
@@ -112,8 +112,8 @@ export default function Search({ defaultPillar = '' }) {
                         onClick={() => setPillar(pillar === p.slug ? '' : p.slug)}
                         className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium border transition-colors ${
                           pillar === p.slug
-                            ? 'bg-gray-900 text-white border-gray-900'
-                            : 'bg-gray-50 text-gray-700 border-gray-200 hover:bg-gray-100'
+                            ? 'bg-[var(--color-primary)] text-white border-[var(--color-primary)]'
+                            : 'bg-[var(--color-surface-warm)] text-[var(--color-ink-light)] border-[var(--color-border)] hover:bg-[var(--color-surface)]'
                         }`}
                       >
                         {Icon && <Icon className="w-3.5 h-3.5" />}
@@ -274,10 +274,10 @@ export default function Search({ defaultPillar = '' }) {
             </p>
             <div className="flex items-center justify-center gap-3">
               {pillar && (
-                <button onClick={() => setPillar('')} className="px-5 py-2.5 text-sm font-medium border border-gray-200 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors">Clear filter</button>
+                <button onClick={() => setPillar('')} className="px-5 py-2.5 text-sm font-medium border border-[var(--color-border)] text-[var(--color-ink-light)] rounded-lg hover:bg-[var(--color-surface-warm)] transition-colors">Clear filter</button>
               )}
               {query && (
-                <button onClick={() => setQuery('')} className="px-5 py-2.5 text-sm font-medium bg-gray-900 text-white rounded-lg hover:bg-black transition-colors">Browse all</button>
+                <button onClick={() => setQuery('')} className="px-5 py-2.5 text-sm font-medium bg-[var(--color-primary)] text-white rounded-lg hover:bg-[var(--color-primary-dark)] transition-colors">Browse all</button>
               )}
             </div>
           </motion.div>

@@ -29,14 +29,14 @@ export default function About() {
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
       {/* Hero */}
-      <section className="relative h-[50vh] min-h-[400px] flex items-end overflow-hidden bg-slate-900">
+      <section className="relative h-[50vh] min-h-[400px] flex items-end overflow-hidden bg-[#2D2420]">
         <div className="absolute inset-0">
             <img
             src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=1920&h=800&fit=crop"
             alt="Victoria Falls"
             className="w-full h-full object-cover opacity-30"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-slate-900/80 to-slate-900/95" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#2D2420]/80 to-[#2D2420]/95" />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 lg:pb-16 w-full">
           <Link to="/" className="inline-flex items-center gap-1 text-sm text-white/60 hover:text-white mb-6 transition-colors">

@@ -144,7 +144,7 @@ export default function Hero() {
       </div>
 
       {/* Bottom fade into page background — tall enough to sit behind the cards */}
-      <div className="absolute bottom-0 left-0 right-0 h-[30vh] sm:h-[35vh] bg-gradient-to-t from-[#faf8f5] via-[#faf8f5]/50 to-transparent z-[1]" />
+      <div className="absolute bottom-0 left-0 right-0 h-[30vh] sm:h-[35vh] bg-gradient-to-t from-[#FAF6F1] via-[#FAF6F1]/50 to-transparent z-[1]" />
 
       {/* ── Content ────────────────────────────────────────────────────────── */}
       <div className="relative z-10 min-h-[75vh] flex flex-col">
@@ -203,7 +203,7 @@ export default function Hero() {
                   </button>
 
                   {showExpDropdown && (
-                    <div className="absolute top-full left-0 mt-2 w-full bg-[#1c1917] border border-white/10 rounded-xl shadow-2xl overflow-hidden z-50">
+                    <div className="absolute top-full left-0 mt-2 w-full bg-[#3B322B] border border-white/10 rounded-xl shadow-2xl overflow-hidden z-50">
                       {experienceOptions.map((opt) => (
                         <button
                           key={opt}

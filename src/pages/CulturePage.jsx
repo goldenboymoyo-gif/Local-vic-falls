@@ -5,7 +5,7 @@ import Search from './Search'
 export default function CulturePage() {
   return (
     <div className="pt-16">
-      <div className="bg-gradient-to-br from-[#050816] to-[#0a1628] py-12 lg:py-16">
+      <div className="bg-gradient-to-br from-[#2D2420] to-[#1A1512] py-12 lg:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-3 mb-4">
             <div className="w-10 h-10 bg-rose-500/20 rounded-xl flex items-center justify-center">

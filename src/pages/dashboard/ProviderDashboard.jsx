@@ -198,7 +198,7 @@ export default function ProviderDashboard() {
                           <div key={d.month} className="flex-1 flex flex-col items-center gap-1">
                             <span className="text-[10px] text-gray-400 font-medium">${d.amount.toLocaleString()}</span>
                             <div className="w-full rounded-lg overflow-hidden" style={{ height: `${Math.max(height, 6)}%` }}>
-                              <div className="w-full h-full rounded-lg" style={{ background: 'linear-gradient(180deg, #22c55e, #4ade80)' }} />
+                          <div className="w-full h-full rounded-lg" style={{ background: 'linear-gradient(180deg, #C4663A, #D4794E)' }} />
                             </div>
                             <span className="text-[10px] text-gray-500">{d.month}</span>
                           </div>
@@ -461,7 +461,7 @@ export default function ProviderDashboard() {
                       <div key={d.month} className="flex-1 flex flex-col items-center gap-1">
                         <span className="text-xs font-medium text-gray-600">${d.amount.toLocaleString()}</span>
                         <div className="w-full rounded-lg overflow-hidden" style={{ height: `${Math.max(height, 6)}%` }}>
-                          <div className="w-full h-full rounded-lg" style={{ background: 'linear-gradient(180deg, #22c55e, #4ade80)' }} />
+                           <div className="w-full h-full rounded-lg" style={{ background: 'linear-gradient(180deg, #C4663A, #D4794E)' }} />
                         </div>
                         <span className="text-xs text-gray-500">{d.month}</span>
                       </div>
@@ -653,7 +653,7 @@ export default function ProviderDashboard() {
                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z" />
               </svg>
             </div>
-            <span className="text-lg font-semibold">Local <span className="text-teal-400">Vic Falls</span></span>
+            <span className="text-lg font-semibold">Local <span className="text-[var(--color-primary-light)]">Vic Falls</span></span>
           </Link>
             <div className="mt-5 flex items-center gap-3 p-3 bg-gray-50 rounded-xl">
               <div className="w-8 h-8 bg-gradient-to-br from-teal-500 to-emerald-600 rounded-lg flex items-center justify-center text-white text-xs font-bold">VF</div>

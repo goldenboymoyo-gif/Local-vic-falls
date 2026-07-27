@@ -623,7 +623,7 @@ export default function AdminDashboard() {
                         <div key={d.month} className="flex-1 flex flex-col items-center gap-1">
                           <span className="text-[10px] text-gray-400 font-medium">{(d.amount / 1000).toFixed(1)}k</span>
                           <div className="w-full rounded-lg overflow-hidden" style={{ height: `${Math.max(height, 6)}%` }}>
-                            <div className="w-full h-full rounded-lg" style={{ background: 'linear-gradient(180deg, #22c55e, #4ade80)' }} />
+                            <div className="w-full h-full rounded-lg" style={{ background: 'linear-gradient(180deg, #C4663A, #D4794E)' }} />
                           </div>
                           <span className="text-[10px] text-gray-500">{d.month}</span>
                         </div>

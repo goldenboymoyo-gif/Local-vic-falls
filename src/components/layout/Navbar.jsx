@@ -208,7 +208,7 @@ export default function Navbar() {
             {/* Desktop right */}
             <div className="hidden md:flex items-center gap-3">
               <Link to="/sign-in" className="text-sm font-medium text-gray-600 hover:text-black px-3 py-2 transition-colors">Sign in</Link>
-              <Link to="/sign-up" className="text-sm font-medium bg-gray-900 text-white px-5 py-2 rounded-lg hover:bg-black transition-colors duration-150">Get started</Link>
+              <Link to="/sign-up" className="text-sm font-medium bg-[var(--color-primary)] text-white px-5 py-2 rounded-lg hover:bg-[var(--color-primary-dark)] transition-colors duration-150">Get started</Link>
             </div>
 
             {/* Mobile toggle */}
@@ -329,7 +329,7 @@ export default function Navbar() {
 
               <div className="border-t border-gray-100 my-3" />
               <Link to="/sign-in" className="px-4 py-3 text-sm font-medium rounded-xl hover:bg-gray-50" onClick={() => setMobileOpen(false)}>Sign in</Link>
-              <Link to="/sign-up" className="px-4 py-3 text-sm font-medium bg-gray-900 text-white rounded-lg mt-1 text-center" onClick={() => setMobileOpen(false)}>Get started</Link>
+              <Link to="/sign-up" className="px-4 py-3 text-sm font-medium bg-[var(--color-primary)] text-white rounded-lg mt-1 text-center" onClick={() => setMobileOpen(false)}>Get started</Link>
             </div>
           </motion.div>
         )}
