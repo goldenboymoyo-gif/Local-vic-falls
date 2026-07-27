@@ -112,11 +112,6 @@ export default function EatDrinkSection() {
                   <span className="text-white text-xs font-semibold">{item.rating}</span>
                   <span className="text-white/50 text-[10px]">({item.reviews})</span>
                 </div>
-
-                {/* Price */}
-                <div className="absolute bottom-3 right-3 bg-white rounded-lg px-2.5 py-1 shadow-md">
-                  <span className="text-sm font-bold text-[var(--color-ink)]">{item.price}</span>
-                </div>
               </div>
 
               {/* Content */}
@@ -142,6 +137,11 @@ export default function EatDrinkSection() {
                     <MapPin className="w-3 h-3" />
                     <span className="line-clamp-1">{item.address}</span>
                   </div>
+                </div>
+
+                <div className="flex items-center justify-between mt-auto pt-3 border-t border-[var(--color-border-light)]">
+                  <span className="text-sm font-bold text-[var(--color-primary)]">{item.price}</span>
+                  {item.priceNote && <span className="text-[10px] text-[var(--color-ink-muted)]">{item.priceNote}</span>}
                 </div>
               </div>
             </div>

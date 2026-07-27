@@ -82,12 +82,6 @@ export default function AdventureSection() {
                   ))}
                 </div>
 
-                {/* Price badge */}
-                <div className="absolute bottom-3 right-3 bg-white rounded-lg px-3 py-1.5 shadow-md">
-                  <span className="text-[10px] text-[var(--color-ink-muted)] block leading-none">{adv.priceNote}</span>
-                  <span className="text-lg font-bold text-[var(--color-ink)] leading-none">{adv.price}</span>
-                </div>
-
                 {/* Rating */}
                 <div className="absolute bottom-3 left-3 flex items-center gap-1 bg-black/40 backdrop-blur-sm rounded-full px-2.5 py-1">
                   <Star className="w-3 h-3 text-yellow-400 fill-yellow-400" />
@@ -113,6 +107,11 @@ export default function AdventureSection() {
                 <p className="text-[var(--color-ink-muted)] text-xs leading-relaxed line-clamp-2">
                   {adv.shortDesc}
                 </p>
+
+                <div className="flex items-center justify-between mt-auto pt-3 border-t border-[var(--color-border-light)]">
+                  <span className="text-sm font-bold text-[var(--color-primary)]">{adv.price}</span>
+                  <span className="text-[10px] text-[var(--color-ink-muted)]">{adv.priceNote}</span>
+                </div>
 
                 <Link
                   to={`/business/${adv.slug}`}

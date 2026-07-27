@@ -74,10 +74,6 @@ export default function StaySection() {
                 <span className="absolute top-3 left-3 badge bg-white/90 text-[var(--color-ink)]">
                   {item.type}
                 </span>
-                <div className="absolute bottom-3 right-3 bg-white rounded-lg px-3 py-1.5 shadow-md">
-                  <span className="text-[10px] text-[var(--color-ink-muted)] block leading-none">{item.priceNote}</span>
-                  <span className="text-lg font-bold text-[var(--color-ink)] leading-none">{item.price}</span>
-                </div>
                 <div className="absolute bottom-3 left-3 flex items-center gap-1 bg-black/40 backdrop-blur-sm rounded-full px-2.5 py-1">
                   <Star className="w-3 h-3 text-yellow-400 fill-yellow-400" />
                   <span className="text-white text-xs font-semibold">{item.rating}</span>
@@ -91,6 +87,10 @@ export default function StaySection() {
                 <p className="text-[var(--color-ink-muted)] text-xs leading-relaxed line-clamp-2">
                   {item.description}
                 </p>
+                <div className="flex items-center justify-between mt-auto pt-3 border-t border-[var(--color-border-light)]">
+                  <span className="text-sm font-bold text-[var(--color-primary)]">{item.price}</span>
+                  <span className="text-[10px] text-[var(--color-ink-muted)]">{item.priceNote}</span>
+                </div>
                 <Link
                   to={`/search?pillar=stay`}
                   className="text-xs font-semibold text-[var(--color-primary)] hover:text-[var(--color-primary-dark)] transition-colors mt-auto"

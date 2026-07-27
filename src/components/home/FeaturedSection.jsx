@@ -89,10 +89,6 @@ export default function FeaturedSection() {
                 <span className={`absolute top-3 left-3 badge ${pillarColors[item.pillar]}`}>
                   {item.pillar}
                 </span>
-                <div className="absolute bottom-3 right-3 bg-white rounded-lg px-3 py-1.5 shadow-md">
-                  <span className="text-[10px] text-[var(--color-ink-muted)] block leading-none">{item.priceNote}</span>
-                  <span className="text-lg font-bold text-[var(--color-ink)] leading-none">{item.price}</span>
-                </div>
                 <div className="absolute bottom-3 left-3 flex items-center gap-1 bg-black/40 backdrop-blur-sm rounded-full px-2.5 py-1">
                   <Star className="w-3 h-3 text-yellow-400 fill-yellow-400" />
                   <span className="text-white text-xs font-semibold">{item.rating}</span>
@@ -106,6 +102,10 @@ export default function FeaturedSection() {
                 <p className="text-[var(--color-ink-muted)] text-xs mt-1 line-clamp-1">
                   {item.shortDesc || item.description?.slice(0, 60)}
                 </p>
+                <div className="flex items-center justify-between mt-auto pt-3 border-t border-[var(--color-border-light)]">
+                  <span className="text-sm font-bold text-[var(--color-primary)]">{item.price}</span>
+                  <span className="text-[10px] text-[var(--color-ink-muted)]">{item.priceNote}</span>
+                </div>
               </div>
             </Link>
           ))}

@@ -72,12 +72,6 @@ export default function MustDoSection() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
 
-                {/* Price */}
-                <div className="absolute bottom-3 right-3 bg-white rounded-lg px-3 py-1.5 shadow-md">
-                  <span className="text-[10px] text-[var(--color-ink-muted)] block leading-none">{item.priceNote}</span>
-                  <span className="text-lg font-bold text-[var(--color-ink)] leading-none">{item.price}</span>
-                </div>
-
                 {/* Rating */}
                 <div className="absolute bottom-3 left-3 flex items-center gap-1 bg-black/40 backdrop-blur-sm rounded-full px-2.5 py-1">
                   <Star className="w-3 h-3 text-yellow-400 fill-yellow-400" />
@@ -96,6 +90,10 @@ export default function MustDoSection() {
                 <div className="flex items-center gap-2 mt-2.5 text-[10px] text-[var(--color-ink-muted)]">
                   <Clock className="w-3 h-3" />
                   <span>{item.duration}</span>
+                </div>
+                <div className="flex items-center justify-between mt-auto pt-3 border-t border-[var(--color-border-light)]">
+                  <span className="text-sm font-bold text-[var(--color-primary)]">{item.price}</span>
+                  <span className="text-[10px] text-[var(--color-ink-muted)]">{item.priceNote}</span>
                 </div>
                 <Link
                   to={`/business/${item.slug}`}

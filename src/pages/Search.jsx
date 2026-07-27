@@ -244,7 +244,7 @@ export default function Search({ defaultPillar = '' }) {
                         <span className="text-gray-400">({item.reviews})</span>
                       </div>
                       {item.price && (
-                        <span className="text-teal-600 font-semibold">{item.price}</span>
+                        <span className="text-[var(--color-primary)] font-semibold">{item.price}</span>
                       )}
                     </div>
                     {item.duration && (
@@ -313,7 +313,7 @@ export default function Search({ defaultPillar = '' }) {
                         <span className="text-gray-400">({item.reviews})</span>
                       </div>
                       {item.price && (
-                        <span className="text-teal-600 font-semibold">{item.price}</span>
+                        <span className="text-[var(--color-primary)] font-semibold">{item.price}</span>
                       )}
                     </div>
                     {item.duration && (
