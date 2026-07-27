@@ -268,7 +268,7 @@ export default function Hero() {
                 {/* Explore button */}
                 <button
                   type="submit"
-                  className="flex items-center justify-center gap-2 px-4 py-2.5 rounded-full bg-[var(--color-primary)] hover:bg-[var(--color-primary-light)] active:scale-[0.97] text-white text-sm font-semibold transition-all duration-200 shrink-0 cursor-pointer"
+                  className="flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold text-[var(--color-primary-light)] bg-[var(--color-primary)]/10 hover:bg-[var(--color-primary)]/20 active:bg-[var(--color-primary)]/30 transition-all duration-150 shrink-0 cursor-pointer"
                 >
                   <Compass className="w-4 h-4" strokeWidth={2} />
                   <span>Explore</span>
