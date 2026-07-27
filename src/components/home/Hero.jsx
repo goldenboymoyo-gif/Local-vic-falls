@@ -189,7 +189,7 @@ export default function Hero() {
             <div ref={searchRef} className="flex justify-center">
               <form
                 onSubmit={handleSearch}
-                className="search-pill bg-black/35 backdrop-blur-xl rounded-full p-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-2 w-full sm:w-auto sm:max-w-[560px]"
+                className="search-pill bg-black/35 backdrop-blur-xl rounded-full p-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-2 w-full sm:w-auto sm:max-w-[660px]"
               >
                 {/* Experience dropdown */}
                 <div ref={dropdownRef} className="relative flex-1 sm:flex-none">
@@ -268,7 +268,7 @@ export default function Hero() {
                 {/* Explore button */}
                 <button
                   type="submit"
-                  className="btn btn-primary btn-sm !px-4 !py-2.5 !rounded-xl shrink-0 cursor-pointer"
+                  className="btn btn-primary !px-4 !py-2.5 !rounded-xl !text-sm !leading-normal shrink-0 cursor-pointer"
                 >
                   <Compass className="w-4 h-4 relative z-[2]" strokeWidth={2} />
                   <span className="relative z-[2]">Explore</span>
