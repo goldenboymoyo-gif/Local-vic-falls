@@ -86,7 +86,7 @@ export default function BookingPage() {
         </div>
         <h2 className="text-xl font-semibold mb-2">Listing not found</h2>
         <p className="text-gray-500 text-sm mb-4">This experience doesn't exist or has been removed.</p>
-        <Link to="/search" className="text-teal-600 text-sm font-medium">Browse all experiences &rarr-medium">Browse all experiences &rarr;</Link>
+        <Link to="/search" className="text-teal-600 text-sm font-medium">Browse all experiences &rarr;</Link>
       </div>
     )
   }
