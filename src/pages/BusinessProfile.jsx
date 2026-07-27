@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { useParams, Link } from 'react-router-dom'
 import { Star, MapPin, Phone, Clock, Shield, Heart, Share2, ChevronLeft, Calendar, CheckCircle } from 'lucide-react'
 import { adventures, eatDrink, cultureListings, stayListings } from '../data/listings'
+import SafeImage from '../components/ui/SafeImage'
 
 const allListings = [...adventures, ...eatDrink, ...cultureListings, ...stayListings]
 
@@ -44,7 +45,7 @@ export default function BusinessProfile() {
       {/* Cover Image */}
       <div className="relative">
         <div className="h-48 lg:h-72 bg-gradient-to-br from-gray-100 to-gray-200 overflow-hidden">
-          <img src={listing.image} alt="" className="w-full h-full object-cover" />
+          <SafeImage src={listing.image} alt="" className="w-full h-full object-cover" />
         </div>
       </div>
 
@@ -52,7 +53,7 @@ export default function BusinessProfile() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row items-start gap-5 pt-6">
           <div className="w-24 h-24 lg:w-32 lg:h-32 rounded-2xl border-4 border-white bg-white shadow-lg overflow-hidden shrink-0 mx-auto sm:mx-0">
-            <img src={listing.image} alt={listing.name} className="w-full h-full object-cover" />
+            <SafeImage src={listing.image} alt={listing.name} className="w-full h-full object-cover" />
           </div>
           <div className="flex-1 min-w-0 pt-2">
             <div className="flex items-start gap-2">
@@ -245,15 +246,28 @@ export default function BusinessProfile() {
                 </a>
               )}
 
-              <div className="bg-gray-50 rounded-2xl overflow-hidden h-48">
-                <iframe
-                  title="Location map"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  loading="lazy"
-                  src="https://www.openstreetmap.org/export/embed.html?bbox=-22.13%2C25.83%2C-22.09%2C25.87&layer=mapnik&marker=-22.1167%2C25.85"
-                />
+              <div className="bg-gray-50 rounded-2xl overflow-hidden">
+                <div className="h-56 lg:h-64">
+                  <iframe
+                    title="Location map"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    loading="lazy"
+                    src="https://www.openstreetmap.org/export/embed.html?bbox=-22.13%2C25.83%2C-22.09%2C25.87&layer=mapnik&marker=-22.1167%2C25.85"
+                  />
+                </div>
+                {listing.address && (
+                  <a
+                    href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(listing.address + ', Victoria Falls, Zimbabwe')}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 px-4 py-3 text-sm text-[var(--color-primary)] font-medium hover:bg-gray-100 transition-colors"
+                  >
+                    <MapPin className="w-4 h-4" />
+                    Open in Maps
+                  </a>
+                )}
               </div>
             </div>
           </div>

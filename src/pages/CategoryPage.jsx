@@ -4,6 +4,7 @@ import { useParams, Link } from 'react-router-dom'
 import { ArrowRight, Search, Star, CheckCircle, ChevronLeft, Clock, MessageCircle } from 'lucide-react'
 import { gsap } from 'gsap'
 import { adventures, eatDrink, cultureListings, stayListings, pillarCategories } from '../data/listings'
+import SafeImage from '../components/ui/SafeImage'
 
 const pillarIcons = {
   adventure: adventures,
@@ -129,7 +130,7 @@ export default function CategoryPage() {
                       className="group block bg-white rounded-2xl overflow-hidden border border-gray-100 hover:shadow-lg transition-all"
                     >
                       <div className="aspect-[16/10] overflow-hidden relative">
-                        <img src={item.image} alt={item.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                        <SafeImage src={item.image} alt={item.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                         {item.badges && item.badges[0] && (
                           <span className="absolute top-3 left-3 bg-teal-600 text-white text-[10px] font-semibold px-2 py-0.5 rounded-full flex items-center gap-1">
                             <CheckCircle className="w-3 h-3" /> {item.badges[0]}

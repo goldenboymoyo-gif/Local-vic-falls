@@ -5,6 +5,7 @@ import PremiumNav from './components/layout/PremiumNav'
 import Footer from './components/layout/Footer'
 import LoadingScreen from './components/ui/LoadingScreen'
 import TripChatbot from './components/home/TripChatbot'
+import CookieConsent from './components/ui/CookieConsent'
 
 const Home = lazy(() => import('./pages/Home'))
 const Search = lazy(() => import('./pages/Search'))
@@ -80,6 +81,7 @@ function AppContent() {
       </AnimatePresence>
       {!isAuthPage && !isDashboard && <Footer />}
       {!isAuthPage && !isDashboard && <TripChatbot />}
+      {!isAuthPage && !isDashboard && <CookieConsent />}
     </div>
   )
 }
